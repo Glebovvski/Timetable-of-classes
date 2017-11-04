@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
@@ -8,10 +9,12 @@ namespace Schedule_CodeFirstModel.Models
     public class Schedule
     {
         public int Id { get; set; }
-        public DateTime Day { get; set; }
+        
+        public Group Group { get; set; }
+        [MaxLength(3)]
+        public string Day { get; set; }
         public int ClassNumber { get; set; }
-        public Subject SubjectId { get; set; }
-        public Teacher TeacherId { get; set; }
+        public Teacher Teacher { get; set; }
         public Room Room { get; set; }
     }
 }

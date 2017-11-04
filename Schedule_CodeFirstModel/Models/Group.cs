@@ -13,9 +13,8 @@ namespace Schedule_CodeFirstModel.Models
         [Required]
         [MaxLength(10)]
         public string GroupName { get; set; }
-        public Course CourseId { get; set; }
+        public Course Course { get; set; }
         public int Students { get; set; }
-        public Speciality SpecialityId { get; set; }
-        public Schedule ScheduleId { get; set; }
+        public Speciality Speciality { get; set; }
     }
 }

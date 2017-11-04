@@ -11,9 +11,9 @@ namespace Schedule_CodeFirstModel.Models
         [Required]
         public int Id { get; set; }
         [Required]
-        public Speciality SpecialityId { get; set; }
+        public Speciality Speciality { get; set; }
         [Required]
-        public Semestre SemestreId { get; set; }
-        public Subject SubjectId { get; set; }
+        public Semestre Semestre { get; set; }
+        public Subject Subject { get; set; }
     }
 }

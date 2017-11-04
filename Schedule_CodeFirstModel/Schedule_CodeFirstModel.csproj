@@ -199,6 +199,22 @@
     <Compile Include="Migrations\201711041621117_ScheduleDb.InitialMigration.Designer.cs">
       <DependentUpon>201711041621117_ScheduleDb.InitialMigration.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201711041740588_ScheduleDb.DayOfWeek.cs" />
+    <Compile Include="Migrations\201711041740588_ScheduleDb.DayOfWeek.Designer.cs">
+      <DependentUpon>201711041740588_ScheduleDb.DayOfWeek.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711041742326_ScheduleDb.DayOfWeekLastChange.cs" />
+    <Compile Include="Migrations\201711041742326_ScheduleDb.DayOfWeekLastChange.Designer.cs">
+      <DependentUpon>201711041742326_ScheduleDb.DayOfWeekLastChange.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711041749100_ScheduleDb.ScheduleForEachGroup.cs" />
+    <Compile Include="Migrations\201711041749100_ScheduleDb.ScheduleForEachGroup.Designer.cs">
+      <DependentUpon>201711041749100_ScheduleDb.ScheduleForEachGroup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711041752367_ScheduleDb.MakingColumnNamesMoreReadable.cs" />
+    <Compile Include="Migrations\201711041752367_ScheduleDb.MakingColumnNamesMoreReadable.Designer.cs">
+      <DependentUpon>201711041752367_ScheduleDb.MakingColumnNamesMoreReadable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AcademicPlan.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -296,6 +312,18 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201711041621117_ScheduleDb.InitialMigration.resx">
       <DependentUpon>201711041621117_ScheduleDb.InitialMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711041740588_ScheduleDb.DayOfWeek.resx">
+      <DependentUpon>201711041740588_ScheduleDb.DayOfWeek.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711041742326_ScheduleDb.DayOfWeekLastChange.resx">
+      <DependentUpon>201711041742326_ScheduleDb.DayOfWeekLastChange.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711041749100_ScheduleDb.ScheduleForEachGroup.resx">
+      <DependentUpon>201711041749100_ScheduleDb.ScheduleForEachGroup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711041752367_ScheduleDb.MakingColumnNamesMoreReadable.resx">
+      <DependentUpon>201711041752367_ScheduleDb.MakingColumnNamesMoreReadable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
