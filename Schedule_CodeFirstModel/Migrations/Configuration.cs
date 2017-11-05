@@ -9,7 +9,8 @@ namespace Schedule_CodeFirstModel.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = false;
+            AutomaticMigrationsEnabled = true;
+            AutomaticMigrationDataLossAllowed = true;
         }
 
         protected override void Seed(Schedule_CodeFirstModel.Models.ScheduleContext context)

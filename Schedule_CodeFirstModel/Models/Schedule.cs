@@ -16,5 +16,6 @@ namespace Schedule_CodeFirstModel.Models
         public int ClassNumber { get; set; }
         public Teacher Teacher { get; set; }
         public Room Room { get; set; }
+        public Subject Subject { get; set; }
     }
 }

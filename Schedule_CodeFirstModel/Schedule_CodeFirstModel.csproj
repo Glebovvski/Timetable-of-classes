@@ -215,6 +215,10 @@
     <Compile Include="Migrations\201711041752367_ScheduleDb.MakingColumnNamesMoreReadable.Designer.cs">
       <DependentUpon>201711041752367_ScheduleDb.MakingColumnNamesMoreReadable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201711051547321_TryingFixIT.cs" />
+    <Compile Include="Migrations\201711051547321_TryingFixIT.Designer.cs">
+      <DependentUpon>201711051547321_TryingFixIT.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AcademicPlan.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -266,9 +270,6 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
     <Content Include="Views\Account\ConfirmEmail.cshtml" />
     <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
@@ -289,6 +290,7 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -324,6 +326,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201711041752367_ScheduleDb.MakingColumnNamesMoreReadable.resx">
       <DependentUpon>201711041752367_ScheduleDb.MakingColumnNamesMoreReadable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711051547321_TryingFixIT.resx">
+      <DependentUpon>201711051547321_TryingFixIT.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
