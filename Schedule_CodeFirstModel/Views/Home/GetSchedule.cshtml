@@ -1,0 +1,62 @@
+﻿@model List<Schedule_CodeFirstModel.Models.ScheduleVM>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.Label("Day")
+            @*Html.DisplayNameFor(model => model.Day)*@
+        </th>
+        <th>
+            @Html.Label("№")
+            @*Html.DisplayNameFor(model => model.ClassNumber)*@
+        </th>
+        <th>
+            @Html.Label("Subject")
+           @*Html.DisplayNameFor(model => model.Subject.SubjectName)*@
+        </th>
+        <th>
+            @Html.Label("Teacher")
+            @*Html.DisplayNameFor(model => model.Teacher.Name)*@
+        </th>
+        <th>
+            @Html.Label("Room")
+            @*@Html.DisplayNameFor(model => model.Room.Number)*@
+        </th>
+        <th>
+            @Html.Label("Seats")
+            @*Html.DisplayNameFor(model => model.Room.PlacesAmount)*@
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+        @Html.DisplayFor(modelItem => item.Day)
+    </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ClassNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Room)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PlacesAmount)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SubjectName)
+        </td>
+        @*<td>
+        @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+        @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+        @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+    </td>*@
+    </tr>
+}
+
+</table>

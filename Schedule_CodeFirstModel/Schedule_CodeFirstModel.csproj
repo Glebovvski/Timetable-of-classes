@@ -229,6 +229,7 @@
     <Compile Include="Models\Room.cs" />
     <Compile Include="Models\Schedule.cs" />
     <Compile Include="Models\ScheduleContext.cs" />
+    <Compile Include="Models\ScheduleVM.cs" />
     <Compile Include="Models\Semestre.cs" />
     <Compile Include="Models\Speciality.cs" />
     <Compile Include="Models\Subject.cs" />
@@ -291,6 +292,7 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\GetSchedule.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

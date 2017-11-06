@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Web;
 
@@ -8,7 +9,7 @@ namespace Schedule_CodeFirstModel.Models
 {
     public class ScheduleContext : DbContext
     {
-        public ScheduleContext():base("ScheduleContext")
+        public ScheduleContext() : base("ScheduleContext")
         {
         }
         public DbSet<AcademicPlan> AcademicPlans { get; set; }

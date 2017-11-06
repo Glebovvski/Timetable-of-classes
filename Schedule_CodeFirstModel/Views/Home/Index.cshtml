@@ -17,7 +17,7 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.GroupName)
+            @Html.ActionLink(item.GroupName, "GetSchedule", new { id=item.Id })
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Students)
