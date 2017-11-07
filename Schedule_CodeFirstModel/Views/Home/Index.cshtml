@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Schedule_CodeFirstModel.Models.Group>
+﻿@model List<Schedule_CodeFirstModel.Models.GroupVM>
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -6,12 +6,18 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.GroupName)
+            @Html.Label("GroupName")
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Students)
+            @Html.Label("Students")
         </th>
-        <th></th>
+        <th>
+            @Html.Label("Course")
+        </th>
+        <th>
+            @Html.Label("Speciality")
+        </th>
+        
     </tr>
 
 @foreach (var item in Model) {
@@ -21,6 +27,12 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Students)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Course)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Speciality)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
