@@ -1,0 +1,66 @@
+﻿@using Kendo.Mvc
+@model List<Schedule_CodeFirstModel.Models.ScheduleVM>
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+<table class="table">
+    <tr>
+        <th>
+            №
+        </th>
+        <th>
+            @Html.Label("Mon")
+        </th>
+        <th>
+            @Html.Label("Tue")
+        </th>
+        <th>
+            @Html.Label("Wed")
+        </th>
+        <th>
+            @Html.Label("Thu")
+        </th>
+        <th>
+            @Html.Label("Fri")
+        </th>
+        <th>
+            @Html.Label("Sat")
+        </th>
+    </tr>
+</table>
+
+
+@Html.Kendo().Grid<ScheduleVM>()
+
+
+
+    @*foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ClassNumber)
+            </td>
+            <td>
+                <span class="table-bordered">
+                    @Html.DisplayFor(modelItem => item.SubjectName)
+                </span>
+                <p>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </p>
+                <p>
+                    Room @Html.DisplayFor(modelItem => item.Room)
+                </p>
+                <p>
+                    @Html.DisplayFor(modelItem => item.PlacesAmount) seats
+                </p>
+            </td>
+        </tr>
+    }*@
+                    @*<td>
+                        @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+                        @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+                        @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+                    </td>*@
+
+

@@ -1,4 +1,6 @@
-﻿using Schedule_CodeFirstModel.Models;
+﻿using MvcSchedule.Objects;
+using Schedule_CodeFirstModel.Models;
+using Schedule_CodeFirstModel.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -42,8 +44,31 @@ namespace Schedule_CodeFirstModel.Controllers
 
         public ActionResult GetSchedule(int id)
         {
-            var sql = @"GetSchedule {0}";
-            var schedule = context.Database.SqlQuery<ScheduleVM>(sql, id).ToList();
+            //var sql = @"GetSchedule {0}";
+            //var schedule = context.Database.SqlQuery<ScheduleVM>(sql, id).ToList();
+
+            var schedules = context.Schedules.Where(x => x.Group.Id == id).ToList();
+            var rooms = context.Rooms.ToList();
+            var teachers = context.Teachers.ToList();
+            var subjects = context.Subjects.ToList();
+            var classes = context.Classes.ToList();
+            
+            var schedule = schedules.Join(
+                subjects,
+                ss => ss.Subject.Id,
+                s => s.Id,
+                (ss, s) => new ScheduleVM()
+                {
+                    Day = ss.Day,
+                    ClassNumber = ss.Class.Id,
+                    StartTime = ss.Class.StartTime.ToShortTimeString(),
+                    EndTime = ss.Class.EndTime.ToShortTimeString(),
+                    Room = ss.Room.Number,
+                    PlacesAmount = ss.Room.PlacesAmount,
+                    Name = ss.Teacher.Name,
+                    SubjectName = ss.Subject.SubjectName
+                }
+                ).ToList();
 
             return View(schedule);
         }

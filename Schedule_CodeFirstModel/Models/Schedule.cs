@@ -11,9 +11,8 @@ namespace Schedule_CodeFirstModel.Models
         public int Id { get; set; }
         
         public Group Group { get; set; }
-        [MaxLength(3)]
         public string Day { get; set; }
-        public int ClassNumber { get; set; }
+        public Class Class { get; set; }
         public Teacher Teacher { get; set; }
         public Room Room { get; set; }
         public Subject Subject { get; set; }

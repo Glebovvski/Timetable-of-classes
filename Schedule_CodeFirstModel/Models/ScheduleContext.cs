@@ -21,5 +21,6 @@ namespace Schedule_CodeFirstModel.Models
         public DbSet<Speciality> Specialities { get; set; }
         public DbSet<Subject> Subjects { get; set; }
         public DbSet<Teacher> Teachers { get; set; }
+        public DbSet<Class> Classes { get; set; }
     }
 }

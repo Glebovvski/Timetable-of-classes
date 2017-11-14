@@ -1,44 +1,44 @@
 ﻿@model List<Schedule_CodeFirstModel.Models.ScheduleVM>
-
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
+
 <table class="table">
-    <tr>
-        <th>
-            №
-        </th>
-        <th>
-            
-            @Html.Label("Mon")
-        </th>
-    </tr>
-    @foreach (var item in Model)
-    {
+            @foreach (var item in Model)
+            {
+                    
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Day)
+                    </td>
+                   
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ClassNumber)
+                        <p>
+                            @Html.DisplayFor(modelItem => item.StartTime) - @Html.DisplayFor(modelItem => item.EndTime)
+                        </p>
+                    </td>
+                    <td>
+                        <span class="table-bordered">
+                            @Html.DisplayFor(modelItem => item.SubjectName)
+                        </span>
+                        <p>
+                            @Html.DisplayFor(modelItem => item.Name)
+                        </p>
+                        <p>
+                            Room @Html.DisplayFor(modelItem => item.Room)
+                        </p>
+                        <p>
+                            @Html.DisplayFor(modelItem => item.PlacesAmount) seats
+                        </p>
+                    </td>
+                </tr>
+            }
+        </table>
+                           @*<td>
+                                @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+                                @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+                                @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+                            </td>*@
 
-        
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.ClassNumber)
-        </td>
-        
-        <td>
-            <span class="table-bordered">
-                @Html.DisplayFor(modelItem => item.SubjectName)
-            </span>
-            <p></p>
-            @Html.DisplayFor(modelItem => item.Name)
-            <p></p>
-            Room @Html.DisplayFor(modelItem => item.Room) 
-            <p></p>
-            @Html.DisplayFor(modelItem => item.PlacesAmount) seats
-        </td>
-        @*<td>
-        @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-        @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-        @Html.ActionLink("Delete", "Delete", new { id=item.Id })
-    </td>*@
-    </tr>
-}
 
-</table>
