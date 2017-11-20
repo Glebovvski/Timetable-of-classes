@@ -2,23 +2,25 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-
-<table class="table">
-            @foreach (var item in Model)
+<div class="row">
+    <table class="table-bordered col-md-3">
+        <td>
+        <th class="text-center">
+            Mon
+        </th>
+        </td>
+        @foreach (var item in Model)
             {
-                    
+                if (item.Day == "Mon")
+                {
                 <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Day)
-                    </td>
-                   
-                    <td>
-                        @Html.DisplayFor(modelItem => item.ClassNumber)
+                    <td class="text-center">
+                        @Html.DisplayFor(modelItem => item.Number)
                         <p>
                             @Html.DisplayFor(modelItem => item.StartTime) - @Html.DisplayFor(modelItem => item.EndTime)
                         </p>
                     </td>
-                    <td>
+                    <td class="text-center">
                         <span class="table-bordered">
                             @Html.DisplayFor(modelItem => item.SubjectName)
                         </span>
@@ -34,11 +36,43 @@
                     </td>
                 </tr>
             }
-        </table>
-                           @*<td>
-                                @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-                                @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-                                @Html.ActionLink("Delete", "Delete", new { id=item.Id })
-                            </td>*@
+        }
+    </table>
+    <table class="table-bordered col-md-2">
+        
+        <th class="text-center">
+            Tue
+        </th>
+        
+        @foreach (var item in Model)
+            {
+                if (item.Day == "Tue")
+                {
+                <tr>
+
+                    <td class="text-center">
+                        <span class="table-bordered">
+                            @Html.DisplayFor(modelItem => item.SubjectName)
+                        </span>
+                        <p>
+                            @Html.DisplayFor(modelItem => item.Name)
+                        </p>
+                        <p>
+                            Room @Html.DisplayFor(modelItem => item.Room)
+                        </p>
+                        <p>
+                            @Html.DisplayFor(modelItem => item.PlacesAmount) seats
+                        </p>
+                    </td>
+                </tr>
+            }
+        }
+    </table>
+</div>
+    @*<td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>*@
 
 

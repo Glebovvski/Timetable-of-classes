@@ -569,20 +569,21 @@
     <Compile Include="Models\Class.cs" />
     <Compile Include="Models\Course.cs" />
     <Compile Include="Models\Group.cs" />
-    <Compile Include="Models\GroupVM.cs" />
+    <Compile Include="ViewModels\GroupVM.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Room.cs" />
     <Compile Include="Models\Schedule.cs" />
     <Compile Include="Models\ScheduleContext.cs" />
-    <Compile Include="Models\ScheduleVM.cs" />
+    <Compile Include="ViewModels\ScheduleVM.cs" />
     <Compile Include="Models\Semestre.cs" />
     <Compile Include="Models\Speciality.cs" />
     <Compile Include="Models\Subject.cs" />
     <Compile Include="Models\Teacher.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
-    <Compile Include="ViewModels\ScheduleViewModel.cs" />
+    <Compile Include="ViewModels\SpecialitiesVM.cs" />
+    <Compile Include="ViewModels\TeacherVM.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
@@ -1844,6 +1845,8 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\GetSchedule.cshtml" />
+    <Content Include="Views\Home\Teachers.cshtml" />
+    <Content Include="Views\Home\Specialities.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
