@@ -6,6 +6,7 @@ namespace Schedule_CodeFirstModel.Models
     {
         [Required]
         public int Id { get; set; }
+        
         public int Number { get; set; }
     }
 }

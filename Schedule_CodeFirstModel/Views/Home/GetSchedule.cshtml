@@ -1,78 +1,47 @@
-﻿@model List<Schedule_CodeFirstModel.Models.ScheduleVM>
+﻿@model IEnumerable<Schedule_CodeFirstModel.Models.Schedule>
+
+@{
+    ViewBag.Title = "GetSchedule";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>GetSchedule</h2>
+
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<div class="row">
-    <table class="table-bordered col-md-3">
-        <td>
-        <th class="text-center">
-            Mon
+<table class="table">
+    <tr>
+        <th>
+            Num
         </th>
-        </td>
-        @foreach (var item in Model)
-            {
-                if (item.Day == "Mon")
-                {
-                <tr>
-                    <td class="text-center">
-                        @Html.DisplayFor(modelItem => item.Number)
-                        <p>
-                            @Html.DisplayFor(modelItem => item.StartTime) - @Html.DisplayFor(modelItem => item.EndTime)
-                        </p>
-                    </td>
-                    <td class="text-center">
-                        <span class="table-bordered">
-                            @Html.DisplayFor(modelItem => item.SubjectName)
-                        </span>
-                        <p>
-                            @Html.DisplayFor(modelItem => item.Name)
-                        </p>
-                        <p>
-                            Room @Html.DisplayFor(modelItem => item.Room)
-                        </p>
-                        <p>
-                            @Html.DisplayFor(modelItem => item.PlacesAmount) seats
-                        </p>
-                    </td>
-                </tr>
-            }
-        }
-    </table>
-    <table class="table-bordered col-md-2">
-        
-        <th class="text-center">
-            Tue
+        @foreach (var item in Model.Take(3))
+        {
+        <th>
+            @Html.DisplayFor(model => item.Class.Number)<br />
+            @Html.DisplayFor(model => item.Class.StartTime) - @Html.DisplayFor(model => item.Class.EndTime)
         </th>
-        
-        @foreach (var item in Model)
-            {
-                if (item.Day == "Tue")
-                {
-                <tr>
-
-                    <td class="text-center">
-                        <span class="table-bordered">
-                            @Html.DisplayFor(modelItem => item.SubjectName)
-                        </span>
-                        <p>
-                            @Html.DisplayFor(modelItem => item.Name)
-                        </p>
-                        <p>
-                            Room @Html.DisplayFor(modelItem => item.Room)
-                        </p>
-                        <p>
-                            @Html.DisplayFor(modelItem => item.PlacesAmount) seats
-                        </p>
-                    </td>
-                </tr>
-            }
         }
-    </table>
-</div>
-    @*<td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
-        </td>*@
+        <th></th>
+    </tr>
+    <tr>
+
+        @foreach (var item in Model)
+        {
 
 
+            <td>
+                @Html.DisplayFor(modelItem => item.Subject.SubjectName)
+                @Html.DisplayFor(modelItem => item.Teacher.Name)
+                @Html.DisplayFor(modelItem => item.Room.Number)
+                @Html.DisplayFor(modelItem => item.Room.PlacesAmount)
+            </td>
+            @*<td>
+        @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+        @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+        @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+    </td>*@
+
+        }
+    </tr>
+</table>

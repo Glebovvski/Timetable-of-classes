@@ -1,4 +1,4 @@
-﻿@model List<Schedule_CodeFirstModel.Models.GroupVM>
+﻿@model List<Schedule_CodeFirstModel.Models.Group>
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -29,10 +29,10 @@
             @Html.DisplayFor(modelItem => item.Students)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Course)
+            @Html.DisplayFor(modelItem => item.Course.Number)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Speciality)
+            @Html.DisplayFor(modelItem => item.Speciality.Name)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
