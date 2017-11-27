@@ -30,7 +30,13 @@ namespace Schedule_CodeFirstModel.Controllers
             //var sql = @"GetSchedule {0}";
             //var schedule = context.Database.SqlQuery<ScheduleVM>(sql, id).ToList();
 
-            var schedule = context.Schedules.Where(x => x.Group.Id == id).Include(s => s.Subject).Include(n => n.Class).Include(d => d.Teacher).Include(r => r.Room).ToList();
+            var days = new List<string>() { "Mon", "Tue", "Wed", "Thu", "Fri", "Sat" };
+            //var pairs = new List<string>() { "1, 2, 3, 4, 5 };
+            var times = new List<string>() { "8:30-10:05", "10:25-12:00", "12:20-13:55", "14:15-15:50", "16:10-17:45" };
+            ViewBag.Days = days;
+            //ViewBag.Pairs = pairs;
+            ViewBag.Times = times;
+            var schedule = context.Schedules.Where(x => x.Group.Id == id).Include(s => s.Subject).Include(d => d.Teacher).Include(r => r.Room).ToList();
 
             return View(schedule);
         }

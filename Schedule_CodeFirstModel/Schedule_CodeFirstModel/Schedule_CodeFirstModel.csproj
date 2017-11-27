@@ -1,0 +1,1965 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.7\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.7\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.2.1.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.2.1.0\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{9638B405-4FEA-4B8F-848B-235414A6DA07}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Schedule_CodeFirstModel</RootNamespace>
+    <AssemblyName>Schedule_CodeFirstModel</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <TypeScriptToolsVersion>2.3</TypeScriptToolsVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Common.Logging, Version=3.3.1.0, Culture=neutral, PublicKeyToken=af08829b84f0328e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Common.Logging.3.3.1\lib\net40\Common.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Common.Logging.Core, Version=3.3.1.0, Culture=neutral, PublicKeyToken=af08829b84f0328e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Common.Logging.Core.3.3.1\lib\net40\Common.Logging.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DHTMLX, Version=3.4.6379.28343, Culture=neutral, PublicKeyToken=53f24791214eb8ac, processorArchitecture=MSIL">
+      <HintPath>..\packages\DHTMLX.Scheduler.NET.3.4.1.0\lib\DHTMLX.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Apis, Version=1.30.0.0, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Apis.1.30.0\lib\net45\Google.Apis.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Apis.Auth, Version=1.30.0.0, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Apis.Auth.1.30.0\lib\net45\Google.Apis.Auth.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Apis.Auth.PlatformServices, Version=1.30.0.0, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Apis.Auth.1.30.0\lib\net45\Google.Apis.Auth.PlatformServices.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Apis.Calendar.v3, Version=1.30.0.1034, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Apis.Calendar.v3.1.30.0.1034\lib\net45\Google.Apis.Calendar.v3.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Apis.Core, Version=1.30.0.0, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Apis.Core.1.30.0\lib\net45\Google.Apis.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Apis.PlatformServices, Version=1.30.0.0, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Apis.1.30.0\lib\net45\Google.Apis.PlatformServices.dll</HintPath>
+    </Reference>
+    <Reference Include="Kendo.Mvc, Version=2016.2.616.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Kendo.Mvc.2016.2.616\lib\net451\Kendo.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Antiforgery, Version=1.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.Antiforgery.1.0.0\lib\net451\Microsoft.AspNetCore.Antiforgery.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Authorization, Version=1.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.Authorization.1.0.0\lib\net451\Microsoft.AspNetCore.Authorization.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Cors, Version=1.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.Cors.1.0.0\lib\net451\Microsoft.AspNetCore.Cors.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Cryptography.Internal, Version=1.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.Cryptography.Internal.1.0.0\lib\net451\Microsoft.AspNetCore.Cryptography.Internal.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.DataProtection, Version=1.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.DataProtection.1.0.0\lib\net451\Microsoft.AspNetCore.DataProtection.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.DataProtection.Abstractions, Version=1.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.DataProtection.Abstractions.1.0.0\lib\net451\Microsoft.AspNetCore.DataProtection.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Diagnostics.Abstractions, Version=1.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.Diagnostics.Abstractions.1.0.0\lib\netstandard1.0\Microsoft.AspNetCore.Diagnostics.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Hosting.Abstractions, Version=1.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.Hosting.Abstractions.1.0.0\lib\net451\Microsoft.AspNetCore.Hosting.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Hosting.Server.Abstractions, Version=1.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.Hosting.Server.Abstractions.1.0.0\lib\net451\Microsoft.AspNetCore.Hosting.Server.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Html.Abstractions, Version=1.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.Html.Abstractions.1.0.0\lib\netstandard1.0\Microsoft.AspNetCore.Html.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Http, Version=1.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.Http.1.0.0\lib\net451\Microsoft.AspNetCore.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Http.Abstractions, Version=1.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.Http.Abstractions.1.0.0\lib\net451\Microsoft.AspNetCore.Http.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Http.Extensions, Version=1.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.Http.Extensions.1.0.0\lib\net451\Microsoft.AspNetCore.Http.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Http.Features, Version=1.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.Http.Features.1.0.0\lib\net451\Microsoft.AspNetCore.Http.Features.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.JsonPatch, Version=1.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.JsonPatch.1.0.0\lib\netstandard1.1\Microsoft.AspNetCore.JsonPatch.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Localization, Version=1.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.Localization.1.0.0\lib\net451\Microsoft.AspNetCore.Localization.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Mvc, Version=1.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.Mvc.1.0.0\lib\net451\Microsoft.AspNetCore.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Mvc.Abstractions, Version=1.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.Mvc.Abstractions.1.0.0\lib\net451\Microsoft.AspNetCore.Mvc.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Mvc.ApiExplorer, Version=1.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.Mvc.ApiExplorer.1.0.0\lib\net451\Microsoft.AspNetCore.Mvc.ApiExplorer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Mvc.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.Mvc.Core.1.0.0\lib\net451\Microsoft.AspNetCore.Mvc.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Mvc.Cors, Version=1.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.Mvc.Cors.1.0.0\lib\net451\Microsoft.AspNetCore.Mvc.Cors.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Mvc.DataAnnotations, Version=1.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.Mvc.DataAnnotations.1.0.0\lib\net451\Microsoft.AspNetCore.Mvc.DataAnnotations.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Mvc.Formatters.Json, Version=1.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.Mvc.Formatters.Json.1.0.0\lib\net451\Microsoft.AspNetCore.Mvc.Formatters.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Mvc.Formatters.Xml, Version=1.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.Mvc.Formatters.Xml.1.0.0\lib\net451\Microsoft.AspNetCore.Mvc.Formatters.Xml.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Mvc.Localization, Version=1.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.Mvc.Localization.1.0.0\lib\net451\Microsoft.AspNetCore.Mvc.Localization.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Mvc.Razor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.Mvc.Razor.1.0.0\lib\net451\Microsoft.AspNetCore.Mvc.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Mvc.Razor.Host, Version=1.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.Mvc.Razor.Host.1.0.0\lib\net451\Microsoft.AspNetCore.Mvc.Razor.Host.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Mvc.TagHelpers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.Mvc.TagHelpers.1.0.0\lib\net451\Microsoft.AspNetCore.Mvc.TagHelpers.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Mvc.ViewFeatures, Version=1.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.Mvc.ViewFeatures.1.0.0\lib\net451\Microsoft.AspNetCore.Mvc.ViewFeatures.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Razor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.Razor.1.0.0\lib\net451\Microsoft.AspNetCore.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Razor.Runtime, Version=1.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.Razor.Runtime.1.0.0\lib\net451\Microsoft.AspNetCore.Razor.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Routing, Version=1.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.Routing.1.0.0\lib\net451\Microsoft.AspNetCore.Routing.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Routing.Abstractions, Version=1.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.Routing.Abstractions.1.0.0\lib\net451\Microsoft.AspNetCore.Routing.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.WebUtilities, Version=1.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.WebUtilities.1.0.0\lib\net451\Microsoft.AspNetCore.WebUtilities.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeAnalysis, Version=1.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeAnalysis.Common.1.3.0\lib\net45\Microsoft.CodeAnalysis.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeAnalysis.CSharp, Version=1.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeAnalysis.CSharp.1.3.0\lib\net45\Microsoft.CodeAnalysis.CSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.7\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.DotNet.InternalAbstractions, Version=1.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.DotNet.InternalAbstractions.1.0.0\lib\net451\Microsoft.DotNet.InternalAbstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Caching.Abstractions, Version=1.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Caching.Abstractions.1.0.0\lib\netstandard1.0\Microsoft.Extensions.Caching.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Caching.Memory, Version=1.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Caching.Memory.1.0.0\lib\net451\Microsoft.Extensions.Caching.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Configuration.Abstractions, Version=1.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Configuration.Abstractions.1.0.0\lib\netstandard1.0\Microsoft.Extensions.Configuration.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.DependencyInjection, Version=1.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.DependencyInjection.1.0.0\lib\netstandard1.1\Microsoft.Extensions.DependencyInjection.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.DependencyInjection.Abstractions, Version=1.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.DependencyInjection.Abstractions.1.0.0\lib\netstandard1.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.DependencyModel, Version=1.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.DependencyModel.1.0.0\lib\net451\Microsoft.Extensions.DependencyModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.FileProviders.Abstractions, Version=1.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.FileProviders.Abstractions.1.0.0\lib\netstandard1.0\Microsoft.Extensions.FileProviders.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.FileProviders.Composite, Version=1.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.FileProviders.Composite.1.0.0\lib\netstandard1.0\Microsoft.Extensions.FileProviders.Composite.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.FileProviders.Physical, Version=1.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.FileProviders.Physical.1.0.0\lib\net451\Microsoft.Extensions.FileProviders.Physical.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.FileSystemGlobbing, Version=1.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.FileSystemGlobbing.1.0.0\lib\net451\Microsoft.Extensions.FileSystemGlobbing.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Globalization.CultureInfoCache, Version=1.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Globalization.CultureInfoCache.1.0.0\lib\netstandard1.1\Microsoft.Extensions.Globalization.CultureInfoCache.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Localization, Version=1.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Localization.1.0.0\lib\net451\Microsoft.Extensions.Localization.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Localization.Abstractions, Version=1.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Localization.Abstractions.1.0.0\lib\netstandard1.0\Microsoft.Extensions.Localization.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Logging.Abstractions, Version=1.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Logging.Abstractions.1.0.0\lib\netstandard1.1\Microsoft.Extensions.Logging.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.ObjectPool, Version=1.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.ObjectPool.1.0.0\lib\net451\Microsoft.Extensions.ObjectPool.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Options, Version=1.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Options.1.0.0\lib\netstandard1.0\Microsoft.Extensions.Options.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.PlatformAbstractions, Version=1.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.PlatformAbstractions.1.0.0\lib\net451\Microsoft.Extensions.PlatformAbstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Primitives, Version=1.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Primitives.1.0.0\lib\netstandard1.0\Microsoft.Extensions.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.WebEncoders, Version=1.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.WebEncoders.1.0.0\lib\netstandard1.0\Microsoft.Extensions.WebEncoders.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Net.Http.Headers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Net.Http.Headers.1.0.0\lib\netstandard1.1\Microsoft.Net.Http.Headers.dll</HintPath>
+    </Reference>
+    <Reference Include="MvcSchedule, Version=1.0.0.2, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MvcSchedule.1.0.0.2\lib\net40\MvcSchedule.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Compression.Base, Version=14.1450.0.46, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syncfusion.Web.FileFormatsBase45.14.1.0.46\lib\net45\Syncfusion.Compression.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.DocIO.Base, Version=14.1450.0.46, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syncfusion.Web.FileFormatsBase45.14.1.0.46\lib\net45\Syncfusion.DocIO.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.EJ, Version=14.1450.0.46, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syncfusion.Web.Base45.14.1.0.46\lib\net45\Syncfusion.EJ.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.EJ.Export, Version=14.1450.0.46, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syncfusion.Web.Base45.14.1.0.46\lib\net45\Syncfusion.EJ.Export.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Linq.Base, Version=14.1450.0.46, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syncfusion.Web.Base45.14.1.0.46\lib\net45\Syncfusion.Linq.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.OfficeChart.Base, Version=14.1450.0.46, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syncfusion.Web.FileFormatsBase45.14.1.0.46\lib\net45\Syncfusion.OfficeChart.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Pdf.Base, Version=14.1450.0.46, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syncfusion.Web.FileFormatsBase45.14.1.0.46\lib\net45\Syncfusion.Pdf.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.XlsIO.Base, Version=14.1450.0.46, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syncfusion.Web.FileFormatsBase45.14.1.0.46\lib\net45\Syncfusion.XlsIO.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.AppContext, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.AppContext.4.1.0\lib\net46\System.AppContext.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Buffers, Version=4.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.0.0\lib\netstandard1.1\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Collections.Immutable, Version=1.2.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Collections.Immutable.1.2.0\lib\portable-net45+win8+wp8+wpa81\System.Collections.Immutable.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.ComponentModel.Primitives, Version=4.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ComponentModel.Primitives.4.1.0\lib\net45\System.ComponentModel.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.TypeConverter, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ComponentModel.TypeConverter.4.1.0\lib\net45\System.ComponentModel.TypeConverter.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Console, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Console.4.0.0\lib\net46\System.Console.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.Common, Version=4.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.Common.4.1.0\lib\net451\System.Data.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Diagnostics.DiagnosticSource, Version=4.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Diagnostics.DiagnosticSource.4.0.0\lib\net46\System.Diagnostics.DiagnosticSource.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Diagnostics.FileVersionInfo, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Diagnostics.FileVersionInfo.4.0.0\lib\net46\System.Diagnostics.FileVersionInfo.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Diagnostics.StackTrace, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Diagnostics.StackTrace.4.0.1\lib\net46\System.Diagnostics.StackTrace.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.IO.FileSystem, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.FileSystem.4.0.1\lib\net46\System.IO.FileSystem.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.FileSystem.Primitives, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.FileSystem.Primitives.4.0.1\lib\net46\System.IO.FileSystem.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Net.Http.4.3.1\lib\net46\System.Net.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Reflection.Metadata, Version=1.3.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Reflection.Metadata.1.3.0\lib\portable-net45+win8\System.Reflection.Metadata.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Runtime.Serialization.Primitives, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.Serialization.Primitives.4.1.1\lib\net46\System.Runtime.Serialization.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security" />
+    <Reference Include="System.Security.Cryptography.Algorithms, Version=4.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Algorithms.4.3.0\lib\net461\System.Security.Cryptography.Algorithms.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Encoding, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Encoding.4.3.0\lib\net46\System.Security.Cryptography.Encoding.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Primitives, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Primitives.4.3.0\lib\net46\System.Security.Cryptography.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.X509Certificates, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.X509Certificates.4.3.0\lib\net461\System.Security.Cryptography.X509Certificates.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Encoding.CodePages, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Encoding.CodePages.4.0.1\lib\net46\System.Text.Encoding.CodePages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Encodings.Web, Version=4.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Encodings.Web.4.0.0\lib\netstandard1.0\System.Text.Encodings.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Thread, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Thread.4.0.0\lib\net46\System.Threading.Thread.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.XmlDocument, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Xml.XmlDocument.4.0.1\lib\net46\System.Xml.XmlDocument.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.XPath, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Xml.XPath.4.0.1\lib\net46\System.Xml.XPath.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.XPath.XDocument, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Xml.XPath.XDocument.4.0.1\lib\net46\System.Xml.XPath.XDocument.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.2.1\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.1\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin">
+      <HintPath>..\packages\Microsoft.Owin.3.0.1\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.3.0.1\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security">
+      <HintPath>..\packages\Microsoft.Owin.Security.3.0.1\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Facebook">
+      <HintPath>..\packages\Microsoft.Owin.Security.Facebook.3.0.1\lib\net45\Microsoft.Owin.Security.Facebook.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.3.0.1\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.3.0.1\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Google">
+      <HintPath>..\packages\Microsoft.Owin.Security.Google.3.0.1\lib\net45\Microsoft.Owin.Security.Google.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Twitter">
+      <HintPath>..\packages\Microsoft.Owin.Security.Twitter.3.0.1\lib\net45\Microsoft.Owin.Security.Twitter.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.MicrosoftAccount">
+      <HintPath>..\packages\Microsoft.Owin.Security.MicrosoftAccount.3.0.1\lib\net45\Microsoft.Owin.Security.MicrosoftAccount.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationInsights">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.2.2.0\lib\net45\Microsoft.ApplicationInsights.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.Agent.Intercept">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.2.0.6\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.DependencyCollector">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.DependencyCollector.2.2.0\lib\net45\Microsoft.AI.DependencyCollector.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.PerfCounterCollector">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.2.2.0\lib\net45\Microsoft.AI.PerfCounterCollector.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.ServerTelemetryChannel">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.2.0\lib\net45\Microsoft.AI.ServerTelemetryChannel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.WindowsServer">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.2.2.0\lib\net45\Microsoft.AI.WindowsServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.Web">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Web.2.2.0\lib\net45\Microsoft.AI.Web.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\IdentityConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711041621117_ScheduleDb.InitialMigration.cs" />
+    <Compile Include="Migrations\201711041621117_ScheduleDb.InitialMigration.Designer.cs">
+      <DependentUpon>201711041621117_ScheduleDb.InitialMigration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711041740588_ScheduleDb.DayOfWeek.cs" />
+    <Compile Include="Migrations\201711041740588_ScheduleDb.DayOfWeek.Designer.cs">
+      <DependentUpon>201711041740588_ScheduleDb.DayOfWeek.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711041742326_ScheduleDb.DayOfWeekLastChange.cs" />
+    <Compile Include="Migrations\201711041742326_ScheduleDb.DayOfWeekLastChange.Designer.cs">
+      <DependentUpon>201711041742326_ScheduleDb.DayOfWeekLastChange.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711041749100_ScheduleDb.ScheduleForEachGroup.cs" />
+    <Compile Include="Migrations\201711041749100_ScheduleDb.ScheduleForEachGroup.Designer.cs">
+      <DependentUpon>201711041749100_ScheduleDb.ScheduleForEachGroup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711041752367_ScheduleDb.MakingColumnNamesMoreReadable.cs" />
+    <Compile Include="Migrations\201711041752367_ScheduleDb.MakingColumnNamesMoreReadable.Designer.cs">
+      <DependentUpon>201711041752367_ScheduleDb.MakingColumnNamesMoreReadable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711051547321_TryingFixIT.cs" />
+    <Compile Include="Migrations\201711051547321_TryingFixIT.Designer.cs">
+      <DependentUpon>201711051547321_TryingFixIT.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711081531136_ScheduleDB.ListOfDays.cs" />
+    <Compile Include="Migrations\201711081531136_ScheduleDB.ListOfDays.Designer.cs">
+      <DependentUpon>201711081531136_ScheduleDB.ListOfDays.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711081608476_DateTimeDay.cs" />
+    <Compile Include="Migrations\201711081608476_DateTimeDay.Designer.cs">
+      <DependentUpon>201711081608476_DateTimeDay.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711081612597_DayAsList.cs" />
+    <Compile Include="Migrations\201711081612597_DayAsList.Designer.cs">
+      <DependentUpon>201711081612597_DayAsList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711081614362_Days.cs" />
+    <Compile Include="Migrations\201711081614362_Days.Designer.cs">
+      <DependentUpon>201711081614362_Days.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711081703580_TableDay.cs" />
+    <Compile Include="Migrations\201711081703580_TableDay.Designer.cs">
+      <DependentUpon>201711081703580_TableDay.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711101649013_DaysAreBackToMAinTable.cs" />
+    <Compile Include="Migrations\201711101649013_DaysAreBackToMAinTable.Designer.cs">
+      <DependentUpon>201711101649013_DaysAreBackToMAinTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711141447479_ClassTable.cs" />
+    <Compile Include="Migrations\201711141447479_ClassTable.Designer.cs">
+      <DependentUpon>201711141447479_ClassTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711141629175_TimeyShwimey.cs" />
+    <Compile Include="Migrations\201711141629175_TimeyShwimey.Designer.cs">
+      <DependentUpon>201711141629175_TimeyShwimey.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711141648260_FinalClasses.cs" />
+    <Compile Include="Migrations\201711141648260_FinalClasses.Designer.cs">
+      <DependentUpon>201711141648260_FinalClasses.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711141656263_Tiiiiiiiiiime.cs" />
+    <Compile Include="Migrations\201711141656263_Tiiiiiiiiiime.Designer.cs">
+      <DependentUpon>201711141656263_Tiiiiiiiiiime.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\AcademicPlan.cs" />
+    <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Class.cs" />
+    <Compile Include="Models\Course.cs" />
+    <Compile Include="Models\Group.cs" />
+    <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Room.cs" />
+    <Compile Include="Models\Schedule.cs" />
+    <Compile Include="Models\ScheduleContext.cs" />
+    <Compile Include="Models\Semestre.cs" />
+    <Compile Include="Models\Speciality.cs" />
+    <Compile Include="Models\Subject.cs" />
+    <Compile Include="Models\Teacher.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Startup.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\ej\mobile\android-theme\ej.mobile.android-core.min.css" />
+    <Content Include="Content\ej\mobile\android-theme\ej.mobile.android.min.css" />
+    <Content Include="Content\ej\mobile\ej.mobile.all.min.css" />
+    <Content Include="Content\ej\mobile\flat-theme\ej.mobile.flat-core.min.css" />
+    <Content Include="Content\ej\mobile\flat-theme\ej.mobile.flat-theme.min.css" />
+    <Content Include="Content\ej\mobile\images\ejmmobilefonts.svg" />
+    <Content Include="Content\ej\mobile\images\PullToRefresh\PtR_android_dark.GIF" />
+    <Content Include="Content\ej\mobile\images\PullToRefresh\PtR_android_light.GIF" />
+    <Content Include="Content\ej\mobile\images\PullToRefresh\PtR_ios7_dark.gif" />
+    <Content Include="Content\ej\mobile\images\PullToRefresh\PtR_ios7_light.gif" />
+    <Content Include="Content\ej\mobile\images\PullToRefresh\PtR_windows.GIF" />
+    <Content Include="Content\ej\mobile\images\PullToRefresh\PtR_winrt.GIF" />
+    <Content Include="Content\ej\mobile\images\radialmenu\androidback.png" />
+    <Content Include="Content\ej\mobile\images\radialmenu\androidradial.png" />
+    <Content Include="Content\ej\mobile\images\radialmenu\flatback.png" />
+    <Content Include="Content\ej\mobile\images\radialmenu\flatradial.png" />
+    <Content Include="Content\ej\mobile\images\radialmenu\ios7back.png" />
+    <Content Include="Content\ej\mobile\images\radialmenu\ios7radial.png" />
+    <Content Include="Content\ej\mobile\images\radialmenu\windowsback.png" />
+    <Content Include="Content\ej\mobile\images\radialmenu\windowsradial.png" />
+    <Content Include="Content\ej\mobile\images\scrollpanel\pullarrow.png" />
+    <Content Include="Content\ej\mobile\images\scrollpanel\refreshing-ios-light.gif" />
+    <Content Include="Content\ej\mobile\images\waitingpopup\waitingpopup_android.GIF" />
+    <Content Include="Content\ej\mobile\images\waitingpopup\waitingpopup_ios7.gif" />
+    <Content Include="Content\ej\mobile\images\waitingpopup\waitingpopup_windows.GIF" />
+    <Content Include="Content\ej\mobile\images\waitingpopup\waitingpopup_winrt.GIF" />
+    <Content Include="Content\ej\mobile\ios7-theme\ej.mobile.ios7-core.min.css" />
+    <Content Include="Content\ej\mobile\ios7-theme\ej.mobile.ios7.min.css" />
+    <Content Include="Content\ej\mobile\windows-theme\ej.mobile.windows-core.min.css" />
+    <Content Include="Content\ej\mobile\windows-theme\ej.mobile.windows.min.css" />
+    <Content Include="Content\ej\web\bootstrap-theme\ej.theme.css" />
+    <Content Include="Content\ej\web\bootstrap-theme\ej.theme.min.css" />
+    <Content Include="Content\ej\web\bootstrap-theme\ej.web.all.css" />
+    <Content Include="Content\ej\web\bootstrap-theme\ej.web.all.min.css" />
+    <Content Include="Content\ej\web\bootstrap-theme\ej.widgets.all.css" />
+    <Content Include="Content\ej\web\bootstrap-theme\ej.widgets.all.min.css" />
+    <Content Include="Content\ej\web\bootstrap-theme\images\ajax-loader.gif" />
+    <Content Include="Content\ej\web\bootstrap-theme\images\checkedtick.png" />
+    <Content Include="Content\ej\web\bootstrap-theme\images\dot.png" />
+    <Content Include="Content\ej\web\bootstrap-theme\images\drop-sibling.png" />
+    <Content Include="Content\ej\web\bootstrap-theme\images\gradient.png" />
+    <Content Include="Content\ej\web\bootstrap-theme\images\palette-arrow.png" />
+    <Content Include="Content\ej\web\bootstrap-theme\images\rating-star.png" />
+    <Content Include="Content\ej\web\bootstrap-theme\images\rotator-icon.png" />
+    <Content Include="Content\ej\web\bootstrap-theme\images\toggle-text.png" />
+    <Content Include="Content\ej\web\bootstrap-theme\images\toolbar_icons.png" />
+    <Content Include="Content\ej\web\bootstrap-theme\images\waitingpopup.gif" />
+    <Content Include="Content\ej\web\common-images\colorpicker_dark.png" />
+    <Content Include="Content\ej\web\common-images\colorpicker_light.png" />
+    <Content Include="Content\ej\web\common-images\diagram_context.png" />
+    <Content Include="Content\ej\web\common-images\diagram_context1.png" />
+    <Content Include="Content\ej\web\common-images\ejicons.svg" />
+    <Content Include="Content\ej\web\common-images\grid\dropPointer.cur" />
+    <Content Include="Content\ej\web\common-images\kanban\nouser.svg" />
+    <Content Include="Content\ej\web\common-images\maps\Arrow_Bootom.png" />
+    <Content Include="Content\ej\web\common-images\maps\Arrow_Bootom_hover.png" />
+    <Content Include="Content\ej\web\common-images\maps\Arrow_Left.png" />
+    <Content Include="Content\ej\web\common-images\maps\Arrow_Left_hover.png" />
+    <Content Include="Content\ej\web\common-images\maps\Arrow_Right.png" />
+    <Content Include="Content\ej\web\common-images\maps\Arrow_Right_hover.png" />
+    <Content Include="Content\ej\web\common-images\maps\Arrow_Top.png" />
+    <Content Include="Content\ej\web\common-images\maps\Arrow_Top_hover.png" />
+    <Content Include="Content\ej\web\common-images\maps\Bar.png" />
+    <Content Include="Content\ej\web\common-images\maps\Home.png" />
+    <Content Include="Content\ej\web\common-images\maps\Home_hover.png" />
+    <Content Include="Content\ej\web\common-images\maps\Home_hover_lime.png" />
+    <Content Include="Content\ej\web\common-images\maps\Home_hover_saffron.png" />
+    <Content Include="Content\ej\web\common-images\maps\Home_lime.png" />
+    <Content Include="Content\ej\web\common-images\maps\Home_saffron.png" />
+    <Content Include="Content\ej\web\common-images\maps\Navicatior.png" />
+    <Content Include="Content\ej\web\common-images\maps\Zoom-In.png" />
+    <Content Include="Content\ej\web\common-images\maps\Zoom-In_hover.png" />
+    <Content Include="Content\ej\web\common-images\maps\Zoom-out.png" />
+    <Content Include="Content\ej\web\common-images\maps\Zoom-out_hover.png" />
+    <Content Include="Content\ej\web\common-images\olapkpi\circle.png" />
+    <Content Include="Content\ej\web\common-images\olapkpi\diamond.png" />
+    <Content Include="Content\ej\web\common-images\olapkpi\down-arrow.png" />
+    <Content Include="Content\ej\web\common-images\olapkpi\green.png" />
+    <Content Include="Content\ej\web\common-images\olapkpi\red.png" />
+    <Content Include="Content\ej\web\common-images\olapkpi\right-arrow.png" />
+    <Content Include="Content\ej\web\common-images\olapkpi\three-color.png" />
+    <Content Include="Content\ej\web\common-images\olapkpi\triangle.png" />
+    <Content Include="Content\ej\web\common-images\olapkpi\up-arrow.png" />
+    <Content Include="Content\ej\web\common-images\radialmenu\back.png" />
+    <Content Include="Content\ej\web\common-images\radialmenu\radial.png" />
+    <Content Include="Content\ej\web\common-images\reports\down.png" />
+    <Content Include="Content\ej\web\common-images\reports\minus.gif" />
+    <Content Include="Content\ej\web\common-images\reports\minus.jpg" />
+    <Content Include="Content\ej\web\common-images\reports\minus.png" />
+    <Content Include="Content\ej\web\common-images\reports\plus.gif" />
+    <Content Include="Content\ej\web\common-images\reports\plus.jpg" />
+    <Content Include="Content\ej\web\common-images\reports\plus.png" />
+    <Content Include="Content\ej\web\common-images\reports\up.png" />
+    <Content Include="Content\ej\web\common-images\reports\updown.png" />
+    <Content Include="Content\ej\web\common-images\ribbon\Blank.png" />
+    <Content Include="Content\ej\web\common-images\ribbon\Browser.png" />
+    <Content Include="Content\ej\web\common-images\ribbon\Check.png" />
+    <Content Include="Content\ej\web\common-images\ribbon\Diet.png" />
+    <Content Include="Content\ej\web\common-images\ribbon\ejrbnicons.svg" />
+    <Content Include="Content\ej\web\common-images\ribbon\gallery.png" />
+    <Content Include="Content\ej\web\common-images\ribbon\Gantt.png" />
+    <Content Include="Content\ej\web\common-images\ribbon\homegallery.png" />
+    <Content Include="Content\ej\web\common-images\ribbon\paste.png" />
+    <Content Include="Content\ej\web\common-images\ribbon\Project.png" />
+    <Content Include="Content\ej\web\common-images\ribbon\Protect.png" />
+    <Content Include="Content\ej\web\common-images\ribbon\Sales.png" />
+    <Content Include="Content\ej\web\common-images\ribbon\style.gallery.png" />
+    <Content Include="Content\ej\web\common-images\ribbon\User.jpg" />
+    <Content Include="Content\ej\web\common-images\ribbon\Version.png" />
+    <Content Include="Content\ej\web\common-images\Rotate.cur" />
+    <Content Include="Content\ej\web\common-images\schedule_priority.png" />
+    <Content Include="Content\ej\web\common-images\spreadsheet\blank.png" />
+    <Content Include="Content\ej\web\common-images\spreadsheet\chart-sprites.png" />
+    <Content Include="Content\ej\web\common-images\spreadsheet\charttab-sprites.png" />
+    <Content Include="Content\ej\web\common-images\spreadsheet\charttype-sprites.png" />
+    <Content Include="Content\ej\web\common-images\spreadsheet\Down_Arrow.cur" />
+    <Content Include="Content\ej\web\common-images\spreadsheet\Draw_Border.cur" />
+    <Content Include="Content\ej\web\common-images\spreadsheet\Draw_Border_Grid.cur" />
+    <Content Include="Content\ej\web\common-images\spreadsheet\ejxlicons.svg" />
+    <Content Include="Content\ej\web\common-images\spreadsheet\Format_Painter.cur" />
+    <Content Include="Content\ej\web\common-images\spreadsheet\Right_Arrow.cur" />
+    <Content Include="Content\ej\web\common-images\spreadsheet\sprites.png" />
+    <Content Include="Content\ej\web\common-images\tools\drop-sibling-rtl.png" />
+    <Content Include="Content\ej\web\common-images\tools\file_icons.png" />
+    <Content Include="Content\ej\web\default-theme\ej.theme.css" />
+    <Content Include="Content\ej\web\default-theme\ej.theme.min.css" />
+    <Content Include="Content\ej\web\default-theme\ej.web.all.css" />
+    <Content Include="Content\ej\web\default-theme\ej.web.all.min.css" />
+    <Content Include="Content\ej\web\default-theme\ej.widgets.all.css" />
+    <Content Include="Content\ej\web\default-theme\ej.widgets.all.min.css" />
+    <Content Include="Content\ej\web\default-theme\images\ajax-loader.gif" />
+    <Content Include="Content\ej\web\default-theme\images\checkedtick.png" />
+    <Content Include="Content\ej\web\default-theme\images\dot.png" />
+    <Content Include="Content\ej\web\default-theme\images\drop-sibling.png" />
+    <Content Include="Content\ej\web\default-theme\images\gradient.png" />
+    <Content Include="Content\ej\web\default-theme\images\palette-arrow.png" />
+    <Content Include="Content\ej\web\default-theme\images\rating-star.png" />
+    <Content Include="Content\ej\web\default-theme\images\rotator-icon.png" />
+    <Content Include="Content\ej\web\default-theme\images\toggle-text.png" />
+    <Content Include="Content\ej\web\default-theme\images\toolbar_icons.png" />
+    <Content Include="Content\ej\web\default-theme\images\ui-icon.png" />
+    <Content Include="Content\ej\web\default-theme\images\waitingpopup.gif" />
+    <Content Include="Content\ej\web\ej.widgets.core.bootstrap.min.css" />
+    <Content Include="Content\ej\web\ej.widgets.core.min.css" />
+    <Content Include="Content\ej\web\flat-azure-dark\ej.theme.css" />
+    <Content Include="Content\ej\web\flat-azure-dark\ej.theme.min.css" />
+    <Content Include="Content\ej\web\flat-azure-dark\ej.web.all.css" />
+    <Content Include="Content\ej\web\flat-azure-dark\ej.web.all.min.css" />
+    <Content Include="Content\ej\web\flat-azure-dark\ej.widgets.all.css" />
+    <Content Include="Content\ej\web\flat-azure-dark\ej.widgets.all.min.css" />
+    <Content Include="Content\ej\web\flat-azure-dark\images\ajax-loader.gif" />
+    <Content Include="Content\ej\web\flat-azure-dark\images\checkedtick.png" />
+    <Content Include="Content\ej\web\flat-azure-dark\images\dot.png" />
+    <Content Include="Content\ej\web\flat-azure-dark\images\drop-sibling.png" />
+    <Content Include="Content\ej\web\flat-azure-dark\images\gradient.png" />
+    <Content Include="Content\ej\web\flat-azure-dark\images\palette-arrow.png" />
+    <Content Include="Content\ej\web\flat-azure-dark\images\rating-star.png" />
+    <Content Include="Content\ej\web\flat-azure-dark\images\rotator-icon.png" />
+    <Content Include="Content\ej\web\flat-azure-dark\images\toggle-text.png" />
+    <Content Include="Content\ej\web\flat-azure-dark\images\toolbar_icons.png" />
+    <Content Include="Content\ej\web\flat-azure-dark\images\ui-icon.png" />
+    <Content Include="Content\ej\web\flat-azure-dark\images\waitingpopup.gif" />
+    <Content Include="Content\ej\web\flat-lime-dark\ej.theme.css" />
+    <Content Include="Content\ej\web\flat-lime-dark\ej.theme.min.css" />
+    <Content Include="Content\ej\web\flat-lime-dark\ej.web.all.css" />
+    <Content Include="Content\ej\web\flat-lime-dark\ej.web.all.min.css" />
+    <Content Include="Content\ej\web\flat-lime-dark\ej.widgets.all.css" />
+    <Content Include="Content\ej\web\flat-lime-dark\ej.widgets.all.min.css" />
+    <Content Include="Content\ej\web\flat-lime-dark\images\ajax-loader.gif" />
+    <Content Include="Content\ej\web\flat-lime-dark\images\checkedtick.png" />
+    <Content Include="Content\ej\web\flat-lime-dark\images\dot.png" />
+    <Content Include="Content\ej\web\flat-lime-dark\images\drop-sibling.png" />
+    <Content Include="Content\ej\web\flat-lime-dark\images\gradient.png" />
+    <Content Include="Content\ej\web\flat-lime-dark\images\palette-arrow.png" />
+    <Content Include="Content\ej\web\flat-lime-dark\images\rating-star.png" />
+    <Content Include="Content\ej\web\flat-lime-dark\images\rotator-icon.png" />
+    <Content Include="Content\ej\web\flat-lime-dark\images\toggle-text.png" />
+    <Content Include="Content\ej\web\flat-lime-dark\images\toolbar_icons.png" />
+    <Content Include="Content\ej\web\flat-lime-dark\images\transparent.png" />
+    <Content Include="Content\ej\web\flat-lime-dark\images\ui-icon.png" />
+    <Content Include="Content\ej\web\flat-lime-dark\images\waitingpopup.gif" />
+    <Content Include="Content\ej\web\flat-lime\ej.theme.css" />
+    <Content Include="Content\ej\web\flat-lime\ej.theme.min.css" />
+    <Content Include="Content\ej\web\flat-lime\ej.web.all.css" />
+    <Content Include="Content\ej\web\flat-lime\ej.web.all.min.css" />
+    <Content Include="Content\ej\web\flat-lime\ej.widgets.all.css" />
+    <Content Include="Content\ej\web\flat-lime\ej.widgets.all.min.css" />
+    <Content Include="Content\ej\web\flat-lime\images\ajax-loader.gif" />
+    <Content Include="Content\ej\web\flat-lime\images\checkedtick.png" />
+    <Content Include="Content\ej\web\flat-lime\images\dot.png" />
+    <Content Include="Content\ej\web\flat-lime\images\drop-sibling.png" />
+    <Content Include="Content\ej\web\flat-lime\images\gradient.png" />
+    <Content Include="Content\ej\web\flat-lime\images\palette-arrow.png" />
+    <Content Include="Content\ej\web\flat-lime\images\rating-star.png" />
+    <Content Include="Content\ej\web\flat-lime\images\rotator-icon.png" />
+    <Content Include="Content\ej\web\flat-lime\images\toggle-text.png" />
+    <Content Include="Content\ej\web\flat-lime\images\toolbar_icons.png" />
+    <Content Include="Content\ej\web\flat-lime\images\transparent.png" />
+    <Content Include="Content\ej\web\flat-lime\images\ui-icon.png" />
+    <Content Include="Content\ej\web\flat-lime\images\waitingpopup.gif" />
+    <Content Include="Content\ej\web\flat-saffron-dark\ej.theme.css" />
+    <Content Include="Content\ej\web\flat-saffron-dark\ej.theme.min.css" />
+    <Content Include="Content\ej\web\flat-saffron-dark\ej.web.all.css" />
+    <Content Include="Content\ej\web\flat-saffron-dark\ej.web.all.min.css" />
+    <Content Include="Content\ej\web\flat-saffron-dark\ej.widgets.all.css" />
+    <Content Include="Content\ej\web\flat-saffron-dark\ej.widgets.all.min.css" />
+    <Content Include="Content\ej\web\flat-saffron-dark\images\ajax-loader.gif" />
+    <Content Include="Content\ej\web\flat-saffron-dark\images\checkedtick.png" />
+    <Content Include="Content\ej\web\flat-saffron-dark\images\dot.png" />
+    <Content Include="Content\ej\web\flat-saffron-dark\images\drop-sibling.png" />
+    <Content Include="Content\ej\web\flat-saffron-dark\images\gradient.png" />
+    <Content Include="Content\ej\web\flat-saffron-dark\images\palette-arrow.png" />
+    <Content Include="Content\ej\web\flat-saffron-dark\images\rating-star.png" />
+    <Content Include="Content\ej\web\flat-saffron-dark\images\rotator-icon.png" />
+    <Content Include="Content\ej\web\flat-saffron-dark\images\toggle-text.png" />
+    <Content Include="Content\ej\web\flat-saffron-dark\images\toolbar_icons.png" />
+    <Content Include="Content\ej\web\flat-saffron-dark\images\transparent.png" />
+    <Content Include="Content\ej\web\flat-saffron-dark\images\ui-icon.png" />
+    <Content Include="Content\ej\web\flat-saffron-dark\images\waitingpopup.gif" />
+    <Content Include="Content\ej\web\flat-saffron\ej.theme.css" />
+    <Content Include="Content\ej\web\flat-saffron\ej.theme.min.css" />
+    <Content Include="Content\ej\web\flat-saffron\ej.web.all.css" />
+    <Content Include="Content\ej\web\flat-saffron\ej.web.all.min.css" />
+    <Content Include="Content\ej\web\flat-saffron\ej.widgets.all.css" />
+    <Content Include="Content\ej\web\flat-saffron\ej.widgets.all.min.css" />
+    <Content Include="Content\ej\web\flat-saffron\images\ajax-loader.gif" />
+    <Content Include="Content\ej\web\flat-saffron\images\checkedtick.png" />
+    <Content Include="Content\ej\web\flat-saffron\images\dot.png" />
+    <Content Include="Content\ej\web\flat-saffron\images\drop-sibling.png" />
+    <Content Include="Content\ej\web\flat-saffron\images\gradient.png" />
+    <Content Include="Content\ej\web\flat-saffron\images\palette-arrow.png" />
+    <Content Include="Content\ej\web\flat-saffron\images\rating-star.png" />
+    <Content Include="Content\ej\web\flat-saffron\images\rotator-icon.png" />
+    <Content Include="Content\ej\web\flat-saffron\images\toggle-text.png" />
+    <Content Include="Content\ej\web\flat-saffron\images\toolbar_icons.png" />
+    <Content Include="Content\ej\web\flat-saffron\images\transparent.png" />
+    <Content Include="Content\ej\web\flat-saffron\images\ui-icon.png" />
+    <Content Include="Content\ej\web\flat-saffron\images\waitingpopup.gif" />
+    <Content Include="Content\ej\web\gradient-azure-dark\ej.theme.css" />
+    <Content Include="Content\ej\web\gradient-azure-dark\ej.theme.min.css" />
+    <Content Include="Content\ej\web\gradient-azure-dark\ej.web.all.css" />
+    <Content Include="Content\ej\web\gradient-azure-dark\ej.web.all.min.css" />
+    <Content Include="Content\ej\web\gradient-azure-dark\ej.widgets.all.css" />
+    <Content Include="Content\ej\web\gradient-azure-dark\ej.widgets.all.min.css" />
+    <Content Include="Content\ej\web\gradient-azure-dark\images\ajax-loader.gif" />
+    <Content Include="Content\ej\web\gradient-azure-dark\images\checkedtick.png" />
+    <Content Include="Content\ej\web\gradient-azure-dark\images\dot.png" />
+    <Content Include="Content\ej\web\gradient-azure-dark\images\drop-sibling.png" />
+    <Content Include="Content\ej\web\gradient-azure-dark\images\gradient.png" />
+    <Content Include="Content\ej\web\gradient-azure-dark\images\palette-arrow.png" />
+    <Content Include="Content\ej\web\gradient-azure-dark\images\rating-star.png" />
+    <Content Include="Content\ej\web\gradient-azure-dark\images\rotator-icon.png" />
+    <Content Include="Content\ej\web\gradient-azure-dark\images\toggle-text.png" />
+    <Content Include="Content\ej\web\gradient-azure-dark\images\toolbar_icons.png" />
+    <Content Include="Content\ej\web\gradient-azure-dark\images\ui-icon.png" />
+    <Content Include="Content\ej\web\gradient-azure-dark\images\waitingpopup.gif" />
+    <Content Include="Content\ej\web\gradient-azure\ej.theme.css" />
+    <Content Include="Content\ej\web\gradient-azure\ej.theme.min.css" />
+    <Content Include="Content\ej\web\gradient-azure\ej.web.all.css" />
+    <Content Include="Content\ej\web\gradient-azure\ej.web.all.min.css" />
+    <Content Include="Content\ej\web\gradient-azure\ej.widgets.all.css" />
+    <Content Include="Content\ej\web\gradient-azure\ej.widgets.all.min.css" />
+    <Content Include="Content\ej\web\gradient-azure\images\ajax-loader.gif" />
+    <Content Include="Content\ej\web\gradient-azure\images\checkedtick.png" />
+    <Content Include="Content\ej\web\gradient-azure\images\dot.png" />
+    <Content Include="Content\ej\web\gradient-azure\images\drop-sibling.png" />
+    <Content Include="Content\ej\web\gradient-azure\images\gradient.png" />
+    <Content Include="Content\ej\web\gradient-azure\images\palette-arrow.png" />
+    <Content Include="Content\ej\web\gradient-azure\images\rating-star.png" />
+    <Content Include="Content\ej\web\gradient-azure\images\rotator-icon.png" />
+    <Content Include="Content\ej\web\gradient-azure\images\toggle-text.png" />
+    <Content Include="Content\ej\web\gradient-azure\images\toolbar_icons.png" />
+    <Content Include="Content\ej\web\gradient-azure\images\ui-icon.png" />
+    <Content Include="Content\ej\web\gradient-azure\images\waitingpopup.gif" />
+    <Content Include="Content\ej\web\gradient-lime-dark\ej.theme.css" />
+    <Content Include="Content\ej\web\gradient-lime-dark\ej.theme.min.css" />
+    <Content Include="Content\ej\web\gradient-lime-dark\ej.web.all.css" />
+    <Content Include="Content\ej\web\gradient-lime-dark\ej.web.all.min.css" />
+    <Content Include="Content\ej\web\gradient-lime-dark\ej.widgets.all.css" />
+    <Content Include="Content\ej\web\gradient-lime-dark\ej.widgets.all.min.css" />
+    <Content Include="Content\ej\web\gradient-lime-dark\images\ajax-loader.gif" />
+    <Content Include="Content\ej\web\gradient-lime-dark\images\checkedtick.png" />
+    <Content Include="Content\ej\web\gradient-lime-dark\images\dot.png" />
+    <Content Include="Content\ej\web\gradient-lime-dark\images\drop-sibling.png" />
+    <Content Include="Content\ej\web\gradient-lime-dark\images\gradient.png" />
+    <Content Include="Content\ej\web\gradient-lime-dark\images\palette-arrow.png" />
+    <Content Include="Content\ej\web\gradient-lime-dark\images\rating-star.png" />
+    <Content Include="Content\ej\web\gradient-lime-dark\images\rotator-icon.png" />
+    <Content Include="Content\ej\web\gradient-lime-dark\images\toggle-text.png" />
+    <Content Include="Content\ej\web\gradient-lime-dark\images\toolbar_icons.png" />
+    <Content Include="Content\ej\web\gradient-lime-dark\images\ui-icon.png" />
+    <Content Include="Content\ej\web\gradient-lime-dark\images\waitingpopup.gif" />
+    <Content Include="Content\ej\web\gradient-lime\ej.theme.css" />
+    <Content Include="Content\ej\web\gradient-lime\ej.theme.min.css" />
+    <Content Include="Content\ej\web\gradient-lime\ej.web.all.css" />
+    <Content Include="Content\ej\web\gradient-lime\ej.web.all.min.css" />
+    <Content Include="Content\ej\web\gradient-lime\ej.widgets.all.css" />
+    <Content Include="Content\ej\web\gradient-lime\ej.widgets.all.min.css" />
+    <Content Include="Content\ej\web\gradient-lime\images\ajax-loader.gif" />
+    <Content Include="Content\ej\web\gradient-lime\images\checkedtick.png" />
+    <Content Include="Content\ej\web\gradient-lime\images\dot.png" />
+    <Content Include="Content\ej\web\gradient-lime\images\drop-sibling.png" />
+    <Content Include="Content\ej\web\gradient-lime\images\gradient.png" />
+    <Content Include="Content\ej\web\gradient-lime\images\palette-arrow.png" />
+    <Content Include="Content\ej\web\gradient-lime\images\rating-star.png" />
+    <Content Include="Content\ej\web\gradient-lime\images\rotator-icon.png" />
+    <Content Include="Content\ej\web\gradient-lime\images\toggle-text.png" />
+    <Content Include="Content\ej\web\gradient-lime\images\toolbar_icons.png" />
+    <Content Include="Content\ej\web\gradient-lime\images\ui-icon.png" />
+    <Content Include="Content\ej\web\gradient-lime\images\waitingpopup.gif" />
+    <Content Include="Content\ej\web\gradient-saffron-dark\ej.theme.css" />
+    <Content Include="Content\ej\web\gradient-saffron-dark\ej.theme.min.css" />
+    <Content Include="Content\ej\web\gradient-saffron-dark\ej.web.all.css" />
+    <Content Include="Content\ej\web\gradient-saffron-dark\ej.web.all.min.css" />
+    <Content Include="Content\ej\web\gradient-saffron-dark\ej.widgets.all.css" />
+    <Content Include="Content\ej\web\gradient-saffron-dark\ej.widgets.all.min.css" />
+    <Content Include="Content\ej\web\gradient-saffron-dark\images\ajax-loader.gif" />
+    <Content Include="Content\ej\web\gradient-saffron-dark\images\checkedtick.png" />
+    <Content Include="Content\ej\web\gradient-saffron-dark\images\dot.png" />
+    <Content Include="Content\ej\web\gradient-saffron-dark\images\drop-sibling.png" />
+    <Content Include="Content\ej\web\gradient-saffron-dark\images\gradient.png" />
+    <Content Include="Content\ej\web\gradient-saffron-dark\images\palette-arrow.png" />
+    <Content Include="Content\ej\web\gradient-saffron-dark\images\rating-star.png" />
+    <Content Include="Content\ej\web\gradient-saffron-dark\images\rotator-icon.png" />
+    <Content Include="Content\ej\web\gradient-saffron-dark\images\toggle-text.png" />
+    <Content Include="Content\ej\web\gradient-saffron-dark\images\toolbar_icons.png" />
+    <Content Include="Content\ej\web\gradient-saffron-dark\images\ui-icon.png" />
+    <Content Include="Content\ej\web\gradient-saffron-dark\images\waitingpopup.gif" />
+    <Content Include="Content\ej\web\gradient-saffron\ej.theme.css" />
+    <Content Include="Content\ej\web\gradient-saffron\ej.theme.min.css" />
+    <Content Include="Content\ej\web\gradient-saffron\ej.web.all.css" />
+    <Content Include="Content\ej\web\gradient-saffron\ej.web.all.min.css" />
+    <Content Include="Content\ej\web\gradient-saffron\ej.widgets.all.css" />
+    <Content Include="Content\ej\web\gradient-saffron\ej.widgets.all.min.css" />
+    <Content Include="Content\ej\web\gradient-saffron\images\ajax-loader.gif" />
+    <Content Include="Content\ej\web\gradient-saffron\images\checkedtick.png" />
+    <Content Include="Content\ej\web\gradient-saffron\images\dot.png" />
+    <Content Include="Content\ej\web\gradient-saffron\images\drop-sibling.png" />
+    <Content Include="Content\ej\web\gradient-saffron\images\gradient.png" />
+    <Content Include="Content\ej\web\gradient-saffron\images\palette-arrow.png" />
+    <Content Include="Content\ej\web\gradient-saffron\images\rating-star.png" />
+    <Content Include="Content\ej\web\gradient-saffron\images\rotator-icon.png" />
+    <Content Include="Content\ej\web\gradient-saffron\images\toggle-text.png" />
+    <Content Include="Content\ej\web\gradient-saffron\images\toolbar_icons.png" />
+    <Content Include="Content\ej\web\gradient-saffron\images\ui-icon.png" />
+    <Content Include="Content\ej\web\gradient-saffron\images\waitingpopup.gif" />
+    <Content Include="Content\ej\web\responsive-css\ej.responsive.css" />
+    <Content Include="Content\ej\web\responsive-css\ejgrid.responsive.css" />
+    <Content Include="Content\ej\web\ribbon-css\ej.icons.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="ApplicationInsights.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Scripts\canvg.js" />
+    <Content Include="Scripts\dhtmlxScheduler\dhtmlxscheduler.css" />
+    <Content Include="Scripts\dhtmlxScheduler\dhtmlxscheduler.js" />
+    <Content Include="Scripts\dhtmlxScheduler\dhtmlxscheduler_classic.css" />
+    <Content Include="Scripts\dhtmlxScheduler\dhtmlxscheduler_contrast_black.css" />
+    <Content Include="Scripts\dhtmlxScheduler\dhtmlxscheduler_contrast_white.css" />
+    <Content Include="Scripts\dhtmlxScheduler\dhtmlxscheduler_custom_lightbox.js" />
+    <Content Include="Scripts\dhtmlxScheduler\dhtmlxscheduler_flat.css" />
+    <Content Include="Scripts\dhtmlxScheduler\dhtmlxscheduler_glossy.css" />
+    <Content Include="Scripts\dhtmlxScheduler\ext\dhtmlxscheduler_active_links.js" />
+    <Content Include="Scripts\dhtmlxScheduler\ext\dhtmlxscheduler_agenda_view.js" />
+    <Content Include="Scripts\dhtmlxScheduler\ext\dhtmlxscheduler_all_timed.js" />
+    <Content Include="Scripts\dhtmlxScheduler\ext\dhtmlxscheduler_collision.js" />
+    <Content Include="Scripts\dhtmlxScheduler\ext\dhtmlxscheduler_container_autoresize.js" />
+    <Content Include="Scripts\dhtmlxScheduler\ext\dhtmlxscheduler_cookie.js" />
+    <Content Include="Scripts\dhtmlxScheduler\ext\dhtmlxscheduler_csp.js" />
+    <Content Include="Scripts\dhtmlxScheduler\ext\dhtmlxscheduler_daytimeline.js" />
+    <Content Include="Scripts\dhtmlxScheduler\ext\dhtmlxscheduler_drag_between.js" />
+    <Content Include="Scripts\dhtmlxScheduler\ext\dhtmlxscheduler_editors.js" />
+    <Content Include="Scripts\dhtmlxScheduler\ext\dhtmlxscheduler_expand.js" />
+    <Content Include="Scripts\dhtmlxScheduler\ext\dhtmlxscheduler_grid_view.js" />
+    <Content Include="Scripts\dhtmlxScheduler\ext\dhtmlxscheduler_html_templates.js" />
+    <Content Include="Scripts\dhtmlxScheduler\ext\dhtmlxscheduler_key_nav.js" />
+    <Content Include="Scripts\dhtmlxScheduler\ext\dhtmlxscheduler_layer.js" />
+    <Content Include="Scripts\dhtmlxScheduler\ext\dhtmlxscheduler_limit.js" />
+    <Content Include="Scripts\dhtmlxScheduler\ext\dhtmlxscheduler_live_updates.js" />
+    <Content Include="Scripts\dhtmlxScheduler\ext\dhtmlxscheduler_map_view.js" />
+    <Content Include="Scripts\dhtmlxScheduler\ext\dhtmlxscheduler_minical.js" />
+    <Content Include="Scripts\dhtmlxScheduler\ext\dhtmlxscheduler_monthheight.js" />
+    <Content Include="Scripts\dhtmlxScheduler\ext\dhtmlxscheduler_multisection.js" />
+    <Content Include="Scripts\dhtmlxScheduler\ext\dhtmlxscheduler_multiselect.js" />
+    <Content Include="Scripts\dhtmlxScheduler\ext\dhtmlxscheduler_multisource.js" />
+    <Content Include="Scripts\dhtmlxScheduler\ext\dhtmlxscheduler_mvc.js" />
+    <Content Include="Scripts\dhtmlxScheduler\ext\dhtmlxscheduler_offline.js" />
+    <Content Include="Scripts\dhtmlxScheduler\ext\dhtmlxscheduler_outerdrag.js" />
+    <Content Include="Scripts\dhtmlxScheduler\ext\dhtmlxscheduler_pdf.js" />
+    <Content Include="Scripts\dhtmlxScheduler\ext\dhtmlxscheduler_quick_info.js" />
+    <Content Include="Scripts\dhtmlxScheduler\ext\dhtmlxscheduler_readonly.js" />
+    <Content Include="Scripts\dhtmlxScheduler\ext\dhtmlxscheduler_recurring.js" />
+    <Content Include="Scripts\dhtmlxScheduler\ext\dhtmlxscheduler_serialize.js" />
+    <Content Include="Scripts\dhtmlxScheduler\ext\dhtmlxscheduler_timeline.js" />
+    <Content Include="Scripts\dhtmlxScheduler\ext\dhtmlxscheduler_tooltip.js" />
+    <Content Include="Scripts\dhtmlxScheduler\ext\dhtmlxscheduler_treetimeline.js" />
+    <Content Include="Scripts\dhtmlxScheduler\ext\dhtmlxscheduler_units.js" />
+    <Content Include="Scripts\dhtmlxScheduler\ext\dhtmlxscheduler_url.js" />
+    <Content Include="Scripts\dhtmlxScheduler\ext\dhtmlxscheduler_week_agenda.js" />
+    <Content Include="Scripts\dhtmlxScheduler\ext\dhtmlxscheduler_wp.js" />
+    <Content Include="Scripts\dhtmlxScheduler\ext\dhtmlxscheduler_year_view.js" />
+    <Content Include="Scripts\dhtmlxScheduler\imgs\buttons.png" />
+    <Content Include="Scripts\dhtmlxScheduler\imgs\but_repeat.gif" />
+    <Content Include="Scripts\dhtmlxScheduler\imgs\calendar.gif" />
+    <Content Include="Scripts\dhtmlxScheduler\imgs\clock_big.gif" />
+    <Content Include="Scripts\dhtmlxScheduler\imgs\clock_small.gif" />
+    <Content Include="Scripts\dhtmlxScheduler\imgs\collapse_expand_icon.gif" />
+    <Content Include="Scripts\dhtmlxScheduler\imgs\controls.gif" />
+    <Content Include="Scripts\dhtmlxScheduler\imgs\databg.png" />
+    <Content Include="Scripts\dhtmlxScheduler\imgs\databg_now.png" />
+    <Content Include="Scripts\dhtmlxScheduler\imgs\export_ical.png" />
+    <Content Include="Scripts\dhtmlxScheduler\imgs\export_pdf.png" />
+    <Content Include="Scripts\dhtmlxScheduler\imgs\icon.png" />
+    <Content Include="Scripts\dhtmlxScheduler\imgs\images.png" />
+    <Content Include="Scripts\dhtmlxScheduler\imgs\loading.gif" />
+    <Content Include="Scripts\dhtmlxScheduler\imgs\resize_dots.png" />
+    <Content Include="Scripts\dhtmlxScheduler\imgs_contrast_black\arrow_left.png" />
+    <Content Include="Scripts\dhtmlxScheduler\imgs_contrast_black\arrow_right.png" />
+    <Content Include="Scripts\dhtmlxScheduler\imgs_contrast_black\but_repeat.gif" />
+    <Content Include="Scripts\dhtmlxScheduler\imgs_contrast_black\calendar.gif" />
+    <Content Include="Scripts\dhtmlxScheduler\imgs_contrast_black\clock_big.gif" />
+    <Content Include="Scripts\dhtmlxScheduler\imgs_contrast_black\clock_small.gif" />
+    <Content Include="Scripts\dhtmlxScheduler\imgs_contrast_black\close_icon.png" />
+    <Content Include="Scripts\dhtmlxScheduler\imgs_contrast_black\collapse_expand_icon.gif" />
+    <Content Include="Scripts\dhtmlxScheduler\imgs_contrast_black\controls.png" />
+    <Content Include="Scripts\dhtmlxScheduler\imgs_contrast_black\databg.png" />
+    <Content Include="Scripts\dhtmlxScheduler\imgs_contrast_black\export_ical.png" />
+    <Content Include="Scripts\dhtmlxScheduler\imgs_contrast_black\export_pdf.png" />
+    <Content Include="Scripts\dhtmlxScheduler\imgs_contrast_black\resize_dots.png" />
+    <Content Include="Scripts\dhtmlxScheduler\imgs_contrast_black\resizing.png" />
+    <Content Include="Scripts\dhtmlxScheduler\imgs_contrast_white\arrow_left.png" />
+    <Content Include="Scripts\dhtmlxScheduler\imgs_contrast_white\arrow_right.png" />
+    <Content Include="Scripts\dhtmlxScheduler\imgs_contrast_white\but_repeat.gif" />
+    <Content Include="Scripts\dhtmlxScheduler\imgs_contrast_white\calendar.gif" />
+    <Content Include="Scripts\dhtmlxScheduler\imgs_contrast_white\clock_big.gif" />
+    <Content Include="Scripts\dhtmlxScheduler\imgs_contrast_white\clock_small.gif" />
+    <Content Include="Scripts\dhtmlxScheduler\imgs_contrast_white\close_icon.png" />
+    <Content Include="Scripts\dhtmlxScheduler\imgs_contrast_white\collapse_expand_icon.gif" />
+    <Content Include="Scripts\dhtmlxScheduler\imgs_contrast_white\controls.png" />
+    <Content Include="Scripts\dhtmlxScheduler\imgs_contrast_white\databg.png" />
+    <Content Include="Scripts\dhtmlxScheduler\imgs_contrast_white\export_ical.png" />
+    <Content Include="Scripts\dhtmlxScheduler\imgs_contrast_white\export_pdf.png" />
+    <Content Include="Scripts\dhtmlxScheduler\imgs_contrast_white\quick_info_edit.png" />
+    <Content Include="Scripts\dhtmlxScheduler\imgs_contrast_white\resize_dots.png" />
+    <Content Include="Scripts\dhtmlxScheduler\imgs_contrast_white\resizing.png" />
+    <Content Include="Scripts\dhtmlxScheduler\imgs_dhx_terrace\arrow_left.png" />
+    <Content Include="Scripts\dhtmlxScheduler\imgs_dhx_terrace\arrow_right.png" />
+    <Content Include="Scripts\dhtmlxScheduler\imgs_dhx_terrace\but_repeat.gif" />
+    <Content Include="Scripts\dhtmlxScheduler\imgs_dhx_terrace\calendar.gif" />
+    <Content Include="Scripts\dhtmlxScheduler\imgs_dhx_terrace\clock_big.gif" />
+    <Content Include="Scripts\dhtmlxScheduler\imgs_dhx_terrace\clock_small.gif" />
+    <Content Include="Scripts\dhtmlxScheduler\imgs_dhx_terrace\close_icon.png" />
+    <Content Include="Scripts\dhtmlxScheduler\imgs_dhx_terrace\collapse_expand_icon.gif" />
+    <Content Include="Scripts\dhtmlxScheduler\imgs_dhx_terrace\controls.png" />
+    <Content Include="Scripts\dhtmlxScheduler\imgs_dhx_terrace\databg.png" />
+    <Content Include="Scripts\dhtmlxScheduler\imgs_dhx_terrace\databg_now.png" />
+    <Content Include="Scripts\dhtmlxScheduler\imgs_dhx_terrace\export_ical.png" />
+    <Content Include="Scripts\dhtmlxScheduler\imgs_dhx_terrace\export_pdf.png" />
+    <Content Include="Scripts\dhtmlxScheduler\imgs_dhx_terrace\resize_dots.png" />
+    <Content Include="Scripts\dhtmlxScheduler\imgs_dhx_terrace\resizing.png" />
+    <Content Include="Scripts\dhtmlxScheduler\imgs_flat\agenda_bg.gif" />
+    <Content Include="Scripts\dhtmlxScheduler\imgs_flat\arrow_left.png" />
+    <Content Include="Scripts\dhtmlxScheduler\imgs_flat\arrow_right.png" />
+    <Content Include="Scripts\dhtmlxScheduler\imgs_flat\but_repeat.gif" />
+    <Content Include="Scripts\dhtmlxScheduler\imgs_flat\calendar.gif" />
+    <Content Include="Scripts\dhtmlxScheduler\imgs_flat\clock.png" />
+    <Content Include="Scripts\dhtmlxScheduler\imgs_flat\clock_big.gif" />
+    <Content Include="Scripts\dhtmlxScheduler\imgs_flat\clock_small.gif" />
+    <Content Include="Scripts\dhtmlxScheduler\imgs_flat\close_icon.png" />
+    <Content Include="Scripts\dhtmlxScheduler\imgs_flat\collapse_expand_icon.gif" />
+    <Content Include="Scripts\dhtmlxScheduler\imgs_flat\controls.png" />
+    <Content Include="Scripts\dhtmlxScheduler\imgs_flat\databg.png" />
+    <Content Include="Scripts\dhtmlxScheduler\imgs_flat\databg_now.png" />
+    <Content Include="Scripts\dhtmlxScheduler\imgs_flat\export_ical.png" />
+    <Content Include="Scripts\dhtmlxScheduler\imgs_flat\export_pdf.png" />
+    <Content Include="Scripts\dhtmlxScheduler\imgs_flat\resize_dots.png" />
+    <Content Include="Scripts\dhtmlxScheduler\imgs_flat\resizing.png" />
+    <Content Include="Scripts\dhtmlxScheduler\imgs_glossy\blue_tab.png" />
+    <Content Include="Scripts\dhtmlxScheduler\imgs_glossy\blue_tab_wide.png" />
+    <Content Include="Scripts\dhtmlxScheduler\imgs_glossy\buttons.gif" />
+    <Content Include="Scripts\dhtmlxScheduler\imgs_glossy\but_repeat.gif" />
+    <Content Include="Scripts\dhtmlxScheduler\imgs_glossy\calendar.gif" />
+    <Content Include="Scripts\dhtmlxScheduler\imgs_glossy\clock_big.png" />
+    <Content Include="Scripts\dhtmlxScheduler\imgs_glossy\clock_small.png" />
+    <Content Include="Scripts\dhtmlxScheduler\imgs_glossy\collapse_expand_icon.gif" />
+    <Content Include="Scripts\dhtmlxScheduler\imgs_glossy\controlls5.png" />
+    <Content Include="Scripts\dhtmlxScheduler\imgs_glossy\databg.png" />
+    <Content Include="Scripts\dhtmlxScheduler\imgs_glossy\databg_now.png" />
+    <Content Include="Scripts\dhtmlxScheduler\imgs_glossy\event-bg.png" />
+    <Content Include="Scripts\dhtmlxScheduler\imgs_glossy\export_ical.png" />
+    <Content Include="Scripts\dhtmlxScheduler\imgs_glossy\export_pdf.png" />
+    <Content Include="Scripts\dhtmlxScheduler\imgs_glossy\icon.png" />
+    <Content Include="Scripts\dhtmlxScheduler\imgs_glossy\left-separator.png" />
+    <Content Include="Scripts\dhtmlxScheduler\imgs_glossy\left-time-bg.png" />
+    <Content Include="Scripts\dhtmlxScheduler\imgs_glossy\lightbox.png" />
+    <Content Include="Scripts\dhtmlxScheduler\imgs_glossy\loading.gif" />
+    <Content Include="Scripts\dhtmlxScheduler\imgs_glossy\move.png" />
+    <Content Include="Scripts\dhtmlxScheduler\imgs_glossy\multi-days-bg.png" />
+    <Content Include="Scripts\dhtmlxScheduler\imgs_glossy\second-top-days-bg.png" />
+    <Content Include="Scripts\dhtmlxScheduler\imgs_glossy\top-days-bg.png" />
+    <Content Include="Scripts\dhtmlxScheduler\imgs_glossy\top-separator.gif" />
+    <Content Include="Scripts\dhtmlxScheduler\imgs_glossy\white_tab.png" />
+    <Content Include="Scripts\dhtmlxScheduler\imgs_glossy\white_tab_wide.png" />
+    <Content Include="Scripts\dhtmlxScheduler\locale\locale_ar.js" />
+    <Content Include="Scripts\dhtmlxScheduler\locale\locale_be.js" />
+    <Content Include="Scripts\dhtmlxScheduler\locale\locale_ca.js" />
+    <Content Include="Scripts\dhtmlxScheduler\locale\locale_cn.js" />
+    <Content Include="Scripts\dhtmlxScheduler\locale\locale_cs.js" />
+    <Content Include="Scripts\dhtmlxScheduler\locale\locale_da.js" />
+    <Content Include="Scripts\dhtmlxScheduler\locale\locale_de.js" />
+    <Content Include="Scripts\dhtmlxScheduler\locale\locale_el.js" />
+    <Content Include="Scripts\dhtmlxScheduler\locale\locale_en.js" />
+    <Content Include="Scripts\dhtmlxScheduler\locale\locale_es.js" />
+    <Content Include="Scripts\dhtmlxScheduler\locale\locale_fi.js" />
+    <Content Include="Scripts\dhtmlxScheduler\locale\locale_fr.js" />
+    <Content Include="Scripts\dhtmlxScheduler\locale\locale_he.js" />
+    <Content Include="Scripts\dhtmlxScheduler\locale\locale_hu.js" />
+    <Content Include="Scripts\dhtmlxScheduler\locale\locale_id.js" />
+    <Content Include="Scripts\dhtmlxScheduler\locale\locale_it.js" />
+    <Content Include="Scripts\dhtmlxScheduler\locale\locale_jp.js" />
+    <Content Include="Scripts\dhtmlxScheduler\locale\locale_nb.js" />
+    <Content Include="Scripts\dhtmlxScheduler\locale\locale_nl.js" />
+    <Content Include="Scripts\dhtmlxScheduler\locale\locale_no.js" />
+    <Content Include="Scripts\dhtmlxScheduler\locale\locale_pl.js" />
+    <Content Include="Scripts\dhtmlxScheduler\locale\locale_pt.js" />
+    <Content Include="Scripts\dhtmlxScheduler\locale\locale_ro.js" />
+    <Content Include="Scripts\dhtmlxScheduler\locale\locale_ru.js" />
+    <Content Include="Scripts\dhtmlxScheduler\locale\locale_si.js" />
+    <Content Include="Scripts\dhtmlxScheduler\locale\locale_sk.js" />
+    <Content Include="Scripts\dhtmlxScheduler\locale\locale_sv.js" />
+    <Content Include="Scripts\dhtmlxScheduler\locale\locale_tr.js" />
+    <Content Include="Scripts\dhtmlxScheduler\locale\locale_ua.js" />
+    <Content Include="Scripts\dhtmlxScheduler\locale\recurring\locale_recurring_be.js" />
+    <Content Include="Scripts\dhtmlxScheduler\locale\recurring\locale_recurring_cn.js" />
+    <Content Include="Scripts\dhtmlxScheduler\locale\recurring\locale_recurring_cs.js" />
+    <Content Include="Scripts\dhtmlxScheduler\locale\recurring\locale_recurring_da.js" />
+    <Content Include="Scripts\dhtmlxScheduler\locale\recurring\locale_recurring_de.js" />
+    <Content Include="Scripts\dhtmlxScheduler\locale\recurring\locale_recurring_el.js" />
+    <Content Include="Scripts\dhtmlxScheduler\locale\recurring\locale_recurring_en.js" />
+    <Content Include="Scripts\dhtmlxScheduler\locale\recurring\locale_recurring_es.js" />
+    <Content Include="Scripts\dhtmlxScheduler\locale\recurring\locale_recurring_fi.js" />
+    <Content Include="Scripts\dhtmlxScheduler\locale\recurring\locale_recurring_fr.js" />
+    <Content Include="Scripts\dhtmlxScheduler\locale\recurring\locale_recurring_it.js" />
+    <Content Include="Scripts\dhtmlxScheduler\locale\recurring\locale_recurring_nb.js" />
+    <Content Include="Scripts\dhtmlxScheduler\locale\recurring\locale_recurring_nl.js" />
+    <Content Include="Scripts\dhtmlxScheduler\locale\recurring\locale_recurring_pl.js" />
+    <Content Include="Scripts\dhtmlxScheduler\locale\recurring\locale_recurring_pt.js" />
+    <Content Include="Scripts\dhtmlxScheduler\locale\recurring\locale_recurring_ro.js" />
+    <Content Include="Scripts\dhtmlxScheduler\locale\recurring\locale_recurring_ru.js" />
+    <Content Include="Scripts\dhtmlxScheduler\locale\recurring\locale_recurring_sk.js" />
+    <Content Include="Scripts\dhtmlxScheduler\locale\recurring\locale_recurring_sv.js" />
+    <Content Include="Scripts\dhtmlxScheduler\locale\recurring\locale_recurring_ua.js" />
+    <Content Include="Scripts\dhtmlxScheduler\locale\recurring\repeat_template_be.html" />
+    <Content Include="Scripts\dhtmlxScheduler\locale\recurring\repeat_template_cn.html" />
+    <Content Include="Scripts\dhtmlxScheduler\locale\recurring\repeat_template_de.html" />
+    <Content Include="Scripts\dhtmlxScheduler\locale\recurring\repeat_template_el.html" />
+    <Content Include="Scripts\dhtmlxScheduler\locale\recurring\repeat_template_en.html" />
+    <Content Include="Scripts\dhtmlxScheduler\locale\recurring\repeat_template_es.html" />
+    <Content Include="Scripts\dhtmlxScheduler\locale\recurring\repeat_template_fr.html" />
+    <Content Include="Scripts\dhtmlxScheduler\locale\recurring\repeat_template_it.html" />
+    <Content Include="Scripts\dhtmlxScheduler\locale\recurring\repeat_template_nl.html" />
+    <Content Include="Scripts\dhtmlxScheduler\locale\recurring\repeat_template_ro.html" />
+    <Content Include="Scripts\dhtmlxScheduler\locale\recurring\repeat_template_ru.html" />
+    <Content Include="Scripts\dhtmlxScheduler\locale\recurring\repeat_template_sk.html" />
+    <Content Include="Scripts\ej\common\ej.angular2.js" />
+    <Content Include="Scripts\ej\common\ej.angular2.min.js" />
+    <Content Include="Scripts\ej\common\ej.core.min.js" />
+    <Content Include="Scripts\ej\common\ej.data.min.js" />
+    <Content Include="Scripts\ej\common\ej.draggable.min.js" />
+    <Content Include="Scripts\ej\common\ej.globalize.min.js" />
+    <Content Include="Scripts\ej\common\ej.radialmenubase.min.js" />
+    <Content Include="Scripts\ej\common\ej.scroller.min.js" />
+    <Content Include="Scripts\ej\common\ej.touch.min.js" />
+    <Content Include="Scripts\ej\common\ej.unobtrusive.min.js" />
+    <Content Include="Scripts\ej\common\ej.webform.min.js" />
+    <Content Include="Scripts\ej\common\ej.widget.angular.min.js" />
+    <Content Include="Scripts\ej\common\ej.widget.ko.min.js" />
+    <Content Include="Scripts\ej\datavisualization\ej.barcode.min.js" />
+    <Content Include="Scripts\ej\datavisualization\ej.bulletgraph.min.js" />
+    <Content Include="Scripts\ej\datavisualization\ej.chart.min.js" />
+    <Content Include="Scripts\ej\datavisualization\ej.circulargauge.min.js" />
+    <Content Include="Scripts\ej\datavisualization\ej.diagram.min.js" />
+    <Content Include="Scripts\ej\datavisualization\ej.digitalgauge.min.js" />
+    <Content Include="Scripts\ej\datavisualization\ej.gauge.min.js" />
+    <Content Include="Scripts\ej\datavisualization\ej.lineargauge.min.js" />
+    <Content Include="Scripts\ej\datavisualization\ej.map.min.js" />
+    <Content Include="Scripts\ej\datavisualization\ej.rangenavigator.min.js" />
+    <Content Include="Scripts\ej\datavisualization\ej.treemap.min.js" />
+    <Content Include="Scripts\ej\datavisualization\ej.treemap.min.map" />
+    <Content Include="Scripts\ej\datavisualization\ej.rangenavigator.min.map" />
+    <Content Include="Scripts\ej\datavisualization\ej.map.min.map" />
+    <Content Include="Scripts\ej\datavisualization\ej.lineargauge.min.map" />
+    <Content Include="Scripts\ej\datavisualization\ej.gauge.min.map" />
+    <Content Include="Scripts\ej\datavisualization\ej.digitalgauge.min.map" />
+    <Content Include="Scripts\ej\datavisualization\ej.diagram.min.map" />
+    <Content Include="Scripts\ej\datavisualization\ej.circulargauge.min.map" />
+    <Content Include="Scripts\ej\datavisualization\ej.chart.min.map" />
+    <Content Include="Scripts\ej\datavisualization\ej.bulletgraph.min.map" />
+    <Content Include="Scripts\ej\datavisualization\ej.barcode.min.map" />
+    <Content Include="Scripts\ej\common\ej.widget.ko.min.map" />
+    <Content Include="Scripts\ej\common\ej.widget.angular.min.map" />
+    <Content Include="Scripts\ej\common\ej.webform.min.map" />
+    <Content Include="Scripts\ej\common\ej.unobtrusive.min.map" />
+    <Content Include="Scripts\ej\common\ej.touch.min.map" />
+    <Content Include="Scripts\ej\common\ej.scroller.min.map" />
+    <Content Include="Scripts\ej\common\ej.radialmenubase.min.map" />
+    <Content Include="Scripts\ej\common\ej.globalize.min.map" />
+    <Content Include="Scripts\ej\common\ej.draggable.min.map" />
+    <Content Include="Scripts\ej\common\ej.data.min.map" />
+    <Content Include="Scripts\ej\common\ej.core.min.map" />
+    <Content Include="Scripts\ej\common\ej.angular2.js.map" />
+    <Content Include="Content\ej\web\gradient-saffron\ej.theme.less" />
+    <Content Include="Content\ej\web\gradient-saffron-dark\ej.theme.less" />
+    <Content Include="Content\ej\web\gradient-lime\ej.theme.less" />
+    <Content Include="Content\ej\web\gradient-lime-dark\ej.theme.less" />
+    <Content Include="Content\ej\web\gradient-azure\ej.theme.less" />
+    <Content Include="Content\ej\web\gradient-azure-dark\ej.theme.less" />
+    <Content Include="Content\ej\web\flat-saffron\ej.theme.less" />
+    <Content Include="Content\ej\web\flat-saffron-dark\ej.theme.less" />
+    <Content Include="Content\ej\web\flat-lime\ej.theme.less" />
+    <Content Include="Content\ej\web\flat-lime-dark\ej.theme.less" />
+    <Content Include="Content\ej\web\flat-azure-dark\ej.theme.less" />
+    <Content Include="Content\ej\web\ej.widgets.core.less" />
+    <Content Include="Content\ej\web\ej.widgets.core.bootstrap.less" />
+    <Content Include="Content\ej\web\default-theme\ej.theme.less" />
+    <Content Include="Content\ej\web\common-images\spreadsheet\ejxlicons.woff" />
+    <Content Include="Content\ej\web\common-images\spreadsheet\ejxlicons.ttf" />
+    <Content Include="Content\ej\web\common-images\spreadsheet\ejxlicons.eot" />
+    <Content Include="Content\ej\web\common-images\ribbon\ejrbnicons.woff" />
+    <Content Include="Content\ej\web\common-images\ribbon\ejrbnicons.ttf" />
+    <Content Include="Content\ej\web\common-images\ribbon\ejrbnicons.eot" />
+    <Content Include="Content\ej\web\common-images\ejicons.woff" />
+    <Content Include="Content\ej\web\common-images\ejicons.ttf" />
+    <Content Include="Content\ej\web\common-images\ejicons.eot" />
+    <Content Include="Content\ej\web\bootstrap-theme\ej.theme.less" />
+    <Content Include="Content\ej\mobile\images\ejmmobilefonts.woff" />
+    <Content Include="Content\ej\mobile\images\ejmmobilefonts.ttf" />
+    <Content Include="Content\ej\mobile\images\ejmmobilefonts.eot" />
+    <Content Include="client_secret.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="Scripts\ej\ej.widgets.all.intellisense.js" />
+    <None Include="Scripts\ej\ej.widgets.all-vsdoc.js" />
+    <Content Include="Scripts\ej\ej.widgets.all.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.af-ZA.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.af.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.am-ET.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.am.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.ar-AE.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.ar-BH.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.ar-DZ.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.ar-EG.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.ar-IQ.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.ar-JO.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.ar-KW.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.ar-LB.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.ar-LY.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.ar-MA.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.ar-OM.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.ar-QA.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.ar-SA.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.ar-SY.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.ar-TN.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.ar-YE.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.ar.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.arn-CL.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.arn.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.as-IN.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.as.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.az-Cyrl-AZ.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.az-Cyrl.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.az-Latn-AZ.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.az-Latn.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.az.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.ba-RU.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.ba.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.be-BY.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.be.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.bg-BG.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.bg.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.bn-BD.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.bn-IN.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.bn.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.bo-CN.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.bo.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.br-FR.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.br.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.bs-Cyrl-BA.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.bs-Cyrl.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.bs-Latn-BA.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.bs-Latn.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.bs.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.ca-ES-valencia.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.ca-ES.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.ca.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.chr-Cher-US.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.chr-Cher.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.chr.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.co-FR.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.co.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.cs-CZ.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.cs.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.cy-GB.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.cy.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.da-DK.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.da.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.de-AT.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.de-CH.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.de-DE.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.de-LI.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.de-LU.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.de.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.dsb-DE.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.dsb.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.dv-MV.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.dv.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.el-GR.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.el.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.en-029.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.en-AU.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.en-BZ.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.en-CA.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.en-GB.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.en-IE.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.en-IN.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.en-JM.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.en-MY.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.en-NZ.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.en-PH.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.en-SG.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.en-TT.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.en-US.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.en-ZA.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.en-ZW.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.es-AR.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.es-BO.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.es-CL.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.es-CO.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.es-CR.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.es-DO.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.es-EC.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.es-ES.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.es-GT.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.es-HN.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.es-MX.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.es-NI.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.es-PA.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.es-PE.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.es-PR.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.es-PY.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.es-SV.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.es-US.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.es-UY.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.es-VE.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.es.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.et-EE.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.et.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.eu-ES.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.eu.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.fa-IR.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.fa.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.ff-Latn-SN.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.ff-Latn.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.ff.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.fi-FI.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.fi.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.fil-PH.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.fil.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.fo-FO.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.fo.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.fr-BE.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.fr-CA.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.fr-CH.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.fr-FR.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.fr-LU.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.fr-MC.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.fr.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.fy-NL.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.fy.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.ga-IE.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.ga.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.gd-GB.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.gd.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.gl-ES.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.gl.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.gsw-FR.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.gsw.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.gu-IN.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.gu.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.ha-Latn-NG.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.ha-Latn.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.ha.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.haw-US.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.haw.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.he-IL.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.he.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.hi-IN.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.hi.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.hr-BA.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.hr-HR.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.hr.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.hsb-DE.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.hsb.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.hu-HU.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.hu.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.hy-AM.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.hy.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.id-ID.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.id.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.ig-NG.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.ig.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.ii-CN.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.ii.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.is-IS.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.is.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.it-CH.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.it-IT.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.it.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.iu-Cans-CA.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.iu-Cans.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.iu-Latn-CA.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.iu-Latn.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.iu.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.ja-JP.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.ja.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.ka-GE.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.ka.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.kk-KZ.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.kk.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.kl-GL.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.kl.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.km-KH.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.km.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.kn-IN.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.kn.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.ko-KR.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.ko.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.kok-IN.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.kok.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.ku-Arab-IQ.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.ku-Arab.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.ku.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.ky-KG.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.ky.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.lb-LU.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.lb.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.lo-LA.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.lo.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.lt-LT.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.lt.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.lv-LV.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.lv.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.mi-NZ.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.mi.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.mk-MK.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.mk.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.ml-IN.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.ml.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.mn-Cyrl.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.mn-MN.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.mn-Mong-CN.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.mn-Mong.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.mn.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.moh-CA.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.moh.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.mr-IN.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.mr.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.ms-BN.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.ms-MY.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.ms.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.mt-MT.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.mt.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.nb-NO.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.nb.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.ne-NP.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.ne.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.nl-BE.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.nl-NL.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.nl.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.nn-NO.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.nn.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.no.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.nso-ZA.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.nso.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.oc-FR.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.oc.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.or-IN.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.or.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.pa-Arab-PK.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.pa-Arab.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.pa-IN.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.pa.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.pl-PL.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.pl.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.prs-AF.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.prs.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.ps-AF.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.ps.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.pt-BR.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.pt-PT.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.pt.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.qut-GT.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.qut.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.quz-BO.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.quz-EC.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.quz-PE.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.quz.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.rm-CH.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.rm.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.ro-RO.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.ro.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.ru-RU.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.ru.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.rw-RW.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.rw.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.sa-IN.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.sa.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.sah-RU.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.sah.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.sd-Arab-PK.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.sd-Arab.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.sd.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.se-FI.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.se-NO.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.se-SE.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.se.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.si-LK.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.si.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.sk-SK.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.sk.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.sl-SI.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.sl.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.sma-NO.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.sma-SE.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.sma.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.smj-NO.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.smj-SE.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.smj.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.smn-FI.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.smn.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.sms-FI.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.sms.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.sq-AL.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.sq.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.sr-Cyrl-BA.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.sr-Cyrl-CS.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.sr-Cyrl-ME.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.sr-Cyrl-RS.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.sr-Cyrl.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.sr-Latn-BA.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.sr-Latn-CS.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.sr-Latn-ME.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.sr-Latn-RS.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.sr-Latn.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.sr.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.sv-FI.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.sv-SE.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.sv.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.sw-KE.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.sw.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.syr-SY.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.syr.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.ta-IN.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.ta-LK.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.ta.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.te-IN.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.te.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.tg-Cyrl-TJ.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.tg-Cyrl.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.tg.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.th-TH.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.th.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.ti-ER.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.ti-ET.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.ti.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.tk-TM.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.tk.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.tn-BW.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.tn-ZA.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.tn.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.tr-TR.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.tr.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.tt-RU.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.tt.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.tzm-Latn-DZ.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.tzm-Latn.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.tzm-Tfng-MA.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.tzm-Tfng.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.tzm.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.ug-CN.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.ug.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.uk-UA.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.uk.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.ur-PK.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.ur.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.uz-Cyrl-UZ.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.uz-Cyrl.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.uz-Latn-UZ.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.uz-Latn.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.uz.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.vi-VN.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.vi.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.wo-SN.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.wo.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.xh-ZA.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.xh.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.yo-NG.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.yo.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.zh-CHS.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.zh-CHT.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.zh-CN.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.zh-Hans.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.zh-Hant.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.zh-HK.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.zh-MO.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.zh-SG.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.zh-TW.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.zh.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.zu-ZA.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.zu.min.js" />
+    <Content Include="Scripts\ej\localetexts\ej.localetexts.en-US.min.js" />
+    <Content Include="Scripts\ej\mobile\ej.mobile.accordion.min.js" />
+    <Content Include="Scripts\ej\mobile\ej.mobile.accordion.min.map" />
+    <Content Include="Scripts\ej\localetexts\ej.localetexts.en-US.min.map" />
+    <Content Include="Scripts\ej\ej.widgets.all.min.map" />
+    <None Include="Scripts\ej\mobile\ej.mobile.all.intellisense.js" />
+    <None Include="Scripts\ej\mobile\ej.mobile.all-vsdoc.js" />
+    <Content Include="Scripts\ej\mobile\ej.mobile.all.min.js" />
+    <Content Include="Scripts\ej\mobile\ej.mobile.angular.min.js" />
+    <Content Include="Scripts\ej\mobile\ej.mobile.application.min.js" />
+    <Content Include="Scripts\ej\mobile\ej.mobile.autocomplete.min.js" />
+    <Content Include="Scripts\ej\mobile\ej.mobile.button.min.js" />
+    <Content Include="Scripts\ej\mobile\ej.mobile.core.min.js" />
+    <Content Include="Scripts\ej\mobile\ej.mobile.datepicker.min.js" />
+    <Content Include="Scripts\ej\mobile\ej.mobile.dialog.min.js" />
+    <Content Include="Scripts\ej\mobile\ej.mobile.dropdownlist.min.js" />
+    <Content Include="Scripts\ej\mobile\ej.mobile.editor.min.js" />
+    <Content Include="Scripts\ej\mobile\ej.mobile.groupbutton.min.js" />
+    <Content Include="Scripts\ej\mobile\ej.mobile.inputbutton.min.js" />
+    <Content Include="Scripts\ej\mobile\ej.mobile.listview.min.js" />
+    <Content Include="Scripts\ej\mobile\ej.mobile.menu.min.js" />
+    <Content Include="Scripts\ej\mobile\ej.mobile.navigationbar.min.js" />
+    <Content Include="Scripts\ej\mobile\ej.mobile.progressbar.min.js" />
+    <Content Include="Scripts\ej\mobile\ej.mobile.radialmenu.min.js" />
+    <Content Include="Scripts\ej\mobile\ej.mobile.radialslider.min.js" />
+    <Content Include="Scripts\ej\mobile\ej.mobile.rating.min.js" />
+    <Content Include="Scripts\ej\mobile\ej.mobile.rotator.min.js" />
+    <Content Include="Scripts\ej\mobile\ej.mobile.scrollpanel.min.js" />
+    <Content Include="Scripts\ej\mobile\ej.mobile.slider.min.js" />
+    <Content Include="Scripts\ej\mobile\ej.mobile.splitpane.min.js" />
+    <Content Include="Scripts\ej\mobile\ej.mobile.tab.min.js" />
+    <Content Include="Scripts\ej\mobile\ej.mobile.tile.min.js" />
+    <Content Include="Scripts\ej\mobile\ej.mobile.timepicker.min.js" />
+    <Content Include="Scripts\ej\mobile\ej.mobile.togglebutton.min.js" />
+    <Content Include="Scripts\ej\web\ej.accordion.min.js" />
+    <Content Include="Scripts\ej\web\ej.autocomplete.min.js" />
+    <Content Include="Scripts\ej\web\ej.button.min.js" />
+    <Content Include="Scripts\ej\web\ej.calculate.min.js" />
+    <Content Include="Scripts\ej\web\ej.captcha.min.js" />
+    <Content Include="Scripts\ej\web\ej.checkbox.min.js" />
+    <Content Include="Scripts\ej\web\ej.colorpicker.min.js" />
+    <Content Include="Scripts\ej\web\ej.datepicker.min.js" />
+    <Content Include="Scripts\ej\web\ej.datetimepicker.min.js" />
+    <Content Include="Scripts\ej\web\ej.dialog.min.js" />
+    <Content Include="Scripts\ej\web\ej.dropdownlist.min.js" />
+    <Content Include="Scripts\ej\web\ej.editor.min.js" />
+    <Content Include="Scripts\ej\web\ej.excelfilter.min.js" />
+    <Content Include="Scripts\ej\web\ej.fileexplorer.min.js" />
+    <Content Include="Scripts\ej\web\ej.gantt.min.js" />
+    <Content Include="Scripts\ej\web\ej.grid.min.js" />
+    <Content Include="Scripts\ej\web\ej.groupbutton.min.js" />
+    <Content Include="Scripts\ej\web\ej.kanban.min.js" />
+    <Content Include="Scripts\ej\web\ej.listbox.min.js" />
+    <Content Include="Scripts\ej\web\ej.listview.min.js" />
+    <Content Include="Scripts\ej\web\ej.maskedit.min.js" />
+    <Content Include="Scripts\ej\web\ej.menu.min.js" />
+    <Content Include="Scripts\ej\web\ej.navigationdrawer.min.js" />
+    <Content Include="Scripts\ej\web\ej.olap.base.min.js" />
+    <Content Include="Scripts\ej\web\ej.olapchart.min.js" />
+    <Content Include="Scripts\ej\web\ej.olapclient.min.js" />
+    <Content Include="Scripts\ej\web\ej.olapgauge.min.js" />
+    <Content Include="Scripts\ej\web\ej.pager.min.js" />
+    <Content Include="Scripts\ej\web\ej.pdfviewer.min.js" />
+    <Content Include="Scripts\ej\web\ej.pivotanalysis.base.min.js" />
+    <Content Include="Scripts\ej\web\ej.pivotgrid.min.js" />
+    <Content Include="Scripts\ej\web\ej.pivotpager.min.js" />
+    <Content Include="Scripts\ej\web\ej.pivotschemadesigner.min.js" />
+    <Content Include="Scripts\ej\web\ej.progressbar.min.js" />
+    <Content Include="Scripts\ej\web\ej.radialmenu.min.js" />
+    <Content Include="Scripts\ej\web\ej.radialslider.min.js" />
+    <Content Include="Scripts\ej\web\ej.radiobutton.min.js" />
+    <Content Include="Scripts\ej\web\ej.rating.min.js" />
+    <Content Include="Scripts\ej\web\ej.recurrenceeditor.min.js" />
+    <Content Include="Scripts\ej\web\ej.reportviewer.min.js" />
+    <Content Include="Scripts\ej\web\ej.ribbon.min.js" />
+    <Content Include="Scripts\ej\web\ej.rotator.min.js" />
+    <Content Include="Scripts\ej\web\ej.rte.min.js" />
+    <Content Include="Scripts\ej\web\ej.schedule.min.js" />
+    <Content Include="Scripts\ej\web\ej.slider.min.js" />
+    <Content Include="Scripts\ej\web\ej.splitbutton.min.js" />
+    <Content Include="Scripts\ej\web\ej.splitter.min.js" />
+    <Content Include="Scripts\ej\web\ej.spreadsheet.min.js" />
+    <Content Include="Scripts\ej\web\ej.tab.min.js" />
+    <Content Include="Scripts\ej\web\ej.tagcloud.min.js" />
+    <Content Include="Scripts\ej\web\ej.tile.min.js" />
+    <Content Include="Scripts\ej\web\ej.timepicker.min.js" />
+    <Content Include="Scripts\ej\web\ej.togglebutton.min.js" />
+    <Content Include="Scripts\ej\web\ej.toolbar.min.js" />
+    <Content Include="Scripts\ej\web\ej.tooltip.min.js" />
+    <Content Include="Scripts\ej\web\ej.treegrid.min.js" />
+    <Content Include="Scripts\ej\web\ej.treeview.min.js" />
+    <Content Include="Scripts\ej\web\ej.uploadbox.min.js" />
+    <Content Include="Scripts\ej\web\ej.waitingpopup.min.js" />
+    <Content Include="Scripts\ej\web\ej.waitingpopup.min.map" />
+    <Content Include="Scripts\ej\web\ej.uploadbox.min.map" />
+    <Content Include="Scripts\ej\web\ej.treeview.min.map" />
+    <Content Include="Scripts\ej\web\ej.treegrid.min.map" />
+    <Content Include="Scripts\ej\web\ej.tooltip.min.map" />
+    <Content Include="Scripts\ej\web\ej.toolbar.min.map" />
+    <Content Include="Scripts\ej\web\ej.togglebutton.min.map" />
+    <Content Include="Scripts\ej\web\ej.timepicker.min.map" />
+    <Content Include="Scripts\ej\web\ej.tile.min.map" />
+    <Content Include="Scripts\ej\web\ej.tagcloud.min.map" />
+    <Content Include="Scripts\ej\web\ej.tab.min.map" />
+    <Content Include="Scripts\ej\web\ej.spreadsheet.min.map" />
+    <Content Include="Scripts\ej\web\ej.splitter.min.map" />
+    <Content Include="Scripts\ej\web\ej.splitbutton.min.map" />
+    <Content Include="Scripts\ej\web\ej.slider.min.map" />
+    <Content Include="Scripts\ej\web\ej.schedule.min.map" />
+    <Content Include="Scripts\ej\web\ej.rte.min.map" />
+    <Content Include="Scripts\ej\web\ej.rotator.min.map" />
+    <Content Include="Scripts\ej\web\ej.ribbon.min.map" />
+    <Content Include="Scripts\ej\web\ej.reportviewer.min.map" />
+    <Content Include="Scripts\ej\web\ej.recurrenceeditor.min.map" />
+    <Content Include="Scripts\ej\web\ej.rating.min.map" />
+    <Content Include="Scripts\ej\web\ej.radiobutton.min.map" />
+    <Content Include="Scripts\ej\web\ej.radialslider.min.map" />
+    <Content Include="Scripts\ej\web\ej.radialmenu.min.map" />
+    <Content Include="Scripts\ej\web\ej.progressbar.min.map" />
+    <Content Include="Scripts\ej\web\ej.pivotschemadesigner.min.map" />
+    <Content Include="Scripts\ej\web\ej.pivotpager.min.map" />
+    <Content Include="Scripts\ej\web\ej.pivotgrid.min.map" />
+    <Content Include="Scripts\ej\web\ej.pivotanalysis.base.min.map" />
+    <Content Include="Scripts\ej\web\ej.pdfviewer.min.map" />
+    <Content Include="Scripts\ej\web\ej.pager.min.map" />
+    <Content Include="Scripts\ej\web\ej.olapgauge.min.map" />
+    <Content Include="Scripts\ej\web\ej.olapclient.min.map" />
+    <Content Include="Scripts\ej\web\ej.olapchart.min.map" />
+    <Content Include="Scripts\ej\web\ej.olap.base.min.map" />
+    <Content Include="Scripts\ej\web\ej.navigationdrawer.min.map" />
+    <Content Include="Scripts\ej\web\ej.menu.min.map" />
+    <Content Include="Scripts\ej\web\ej.maskedit.min.map" />
+    <Content Include="Scripts\ej\web\ej.listview.min.map" />
+    <Content Include="Scripts\ej\web\ej.listbox.min.map" />
+    <Content Include="Scripts\ej\web\ej.kanban.min.map" />
+    <Content Include="Scripts\ej\web\ej.groupbutton.min.map" />
+    <Content Include="Scripts\ej\web\ej.grid.min.map" />
+    <Content Include="Scripts\ej\web\ej.gantt.min.map" />
+    <Content Include="Scripts\ej\web\ej.fileexplorer.min.map" />
+    <Content Include="Scripts\ej\web\ej.excelfilter.min.map" />
+    <Content Include="Scripts\ej\web\ej.editor.min.map" />
+    <Content Include="Scripts\ej\web\ej.dropdownlist.min.map" />
+    <Content Include="Scripts\ej\web\ej.dialog.min.map" />
+    <Content Include="Scripts\ej\web\ej.datetimepicker.min.map" />
+    <Content Include="Scripts\ej\web\ej.datepicker.min.map" />
+    <Content Include="Scripts\ej\web\ej.colorpicker.min.map" />
+    <Content Include="Scripts\ej\web\ej.checkbox.min.map" />
+    <Content Include="Scripts\ej\web\ej.captcha.min.map" />
+    <Content Include="Scripts\ej\web\ej.calculate.min.map" />
+    <Content Include="Scripts\ej\web\ej.button.min.map" />
+    <Content Include="Scripts\ej\web\ej.autocomplete.min.map" />
+    <Content Include="Scripts\ej\web\ej.accordion.min.map" />
+    <Content Include="Scripts\ej\mobile\ej.mobile.togglebutton.min.map" />
+    <Content Include="Scripts\ej\mobile\ej.mobile.timepicker.min.map" />
+    <Content Include="Scripts\ej\mobile\ej.mobile.tile.min.map" />
+    <Content Include="Scripts\ej\mobile\ej.mobile.tab.min.map" />
+    <Content Include="Scripts\ej\mobile\ej.mobile.splitpane.min.map" />
+    <Content Include="Scripts\ej\mobile\ej.mobile.slider.min.map" />
+    <Content Include="Scripts\ej\mobile\ej.mobile.scrollpanel.min.map" />
+    <Content Include="Scripts\ej\mobile\ej.mobile.rotator.min.map" />
+    <Content Include="Scripts\ej\mobile\ej.mobile.rating.min.map" />
+    <Content Include="Scripts\ej\mobile\ej.mobile.radialslider.min.map" />
+    <Content Include="Scripts\ej\mobile\ej.mobile.radialmenu.min.map" />
+    <Content Include="Scripts\ej\mobile\ej.mobile.progressbar.min.map" />
+    <Content Include="Scripts\ej\mobile\ej.mobile.navigationbar.min.map" />
+    <Content Include="Scripts\ej\mobile\ej.mobile.menu.min.map" />
+    <Content Include="Scripts\ej\mobile\ej.mobile.listview.min.map" />
+    <Content Include="Scripts\ej\mobile\ej.mobile.inputbutton.min.map" />
+    <Content Include="Scripts\ej\mobile\ej.mobile.groupbutton.min.map" />
+    <Content Include="Scripts\ej\mobile\ej.mobile.editor.min.map" />
+    <Content Include="Scripts\ej\mobile\ej.mobile.dropdownlist.min.map" />
+    <Content Include="Scripts\ej\mobile\ej.mobile.dialog.min.map" />
+    <Content Include="Scripts\ej\mobile\ej.mobile.datepicker.min.map" />
+    <Content Include="Scripts\ej\mobile\ej.mobile.core.min.map" />
+    <Content Include="Scripts\ej\mobile\ej.mobile.button.min.map" />
+    <Content Include="Scripts\ej\mobile\ej.mobile.autocomplete.min.map" />
+    <Content Include="Scripts\ej\mobile\ej.mobile.application.min.map" />
+    <Content Include="Scripts\ej\mobile\ej.mobile.angular.min.map" />
+    <Content Include="Scripts\ej\mobile\ej.mobile.all.min.map" />
+    <None Include="Scripts\ej\web\ej.web.all.intellisense.js" />
+    <None Include="Scripts\ej\web\ej.web.all-vsdoc.js" />
+    <Content Include="Scripts\ej\web\ej.web.all.min.js" />
+    <Content Include="Scripts\ej\web\ej.web.all.min.map" />
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.easing.1.3.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\jsrender.min.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\rgbcolor.js" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
+    <Content Include="Views\Account\ConfirmEmail.cshtml" />
+    <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
+    <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
+    <Content Include="Views\Account\ForgotPassword.cshtml" />
+    <Content Include="Views\Account\ForgotPasswordConfirmation.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Account\ResetPassword.cshtml" />
+    <Content Include="Views\Account\ResetPasswordConfirmation.cshtml" />
+    <Content Include="Views\Account\SendCode.cshtml" />
+    <Content Include="Views\Account\VerifyCode.cshtml" />
+    <Content Include="Views\Manage\AddPhoneNumber.cshtml" />
+    <Content Include="Views\Manage\ChangePassword.cshtml" />
+    <Content Include="Views\Manage\Index.cshtml" />
+    <Content Include="Views\Manage\ManageLogins.cshtml" />
+    <Content Include="Views\Manage\SetPassword.cshtml" />
+    <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
+    <Content Include="Views\Shared\Lockout.cshtml" />
+    <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\GetSchedule.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201711041621117_ScheduleDb.InitialMigration.resx">
+      <DependentUpon>201711041621117_ScheduleDb.InitialMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711041740588_ScheduleDb.DayOfWeek.resx">
+      <DependentUpon>201711041740588_ScheduleDb.DayOfWeek.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711041742326_ScheduleDb.DayOfWeekLastChange.resx">
+      <DependentUpon>201711041742326_ScheduleDb.DayOfWeekLastChange.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711041749100_ScheduleDb.ScheduleForEachGroup.resx">
+      <DependentUpon>201711041749100_ScheduleDb.ScheduleForEachGroup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711041752367_ScheduleDb.MakingColumnNamesMoreReadable.resx">
+      <DependentUpon>201711041752367_ScheduleDb.MakingColumnNamesMoreReadable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711051547321_TryingFixIT.resx">
+      <DependentUpon>201711051547321_TryingFixIT.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711081531136_ScheduleDB.ListOfDays.resx">
+      <DependentUpon>201711081531136_ScheduleDB.ListOfDays.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711081608476_DateTimeDay.resx">
+      <DependentUpon>201711081608476_DateTimeDay.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711081612597_DayAsList.resx">
+      <DependentUpon>201711081612597_DayAsList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711081614362_Days.resx">
+      <DependentUpon>201711081614362_Days.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711081703580_TableDay.resx">
+      <DependentUpon>201711081703580_TableDay.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711101649013_DaysAreBackToMAinTable.resx">
+      <DependentUpon>201711101649013_DaysAreBackToMAinTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711141447479_ClassTable.resx">
+      <DependentUpon>201711141447479_ClassTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711141629175_TimeyShwimey.resx">
+      <DependentUpon>201711141629175_TimeyShwimey.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711141648260_FinalClasses.resx">
+      <DependentUpon>201711141648260_FinalClasses.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711141656263_Tiiiiiiiiiime.resx">
+      <DependentUpon>201711141656263_Tiiiiiiiiiime.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Analyzer Include="..\packages\Microsoft.CodeAnalysis.Analyzers.1.1.0\analyzers\dotnet\cs\Microsoft.CodeAnalysis.Analyzers.dll" />
+    <Analyzer Include="..\packages\Microsoft.CodeAnalysis.Analyzers.1.1.0\analyzers\dotnet\cs\Microsoft.CodeAnalysis.CSharp.Analyzers.dll" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>63381</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:63381/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+      <UserProperties UseCdnSupport="True" />
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.2.1.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.2.1.0\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.7\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.7\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

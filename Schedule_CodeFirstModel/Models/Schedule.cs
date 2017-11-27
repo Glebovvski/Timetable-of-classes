@@ -8,10 +8,12 @@ namespace Schedule_CodeFirstModel.Models
 {
     public class Schedule
     {
+        
         public int Id { get; set; }
         
         public Group Group { get; set; }
         public string Day { get; set; }
+        
         public Class Class { get; set; }
         public Teacher Teacher { get; set; }
         public Room Room { get; set; }

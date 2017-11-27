@@ -1,0 +1,45 @@
+﻿@model List<Schedule_CodeFirstModel.Models.GroupVM>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.Label("GroupName")
+        </th>
+        <th>
+            @Html.Label("Students")
+        </th>
+        <th>
+            @Html.Label("Course")
+        </th>
+        <th>
+            @Html.Label("Speciality")
+        </th>
+        
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.ActionLink(item.GroupName, "GetSchedule", new { id=item.Id })
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Students)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Course)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Speciality)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>
