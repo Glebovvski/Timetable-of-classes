@@ -1,64 +1,239 @@
 ﻿@model IEnumerable<Schedule_CodeFirstModel.Models.Schedule>
-
+@using Schedule_CodeFirstModel.Models
 @{
     ViewBag.Title = "GetSchedule";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>GetSchedule</h2>
+<h2>Schedule</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
+<table class="table table-bordered table-hover">
     <tr>
-        <th>
-            Num
-        </th>
-        @foreach (var item in ViewBag.Days)
+        <th>Num</th>
+        @foreach (var day in ViewBag.Days)
         {
-        <th>
-            @Html.DisplayFor(model => item)
-        </th>
+            <th>
+            @Html.DisplayFor(modelItem => day)
+                </th>
         }
-        
     </tr>
-    
-        @{int i = 1; }
-                @foreach (var time in ViewBag.Times)
-                {
+    <tr>
+        <td>
+            1<br />
+            8:30-10:05
+        </td>
+        @foreach (var item in Model)
+        {
+            if (item.Class.Number == 1 && item.WeekNumber == Week.firstWeek)
+            {
 
-                        <tr>
-                            <td>
-                                @i<br />
-                                @Html.DisplayFor(model => time)
-                                @{i++;}
-                            </td>
-                            </tr>
-                }
-                            @foreach (var item in Model)
-                            {
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Subject.SubjectName)
-                                @Html.DisplayFor(modelItem => item.Teacher.Name)
-                                @Html.DisplayFor(modelItem => item.Room.Number)
-                                @Html.DisplayFor(modelItem => item.Room.PlacesAmount)
-                            </td>
-                            }
+                <td>
+                    @Html.DisplayFor(modelItem => item.Subject.SubjectName)<br />
+                    @Html.DisplayFor(modelItem => item.Teacher.Name)<br />
+                    Room №@Html.DisplayFor(modelItem => item.Room.Number)<br />
+                    @Html.DisplayFor(modelItem => item.Room.PlacesAmount) places
+                </td>
+            }
+        }
+    </tr>
+<tr>
+    <tr>
+        <td>
+            2<br />
+            10:25-12:00
+        </td>
+        @foreach (var item in Model)
+        {
+            if (item.Class.Number == 2 && item.WeekNumber == Week.firstWeek)
+            {
 
-                    
-            
-         
-         
-            
+                <td>
+                    @Html.DisplayFor(modelItem => item.Subject.SubjectName)<br />
+                    @Html.DisplayFor(modelItem => item.Teacher.Name)<br />
+                    Room №@Html.DisplayFor(modelItem => item.Room.Number)<br />
+                    @Html.DisplayFor(modelItem => item.Room.PlacesAmount) places
+                </td>
+            }
+        }
+    </tr>
+    <tr>
+        <td>
+            3<br />
+            12:20-13:55
+        </td>
+        @foreach (var item in Model)
+        {
+            if (item.Class.Number == 3 && item.WeekNumber == Week.firstWeek)
+            {
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Subject.SubjectName)<br />
+                    @Html.DisplayFor(modelItem => item.Teacher.Name)<br />
+                    Room №@Html.DisplayFor(modelItem => item.Room.Number)<br />
+                    @Html.DisplayFor(modelItem => item.Room.PlacesAmount) places
+                </td>
+            }
+        }
+    </tr>
+    <tr>
+        <td>
+            4<br />
+            14:15-15:50
+        </td>
+        @foreach (var item in Model)
+        {
+            if (item.Class.Number == 4 && item.WeekNumber == Week.firstWeek)
+            {
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Subject.SubjectName)<br />
+                    @Html.DisplayFor(modelItem => item.Teacher.Name)<br />
+                    Room №@Html.DisplayFor(modelItem => item.Room.Number)<br />
+                    @Html.DisplayFor(modelItem => item.Room.PlacesAmount) places
+                </td>
+            }
+        }
+    </tr>
+    <tr>
+        <td>
+            5<br />
+            16:10-17:45
+        </td>
+        @foreach (var item in Model)
+        {
+            if (item.Class.Number == 5 && item.WeekNumber == Week.firstWeek)
+            {
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Subject.SubjectName)<br />
+                    @Html.DisplayFor(modelItem => item.Teacher.Name)<br />
+                    Room №@Html.DisplayFor(modelItem => item.Room.Number)<br />
+                    @Html.DisplayFor(modelItem => item.Room.PlacesAmount) places
+                </td>
+            }
+        }
+    </tr>
+</table>
 
 
+<table class="table table-bordered table-hover">
+    <tr>
+        <th>Num</th>
+        @foreach (var day in ViewBag.Days)
+        {
+            <th>
+                @Html.DisplayFor(modelItem => day)
+            </th>
+        }
+    </tr>
+    <tr>
+        <td>
+            1<br />
+            8:30-10:05
+        </td>
+        @foreach (var item in Model)
+        {
+            if (item.Class.Number == 1 && item.WeekNumber == Week.secondWeek)
+            {
 
-                @*@Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                <td>
+                    @Html.DisplayFor(modelItem => item.Subject.SubjectName)<br />
+                    @Html.DisplayFor(modelItem => item.Teacher.Name)<br />
+                    Room №@Html.DisplayFor(modelItem => item.Room.Number)<br />
+                    @Html.DisplayFor(modelItem => item.Room.PlacesAmount) places
+                </td>
+            }
+        }
+    </tr>
+    <tr>
+    <tr>
+        <td>
+            2<br />
+            10:25-12:00
+        </td>
+        @foreach (var item in Model)
+        {
+            if (item.Class.Number == 2 && item.WeekNumber == Week.secondWeek)
+            {
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Subject.SubjectName)<br />
+                    @Html.DisplayFor(modelItem => item.Teacher.Name)<br />
+                    Room №@Html.DisplayFor(modelItem => item.Room.Number)<br />
+                    @Html.DisplayFor(modelItem => item.Room.PlacesAmount) places
+                </td>
+            }
+        }
+    </tr>
+    <tr>
+        <td>
+            3<br />
+            12:20-13:55
+        </td>
+        @foreach (var item in Model)
+        {
+            if (item.Class.Number == 3 && item.WeekNumber == Week.secondWeek)
+            {
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Subject.SubjectName)<br />
+                    @Html.DisplayFor(modelItem => item.Teacher.Name)<br />
+                    Room №@Html.DisplayFor(modelItem => item.Room.Number)<br />
+                    @Html.DisplayFor(modelItem => item.Room.PlacesAmount) places
+                </td>
+            }
+        }
+    </tr>
+    <tr>
+        <td>
+            4<br />
+            14:15-15:50
+        </td>
+        @foreach (var item in Model)
+        {
+            if (item.Class.Number == 4 && item.WeekNumber == Week.secondWeek)
+            {
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Subject.SubjectName)<br />
+                    @Html.DisplayFor(modelItem => item.Teacher.Name)<br />
+                    Room №@Html.DisplayFor(modelItem => item.Room.Number)<br />
+                    @Html.DisplayFor(modelItem => item.Room.PlacesAmount) places
+                </td>
+            }
+        }
+    </tr>
+    <tr>
+        <td>
+            5<br />
+            16:10-17:45
+        </td>
+        @foreach (var item in Model)
+        {
+            if (item.Class.Number == 5 && item.WeekNumber == Week.secondWeek)
+            {
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Subject.SubjectName)<br />
+                    @Html.DisplayFor(modelItem => item.Teacher.Name)<br />
+                    Room №@Html.DisplayFor(modelItem => item.Room.Number)<br />
+                    @Html.DisplayFor(modelItem => item.Room.PlacesAmount) places
+                </td>
+            }
+        }
+    </tr>
+</table>
+
+                @*<td>
+        @Html.DisplayFor(modelItem => item.Subject.SubjectName)
+        @Html.DisplayFor(modelItem => item.Teacher.Name)
+        @Html.DisplayFor(modelItem => item.Room.Number)
+        @Html.DisplayFor(modelItem => item.Room.PlacesAmount)
+    </td>
+    </tr>                  
+
+                @*Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
         @Html.ActionLink("Details", "Details", new { id = item.Id }) |
         @Html.ActionLink("Delete", "Delete", new { id = item.Id })
     </td>*@
 
-       
-    
-</table>

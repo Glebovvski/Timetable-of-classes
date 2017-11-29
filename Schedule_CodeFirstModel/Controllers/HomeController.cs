@@ -36,8 +36,8 @@ namespace Schedule_CodeFirstModel.Controllers
             ViewBag.Days = days;
             //ViewBag.Pairs = pairs;
             ViewBag.Times = times;
-            var schedule = context.Schedules.Where(x => x.Group.Id == id).Include(s => s.Subject).Include(d => d.Teacher).Include(r => r.Room).ToList();
-
+            var schedule = context.Schedules.Where(x => x.Group.Id == id).Include(s => s.Subject).Include(d => d.Teacher).Include(r => r.Room).Include(c=>c.Class).ToList();
+            ViewBag.Schedule = schedule;
             return View(schedule);
         }
 
