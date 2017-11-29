@@ -9,6 +9,7 @@ namespace Schedule_CodeFirstModel.Models
         [Required]
         [MaxLength(25)]
         public string Name { get; set; }
+        [Display(Name = "Subject")]
         public Subject Subject { get; set; }
     }
 }

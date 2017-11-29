@@ -27,33 +27,28 @@ namespace Schedule_CodeFirstModel.Controllers
 
         public ActionResult GetSchedule(int id)
         {
-            //var sql = @"GetSchedule {0}";
-            //var schedule = context.Database.SqlQuery<ScheduleVM>(sql, id).ToList();
-
             var days = new List<string>() { "Mon", "Tue", "Wed", "Thu", "Fri", "Sat" };
-            //var pairs = new List<string>() { "1, 2, 3, 4, 5 };
-            var times = new List<string>() { "8:30-10:05", "10:25-12:00", "12:20-13:55", "14:15-15:50", "16:10-17:45" };
             ViewBag.Days = days;
-            //ViewBag.Pairs = pairs;
-            ViewBag.Times = times;
             var schedule = context.Schedules.Where(x => x.Group.Id == id).Include(s => s.Subject).Include(d => d.Teacher).Include(r => r.Room).Include(c=>c.Class).ToList();
-            ViewBag.Schedule = schedule;
             return View(schedule);
         }
 
         public ActionResult Teachers()
         {
-            var sql = @"GetTeachers";
-            var teachers = context.Database.SqlQuery<Teacher>(sql).ToList();
+            var teachers = context.Teachers.Include(x => x.Subject).ToList();
             return View(teachers);
         }
 
         public ActionResult Specialities()
         {
-            var sql = @"GetSpecialities";
-            var specs = context.Database.SqlQuery<Speciality>(sql).ToList();
-
+            var specs = context.Specialities.ToList();
             return View(specs);
+        }
+
+        public ActionResult GroupsBySpec(int id)
+        {
+            var groupsbyspec = context.Groups.Where(x => x.Speciality.Id == id).Include(spec => spec.Speciality).Include(c => c.Course).ToList();
+            return View("Index", groupsbyspec);
         }
     }
 }

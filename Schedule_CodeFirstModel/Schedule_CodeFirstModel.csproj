@@ -1882,6 +1882,8 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\GetSchedule.cshtml" />
+    <Content Include="Views\Home\Teachers.cshtml" />
+    <Content Include="Views\Home\Specialities.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
