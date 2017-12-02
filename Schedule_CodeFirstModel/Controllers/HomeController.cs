@@ -25,24 +25,10 @@ namespace Schedule_CodeFirstModel.Controllers
             return View(groups);
         }
 
-        public ActionResult GetSchedule(int id)
-        {
-            var days = new List<string>() { "Mon", "Tue", "Wed", "Thu", "Fri", "Sat" };
-            ViewBag.Days = days;
-            var schedule = context.Schedules.Where(x => x.Group.Id == id).Include(s => s.Subject).Include(d => d.Teacher).Include(r => r.Room).Include(c=>c.Class).ToList();
-            return View(schedule);
-        }
-
         public ActionResult Teachers()
         {
             var teachers = context.Teachers.Include(x => x.Subject).ToList();
             return View(teachers);
-        }
-
-        public ActionResult Specialities()
-        {
-            var specs = context.Specialities.ToList();
-            return View(specs);
         }
 
         public ActionResult GroupsBySpec(int id)

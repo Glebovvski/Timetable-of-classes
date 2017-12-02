@@ -532,6 +532,9 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\SchedulesController.cs" />
+    <Compile Include="Controllers\SpecialitiesController.cs" />
+    <Compile Include="Controllers\TeachersController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -602,6 +605,10 @@
     <Compile Include="Migrations\201711291711514_WeekNumber.cs" />
     <Compile Include="Migrations\201711291711514_WeekNumber.Designer.cs">
       <DependentUpon>201711291711514_WeekNumber.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201712022008218_TeacherTableUpdates.cs" />
+    <Compile Include="Migrations\201712022008218_TeacherTableUpdates.Designer.cs">
+      <DependentUpon>201712022008218_TeacherTableUpdates.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AcademicPlan.cs" />
@@ -1881,9 +1888,21 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Home\GetSchedule.cshtml" />
-    <Content Include="Views\Home\Teachers.cshtml" />
-    <Content Include="Views\Home\Specialities.cshtml" />
+    <Content Include="Views\Schedules\Create.cshtml" />
+    <Content Include="Views\Schedules\Delete.cshtml" />
+    <Content Include="Views\Schedules\Details.cshtml" />
+    <Content Include="Views\Schedules\Edit.cshtml" />
+    <Content Include="Views\Schedules\Index.cshtml" />
+    <Content Include="Views\Specialities\Create.cshtml" />
+    <Content Include="Views\Specialities\Delete.cshtml" />
+    <Content Include="Views\Specialities\Details.cshtml" />
+    <Content Include="Views\Specialities\Edit.cshtml" />
+    <Content Include="Views\Specialities\Index.cshtml" />
+    <Content Include="Views\Teachers\Create.cshtml" />
+    <Content Include="Views\Teachers\Delete.cshtml" />
+    <Content Include="Views\Teachers\Details.cshtml" />
+    <Content Include="Views\Teachers\Edit.cshtml" />
+    <Content Include="Views\Teachers\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -1956,6 +1975,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201711291711514_WeekNumber.resx">
       <DependentUpon>201711291711514_WeekNumber.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712022008218_TeacherTableUpdates.resx">
+      <DependentUpon>201712022008218_TeacherTableUpdates.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

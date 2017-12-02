@@ -13,8 +13,8 @@
         @foreach (var day in ViewBag.Days)
         {
             <th>
-            @Html.DisplayFor(modelItem => day)
-                </th>
+                @Html.DisplayFor(modelItem => day)
+            </th>
         }
     </tr>
     <tr>
@@ -26,7 +26,7 @@
         {
             if (item.Class.Number == 1 && item.WeekNumber == Week.firstWeek)
             {
-
+                if(item == null) { <td></td>}
                 <td>
                     @Html.DisplayFor(modelItem => item.Subject.SubjectName)<br />
                     @Html.DisplayFor(modelItem => item.Teacher.Name)<br />
@@ -36,7 +36,7 @@
             }
         }
     </tr>
-<tr>
+    <tr>
     <tr>
         <td>
             2<br />
@@ -46,7 +46,9 @@
         {
             if (item.Class.Number == 2 && item.WeekNumber == Week.firstWeek)
             {
-
+                if (item == null)
+                {
+        <td></td>}
                 <td>
                     @Html.DisplayFor(modelItem => item.Subject.SubjectName)<br />
                     @Html.DisplayFor(modelItem => item.Teacher.Name)<br />
@@ -65,7 +67,9 @@
         {
             if (item.Class.Number == 3 && item.WeekNumber == Week.firstWeek)
             {
-
+                if (item == null)
+                {
+        <td></td>}
                 <td>
                     @Html.DisplayFor(modelItem => item.Subject.SubjectName)<br />
                     @Html.DisplayFor(modelItem => item.Teacher.Name)<br />
@@ -84,7 +88,9 @@
         {
             if (item.Class.Number == 4 && item.WeekNumber == Week.firstWeek)
             {
-
+                if (item == null)
+                {
+        <td></td>}
                 <td>
                     @Html.DisplayFor(modelItem => item.Subject.SubjectName)<br />
                     @Html.DisplayFor(modelItem => item.Teacher.Name)<br />
@@ -103,7 +109,9 @@
         {
             if (item.Class.Number == 5 && item.WeekNumber == Week.firstWeek)
             {
-
+                if (item == null)
+                {
+        <td></td>}
                 <td>
                     @Html.DisplayFor(modelItem => item.Subject.SubjectName)<br />
                     @Html.DisplayFor(modelItem => item.Teacher.Name)<br />
@@ -135,7 +143,9 @@
         {
             if (item.Class.Number == 1 && item.WeekNumber == Week.secondWeek)
             {
-
+                if (item == null)
+                {
+        <td></td>}
                 <td>
                     @Html.DisplayFor(modelItem => item.Subject.SubjectName)<br />
                     @Html.DisplayFor(modelItem => item.Teacher.Name)<br />
@@ -155,7 +165,9 @@
         {
             if (item.Class.Number == 2 && item.WeekNumber == Week.secondWeek)
             {
-
+                if (item == null)
+                {
+        <td></td>}
                 <td>
                     @Html.DisplayFor(modelItem => item.Subject.SubjectName)<br />
                     @Html.DisplayFor(modelItem => item.Teacher.Name)<br />
@@ -174,7 +186,9 @@
         {
             if (item.Class.Number == 3 && item.WeekNumber == Week.secondWeek)
             {
-
+                if (item == null)
+                {
+        <td></td>}
                 <td>
                     @Html.DisplayFor(modelItem => item.Subject.SubjectName)<br />
                     @Html.DisplayFor(modelItem => item.Teacher.Name)<br />
@@ -193,7 +207,9 @@
         {
             if (item.Class.Number == 4 && item.WeekNumber == Week.secondWeek)
             {
-
+                if (item == null)
+                {
+        <td></td>}
                 <td>
                     @Html.DisplayFor(modelItem => item.Subject.SubjectName)<br />
                     @Html.DisplayFor(modelItem => item.Teacher.Name)<br />
@@ -212,7 +228,9 @@
         {
             if (item.Class.Number == 5 && item.WeekNumber == Week.secondWeek)
             {
-
+                if (item == null)
+                {
+        <td></td>}
                 <td>
                     @Html.DisplayFor(modelItem => item.Subject.SubjectName)<br />
                     @Html.DisplayFor(modelItem => item.Teacher.Name)<br />
@@ -224,13 +242,13 @@
     </tr>
 </table>
 
-                @*<td>
+@*<td>
         @Html.DisplayFor(modelItem => item.Subject.SubjectName)
         @Html.DisplayFor(modelItem => item.Teacher.Name)
         @Html.DisplayFor(modelItem => item.Room.Number)
         @Html.DisplayFor(modelItem => item.Room.PlacesAmount)
     </td>
-    </tr>                  
+    </tr>
 
                 @*Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
         @Html.ActionLink("Details", "Details", new { id = item.Id }) |

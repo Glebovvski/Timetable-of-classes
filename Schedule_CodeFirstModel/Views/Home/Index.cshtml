@@ -23,7 +23,7 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.ActionLink(item.GroupName, "GetSchedule", new { id=item.Id })
+            <a href="~/Schedules/Index/@item.Id">@item.GroupName</a>
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Students)
