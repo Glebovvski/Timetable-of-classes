@@ -20,28 +20,19 @@ namespace Schedule_CodeFirstModel.Controllers
         {
             var days = new List<string>() { "Mon", "Tue", "Wed", "Thu", "Fri", "Sat" };
             ViewBag.Days = days;
-            var schedule = await db.Schedules.Where(x => x.Group.Id == id).Include(s => s.Subject).Include(d => d.Teacher).Include(r => r.Room).Include(c => c.Class).ToListAsync();
-            return View(schedule);
-        }
-
-        // GET: Schedules/Details/5
-        public async Task<ActionResult> Details(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Schedule schedule = await db.Schedules.FindAsync(id);
-            if (schedule == null)
-            {
-                return HttpNotFound();
-            }
+            var schedule = await db.Schedules.Where(x => x.Group.Id == id).Include(d => d.Teacher).Include(r => r.Room).Include(c => c.Class).ToListAsync();
             return View(schedule);
         }
 
         // GET: Schedules/Create
         public ActionResult Create()
         {
+            SelectList teachers = new SelectList(db.Teachers, "Id", "Name");
+            ViewBag.Teachers = teachers;
+            SelectList rooms = new SelectList(db.Rooms, "Id", "Number","PlacesAmount");
+            ViewBag.Rooms = rooms;
+            SelectList subj = new SelectList(db.Subjects, "Id", "SubjectName");
+            ViewBag.Subjects = subj;
             return View();
         }
 
@@ -50,7 +41,7 @@ namespace Schedule_CodeFirstModel.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "Id,Day,WeekNumber")] Schedule schedule)
+        public async Task<ActionResult> Create([Bind(Include = "Id,Day,WeekNumber,TeacherId,RoomId,SubjectId")] Schedule schedule)
         {
             if (ModelState.IsValid)
             {
@@ -74,6 +65,12 @@ namespace Schedule_CodeFirstModel.Controllers
             {
                 return HttpNotFound();
             }
+            SelectList teachers = new SelectList(db.Teachers, "Id", "Name", schedule.TeacherId);
+            ViewBag.Teachers = teachers;
+            SelectList rooms = new SelectList(db.Rooms, "Id", "Number", "PlacesAmount",schedule.RoomId);
+            ViewBag.Rooms = rooms;
+            SelectList subj = new SelectList(db.Subjects, "Id", "SubjectName",schedule.SubjectId);
+            ViewBag.Subjects = subj;
             return View(schedule);
         }
 
@@ -82,15 +79,15 @@ namespace Schedule_CodeFirstModel.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit([Bind(Include = "Id,Day,WeekNumber")] Schedule schedule)
+        public async Task<ActionResult> Edit([Bind(Include = "Id,Day,WeekNumber,TeacherId,RoomId,SubjectId,GroupId")] Schedule schedule)
         {
             if (ModelState.IsValid)
             {
                 db.Entry(schedule).State = EntityState.Modified;
                 await db.SaveChangesAsync();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index/"+schedule.GroupId);
             }
-            return View(schedule);
+            return RedirectToAction("Index",schedule.GroupId);
         }
 
         // GET: Schedules/Delete/5

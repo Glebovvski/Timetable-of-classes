@@ -610,6 +610,26 @@
     <Compile Include="Migrations\201712022008218_TeacherTableUpdates.Designer.cs">
       <DependentUpon>201712022008218_TeacherTableUpdates.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201712022035085_GroupsModelUpdate.cs" />
+    <Compile Include="Migrations\201712022035085_GroupsModelUpdate.Designer.cs">
+      <DependentUpon>201712022035085_GroupsModelUpdate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201712022203075_ScheduleModel.cs" />
+    <Compile Include="Migrations\201712022203075_ScheduleModel.Designer.cs">
+      <DependentUpon>201712022203075_ScheduleModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201712022206070_LastScheduleModelMigration.cs" />
+    <Compile Include="Migrations\201712022206070_LastScheduleModelMigration.Designer.cs">
+      <DependentUpon>201712022206070_LastScheduleModelMigration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201712022317200_FinalScheduleMigration.cs" />
+    <Compile Include="Migrations\201712022317200_FinalScheduleMigration.Designer.cs">
+      <DependentUpon>201712022317200_FinalScheduleMigration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201712022351395_FinalScheduleMigr.cs" />
+    <Compile Include="Migrations\201712022351395_FinalScheduleMigr.Designer.cs">
+      <DependentUpon>201712022351395_FinalScheduleMigr.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AcademicPlan.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -1888,21 +1908,21 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Schedules\Create.cshtml" />
     <Content Include="Views\Schedules\Delete.cshtml" />
-    <Content Include="Views\Schedules\Details.cshtml" />
-    <Content Include="Views\Schedules\Edit.cshtml" />
     <Content Include="Views\Schedules\Index.cshtml" />
     <Content Include="Views\Specialities\Create.cshtml" />
     <Content Include="Views\Specialities\Delete.cshtml" />
-    <Content Include="Views\Specialities\Details.cshtml" />
     <Content Include="Views\Specialities\Edit.cshtml" />
     <Content Include="Views\Specialities\Index.cshtml" />
     <Content Include="Views\Teachers\Create.cshtml" />
     <Content Include="Views\Teachers\Delete.cshtml" />
-    <Content Include="Views\Teachers\Details.cshtml" />
     <Content Include="Views\Teachers\Edit.cshtml" />
     <Content Include="Views\Teachers\Index.cshtml" />
+    <Content Include="Views\Home\Create.cshtml" />
+    <Content Include="Views\Home\Edit.cshtml" />
+    <Content Include="Views\Home\Delete.cshtml" />
+    <Content Include="Views\Schedules\Create.cshtml" />
+    <Content Include="Views\Schedules\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -1978,6 +1998,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201712022008218_TeacherTableUpdates.resx">
       <DependentUpon>201712022008218_TeacherTableUpdates.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712022035085_GroupsModelUpdate.resx">
+      <DependentUpon>201712022035085_GroupsModelUpdate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712022203075_ScheduleModel.resx">
+      <DependentUpon>201712022203075_ScheduleModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712022206070_LastScheduleModelMigration.resx">
+      <DependentUpon>201712022206070_LastScheduleModelMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712022317200_FinalScheduleMigration.resx">
+      <DependentUpon>201712022317200_FinalScheduleMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712022351395_FinalScheduleMigr.resx">
+      <DependentUpon>201712022351395_FinalScheduleMigr.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

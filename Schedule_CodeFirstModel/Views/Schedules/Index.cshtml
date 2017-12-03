@@ -26,14 +26,17 @@
         {
             if (item.Class.Number == 1 && item.WeekNumber == Week.firstWeek)
             {
-                if(item == null) { <td></td>}
+                
                 <td>
-                    @Html.DisplayFor(modelItem => item.Subject.SubjectName)<br />
+                    @Html.DisplayFor(modelItem => item.Teacher.Subject.SubjectName)<br />
                     @Html.DisplayFor(modelItem => item.Teacher.Name)<br />
                     Room №@Html.DisplayFor(modelItem => item.Room.Number)<br />
                     @Html.DisplayFor(modelItem => item.Room.PlacesAmount) places
+                    @Html.ActionLink("Edit", "Edit", new { id = item.Id })
                 </td>
+               
             }
+
         }
     </tr>
     <tr>
@@ -46,15 +49,15 @@
         {
             if (item.Class.Number == 2 && item.WeekNumber == Week.firstWeek)
             {
-                if (item == null)
-                {
-        <td></td>}
-                <td>
-                    @Html.DisplayFor(modelItem => item.Subject.SubjectName)<br />
-                    @Html.DisplayFor(modelItem => item.Teacher.Name)<br />
-                    Room №@Html.DisplayFor(modelItem => item.Room.Number)<br />
-                    @Html.DisplayFor(modelItem => item.Room.PlacesAmount) places
-                </td>
+                
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Teacher.Subject.SubjectName)<br />
+                        @Html.DisplayFor(modelItem => item.Teacher.Name)<br />
+                        Room №@Html.DisplayFor(modelItem => item.Room.Number)<br />
+                        @Html.DisplayFor(modelItem => item.Room.PlacesAmount) places
+                        @Html.ActionLink("Edit", "Edit", new { id = item.Id })
+                    </td>
+                
             }
         }
     </tr>
@@ -67,15 +70,15 @@
         {
             if (item.Class.Number == 3 && item.WeekNumber == Week.firstWeek)
             {
-                if (item == null)
-                {
-        <td></td>}
+                
                 <td>
-                    @Html.DisplayFor(modelItem => item.Subject.SubjectName)<br />
+                    @Html.DisplayFor(modelItem => item.Teacher.Subject.SubjectName)<br />
                     @Html.DisplayFor(modelItem => item.Teacher.Name)<br />
                     Room №@Html.DisplayFor(modelItem => item.Room.Number)<br />
                     @Html.DisplayFor(modelItem => item.Room.PlacesAmount) places
+                    @Html.ActionLink("Edit", "Edit", new { id = item.Id })
                 </td>
+                
             }
         }
     </tr>
@@ -88,15 +91,13 @@
         {
             if (item.Class.Number == 4 && item.WeekNumber == Week.firstWeek)
             {
-                if (item == null)
-                {
-        <td></td>}
-                <td>
-                    @Html.DisplayFor(modelItem => item.Subject.SubjectName)<br />
-                    @Html.DisplayFor(modelItem => item.Teacher.Name)<br />
-                    Room №@Html.DisplayFor(modelItem => item.Room.Number)<br />
-                    @Html.DisplayFor(modelItem => item.Room.PlacesAmount) places
-                </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Teacher.Subject.SubjectName)<br />
+                        @Html.DisplayFor(modelItem => item.Teacher.Name)<br />
+                        Room №@Html.DisplayFor(modelItem => item.Room.Number)<br />
+                        @Html.DisplayFor(modelItem => item.Room.PlacesAmount) places
+                        @Html.ActionLink("Edit", "Edit", new { id = item.Id })
+                    </td>
             }
         }
     </tr>
@@ -109,15 +110,13 @@
         {
             if (item.Class.Number == 5 && item.WeekNumber == Week.firstWeek)
             {
-                if (item == null)
-                {
-        <td></td>}
-                <td>
-                    @Html.DisplayFor(modelItem => item.Subject.SubjectName)<br />
-                    @Html.DisplayFor(modelItem => item.Teacher.Name)<br />
-                    Room №@Html.DisplayFor(modelItem => item.Room.Number)<br />
-                    @Html.DisplayFor(modelItem => item.Room.PlacesAmount) places
-                </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Teacher.Subject.SubjectName)<br />
+                        @Html.DisplayFor(modelItem => item.Teacher.Name)<br />
+                        Room №@Html.DisplayFor(modelItem => item.Room.Number)<br />
+                        @Html.DisplayFor(modelItem => item.Room.PlacesAmount) places
+                        @Html.ActionLink("Edit", "Edit", new { id = item.Id })
+                    </td>
             }
         }
     </tr>
@@ -143,15 +142,15 @@
         {
             if (item.Class.Number == 1 && item.WeekNumber == Week.secondWeek)
             {
-                if (item == null)
-                {
-        <td></td>}
+                
                 <td>
-                    @Html.DisplayFor(modelItem => item.Subject.SubjectName)<br />
+                    @Html.DisplayFor(modelItem => item.Teacher.Subject.SubjectName)<br />
                     @Html.DisplayFor(modelItem => item.Teacher.Name)<br />
                     Room №@Html.DisplayFor(modelItem => item.Room.Number)<br />
                     @Html.DisplayFor(modelItem => item.Room.PlacesAmount) places
+                    @Html.ActionLink("Edit", "Edit", new { id = item.Id })
                 </td>
+               
             }
         }
     </tr>
@@ -165,15 +164,15 @@
         {
             if (item.Class.Number == 2 && item.WeekNumber == Week.secondWeek)
             {
-                if (item == null)
-                {
-        <td></td>}
-                <td>
-                    @Html.DisplayFor(modelItem => item.Subject.SubjectName)<br />
-                    @Html.DisplayFor(modelItem => item.Teacher.Name)<br />
-                    Room №@Html.DisplayFor(modelItem => item.Room.Number)<br />
-                    @Html.DisplayFor(modelItem => item.Room.PlacesAmount) places
-                </td>
+                
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Teacher.Subject.SubjectName)<br />
+                        @Html.DisplayFor(modelItem => item.Teacher.Name)<br />
+                        Room №@Html.DisplayFor(modelItem => item.Room.Number)<br />
+                        @Html.DisplayFor(modelItem => item.Room.PlacesAmount) places
+                        @Html.ActionLink("Edit", "Edit", new { id = item.Id })
+                    </td>
+                
             }
         }
     </tr>
@@ -186,15 +185,15 @@
         {
             if (item.Class.Number == 3 && item.WeekNumber == Week.secondWeek)
             {
-                if (item == null)
-                {
-        <td></td>}
-                <td>
-                    @Html.DisplayFor(modelItem => item.Subject.SubjectName)<br />
-                    @Html.DisplayFor(modelItem => item.Teacher.Name)<br />
-                    Room №@Html.DisplayFor(modelItem => item.Room.Number)<br />
-                    @Html.DisplayFor(modelItem => item.Room.PlacesAmount) places
-                </td>
+                
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Teacher.Subject.SubjectName)<br />
+                        @Html.DisplayFor(modelItem => item.Teacher.Name)<br />
+                        Room №@Html.DisplayFor(modelItem => item.Room.Number)<br />
+                        @Html.DisplayFor(modelItem => item.Room.PlacesAmount) places
+                        @Html.ActionLink("Edit", "Edit", new { id = item.Id })
+                    </td>
+                
             }
         }
     </tr>
@@ -207,15 +206,15 @@
         {
             if (item.Class.Number == 4 && item.WeekNumber == Week.secondWeek)
             {
-                if (item == null)
-                {
-        <td></td>}
-                <td>
-                    @Html.DisplayFor(modelItem => item.Subject.SubjectName)<br />
-                    @Html.DisplayFor(modelItem => item.Teacher.Name)<br />
-                    Room №@Html.DisplayFor(modelItem => item.Room.Number)<br />
-                    @Html.DisplayFor(modelItem => item.Room.PlacesAmount) places
-                </td>
+               
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Teacher.Subject.SubjectName)<br />
+                        @Html.DisplayFor(modelItem => item.Teacher.Name)<br />
+                        Room №@Html.DisplayFor(modelItem => item.Room.Number)<br />
+                        @Html.DisplayFor(modelItem => item.Room.PlacesAmount) places
+                        @Html.ActionLink("Edit", "Edit", new { id = item.Id })
+                    </td>
+                
             }
         }
     </tr>
@@ -228,15 +227,15 @@
         {
             if (item.Class.Number == 5 && item.WeekNumber == Week.secondWeek)
             {
-                if (item == null)
-                {
-        <td></td>}
-                <td>
-                    @Html.DisplayFor(modelItem => item.Subject.SubjectName)<br />
-                    @Html.DisplayFor(modelItem => item.Teacher.Name)<br />
-                    Room №@Html.DisplayFor(modelItem => item.Room.Number)<br />
-                    @Html.DisplayFor(modelItem => item.Room.PlacesAmount) places
-                </td>
+                
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Teacher.Subject.SubjectName)<br />
+                        @Html.DisplayFor(modelItem => item.Teacher.Name)<br />
+                        Room №@Html.DisplayFor(modelItem => item.Room.Number)<br />
+                        @Html.DisplayFor(modelItem => item.Room.PlacesAmount) places
+                        @Html.ActionLink("Edit", "Edit", new { id = item.Id })
+                    </td>
+                
             }
         }
     </tr>

@@ -24,15 +24,14 @@ namespace Schedule_CodeFirstModel.Controllers
         // GET: Teachers/Create
         public ActionResult Create()
         {
+            SelectList subjects = new SelectList(db.Subjects, "Id", "SubjectName");
+            ViewBag.Subjects = subjects;
             return View();
         }
 
-        // POST: Teachers/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "Id,Name")] Teacher teacher)
+        public async Task<ActionResult> Create([Bind(Include = "Id,Name, SubjectId")] Teacher teacher)
         {
             if (ModelState.IsValid)
             {
