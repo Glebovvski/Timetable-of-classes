@@ -22,3 +22,16 @@ select,
 textarea {
     max-width: 280px;
 }
+
+.rotate {
+    -webkit-transform: rotate(-90deg);
+    -moz-transform: rotate(-90deg);
+    -o-transform: rotate(-90deg);
+    -ms-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+    font-size: 20px;
+    margin-top:150%;
+}
+#width{
+    width:70px;
+}

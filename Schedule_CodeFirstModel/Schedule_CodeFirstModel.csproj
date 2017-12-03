@@ -630,11 +630,20 @@
     <Compile Include="Migrations\201712022351395_FinalScheduleMigr.Designer.cs">
       <DependentUpon>201712022351395_FinalScheduleMigr.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201712031247547_ClassesIdInScheduleTable.cs" />
+    <Compile Include="Migrations\201712031247547_ClassesIdInScheduleTable.Designer.cs">
+      <DependentUpon>201712031247547_ClassesIdInScheduleTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201712031407040_DaysEnum.cs" />
+    <Compile Include="Migrations\201712031407040_DaysEnum.Designer.cs">
+      <DependentUpon>201712031407040_DaysEnum.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AcademicPlan.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Class.cs" />
     <Compile Include="Models\Course.cs" />
+    <Compile Include="Models\Day.cs" />
     <Compile Include="Models\Group.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -2013,6 +2022,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201712022351395_FinalScheduleMigr.resx">
       <DependentUpon>201712022351395_FinalScheduleMigr.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712031247547_ClassesIdInScheduleTable.resx">
+      <DependentUpon>201712031247547_ClassesIdInScheduleTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712031407040_DaysEnum.resx">
+      <DependentUpon>201712031407040_DaysEnum.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

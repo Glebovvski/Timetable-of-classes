@@ -11,13 +11,17 @@ namespace Schedule_CodeFirstModel.Models
     {
         public int Id { get; set; }
 
+        [Display(Name = "Group")]
         public int GroupId { get; set; }
         public virtual Group Group { get; set; }
 
-        public string Day { get; set; }
+        public Day Day { get; set; }
         public Week WeekNumber { get; set; }
 
-        public Class Class { get; set; }
+        [Display(Name = "Class №")]
+        [Range(1,5)]
+        public int ClassId { get; set; }
+        public virtual Class Class { get; set; }
 
         [Display(Name = "Teacher")]
         public int TeacherId { get; set; }

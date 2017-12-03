@@ -27,12 +27,17 @@ namespace Schedule_CodeFirstModel.Controllers
         // GET: Schedules/Create
         public ActionResult Create()
         {
+            SelectList groups = new SelectList(db.Groups, "Id", "GroupName");
+            ViewBag.Groups = groups;
             SelectList teachers = new SelectList(db.Teachers, "Id", "Name");
             ViewBag.Teachers = teachers;
-            SelectList rooms = new SelectList(db.Rooms, "Id", "Number","PlacesAmount");
+            SelectList rooms = new SelectList(db.Rooms, "Id", "Number", "PlacesAmount");
             ViewBag.Rooms = rooms;
             SelectList subj = new SelectList(db.Subjects, "Id", "SubjectName");
             ViewBag.Subjects = subj;
+            SelectList classes = new SelectList(db.Classes, "Id", "Number");
+            ViewBag.Classes = classes;
+
             return View();
         }
 
@@ -41,13 +46,14 @@ namespace Schedule_CodeFirstModel.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "Id,Day,WeekNumber,TeacherId,RoomId,SubjectId")] Schedule schedule)
+        public async Task<ActionResult> Create([Bind(Include = "Id,Day,ClassId,WeekNumber,TeacherId,RoomId,SubjectId,GroupId")] Schedule schedule)
         {
             if (ModelState.IsValid)
             {
+                db.Entry(schedule).State = EntityState.Modified;
                 db.Schedules.Add(schedule);
                 await db.SaveChangesAsync();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index/" + schedule.GroupId);
             }
 
             return View(schedule);
@@ -71,6 +77,11 @@ namespace Schedule_CodeFirstModel.Controllers
             ViewBag.Rooms = rooms;
             SelectList subj = new SelectList(db.Subjects, "Id", "SubjectName",schedule.SubjectId);
             ViewBag.Subjects = subj;
+            SelectList groups = new SelectList(db.Groups, "Id", "GroupName");
+            ViewBag.Groups = groups;
+            SelectList classes = new SelectList(db.Classes, "Id", "Number");
+            ViewBag.Classes = classes;
+
             return View(schedule);
         }
 
@@ -79,7 +90,7 @@ namespace Schedule_CodeFirstModel.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit([Bind(Include = "Id,Day,WeekNumber,TeacherId,RoomId,SubjectId,GroupId")] Schedule schedule)
+        public async Task<ActionResult> Edit([Bind(Include = "Id,GroupId,Day,ClassId,WeekNumber,TeacherId,RoomId,SubjectId")] Schedule schedule)
         {
             if (ModelState.IsValid)
             {
