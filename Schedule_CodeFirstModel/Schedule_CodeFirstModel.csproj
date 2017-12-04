@@ -642,6 +642,10 @@
     <Compile Include="Migrations\201712041244119_TeacherSubjectRelationAltered.Designer.cs">
       <DependentUpon>201712041244119_TeacherSubjectRelationAltered.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201712041538074_AcademPlanTableUpdate.cs" />
+    <Compile Include="Migrations\201712041538074_AcademPlanTableUpdate.Designer.cs">
+      <DependentUpon>201712041538074_AcademPlanTableUpdate.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AcademicPlan.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -2036,6 +2040,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201712041244119_TeacherSubjectRelationAltered.resx">
       <DependentUpon>201712041244119_TeacherSubjectRelationAltered.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712041538074_AcademPlanTableUpdate.resx">
+      <DependentUpon>201712041538074_AcademPlanTableUpdate.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

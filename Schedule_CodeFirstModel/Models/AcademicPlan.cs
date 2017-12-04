@@ -10,10 +10,20 @@ namespace Schedule_CodeFirstModel.Models
     {
         [Required]
         public int Id { get; set; }
+
         [Required]
-        public Speciality Speciality { get; set; }
+        [Display(Name = "Speciality")]
+        public int SpecialityId { get; set; }
+        public virtual Speciality Speciality { get; set; }
+
         [Required]
-        public Semestre Semestre { get; set; }
-        public Subject Subject { get; set; }
+        [Display(Name = "Semestre")]
+        public int SemestreId { get; set; }
+        public virtual Semestre Semestre { get; set; }
+
+        [Display(Name = "Subject")]
+        [Required]
+        public int SubjectId { get; set; }
+        public virtual Subject Subject { get; set; }
     }
 }
