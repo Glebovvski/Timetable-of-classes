@@ -11,27 +11,25 @@ using Schedule_CodeFirstModel.Models;
 
 namespace Schedule_CodeFirstModel.Controllers
 {
-    public class TeachersController : Controller
+    public class SubjectsController : Controller
     {
         private ScheduleContext db = new ScheduleContext();
 
-        // GET: Teachers
+        // GET: Subjects
         public async Task<ActionResult> Index()
         {
-            return View(await db.Teachers.Include(x=>x.Subject).ToListAsync());
+            var subjects = db.Subjects.Include(s => s.Teacher);
+            return View(await subjects.ToListAsync());
         }
 
-        // GET: Teachers/Create
-        public ActionResult Create()
+
+        public ActionResult CreateTeacher()
         {
-            SelectList subjects = new SelectList(db.Subjects, "Id", "SubjectName");
-            ViewBag.Subjects = subjects;
             return View();
         }
-
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "Id,Name, SubjectId")] Teacher teacher)
+        public async Task<ActionResult> CreateTeacher([Bind(Include = "Id,Name")] Teacher teacher)
         {
             if (ModelState.IsValid)
             {
@@ -42,64 +40,86 @@ namespace Schedule_CodeFirstModel.Controllers
 
             return View(teacher);
         }
-
-        // GET: Teachers/Edit/5
-        public async Task<ActionResult> Edit(int? id)
+        // GET: Subjects/Create
+        public ActionResult Create()
         {
-            
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Teacher teacher = await db.Teachers.FindAsync(id);
-            
-            if (teacher == null)
-            {
-                return HttpNotFound();
-            }
-            SelectList subjects = new SelectList(db.Subjects, "Id", "SubjectName",teacher.SubjectId);
-            ViewBag.Subjects = subjects;
-            return View(teacher);
+            ViewBag.TeacherId = new SelectList(db.Teachers, "Id", "Name");
+            return View();
         }
 
-        // POST: Teachers/Edit/5
+        // POST: Subjects/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit([Bind(Include = "Id, Name, SubjectId")] Teacher teacher)
+        public async Task<ActionResult> Create([Bind(Include = "Id,SubjectName,TeacherId")] Subject subject)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(teacher).State = EntityState.Modified;
+                db.Subjects.Add(subject);
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
-            return View(teacher);
+
+            ViewBag.TeacherId = new SelectList(db.Teachers, "Id", "Name", subject.TeacherId);
+            return View(subject);
         }
 
-        // GET: Teachers/Delete/5
+        // GET: Subjects/Edit/5
+        public async Task<ActionResult> Edit(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Subject subject = await db.Subjects.FindAsync(id);
+            if (subject == null)
+            {
+                return HttpNotFound();
+            }
+            ViewBag.TeacherId = new SelectList(db.Teachers, "Id", "Name", subject.TeacherId);
+            return View(subject);
+        }
+
+        // POST: Subjects/Edit/5
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> Edit([Bind(Include = "Id,SubjectName,TeacherId")] Subject subject)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Entry(subject).State = EntityState.Modified;
+                await db.SaveChangesAsync();
+                return RedirectToAction("Index");
+            }
+            ViewBag.TeacherId = new SelectList(db.Teachers, "Id", "Name", subject.TeacherId);
+            return View(subject);
+        }
+
+        // GET: Subjects/Delete/5
         public async Task<ActionResult> Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Teacher teacher = await db.Teachers.FindAsync(id);
-            if (teacher == null)
+            Subject subject = await db.Subjects.FindAsync(id);
+            if (subject == null)
             {
                 return HttpNotFound();
             }
-            return View(teacher);
+            return View(subject);
         }
 
-        // POST: Teachers/Delete/5
+        // POST: Subjects/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> DeleteConfirmed(int id)
         {
-            Teacher teacher = await db.Teachers.FindAsync(id);
-            db.Teachers.Remove(teacher);
+            Subject subject = await db.Subjects.FindAsync(id);
+            db.Subjects.Remove(subject);
             await db.SaveChangesAsync();
             return RedirectToAction("Index");
         }

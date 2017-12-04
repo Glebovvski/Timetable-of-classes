@@ -16,6 +16,7 @@ namespace Schedule_CodeFirstModel.Models
         public virtual Group Group { get; set; }
 
         public Day Day { get; set; }
+        [Display(Name = "Week №")]
         public Week WeekNumber { get; set; }
 
         [Display(Name = "Class №")]

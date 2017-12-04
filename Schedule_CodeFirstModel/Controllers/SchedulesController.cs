@@ -20,7 +20,7 @@ namespace Schedule_CodeFirstModel.Controllers
         {
             var days = new List<string>() { "Mon", "Tue", "Wed", "Thu", "Fri", "Sat" };
             ViewBag.Days = days;
-            var schedule = await db.Schedules.Where(x => x.Group.Id == id).Include(d => d.Teacher).Include(r => r.Room).Include(c => c.Class).ToListAsync();
+            var schedule = await db.Schedules.Where(x => x.Group.Id == id).Include(d => d.Subject).Include(r => r.Room).Include(c => c.Class).ToListAsync();
             return View(schedule);
         }
 
@@ -85,8 +85,8 @@ namespace Schedule_CodeFirstModel.Controllers
             {
                 return HttpNotFound();
             }
-            SelectList teachers = new SelectList(db.Teachers, "Id", "Name", schedule.TeacherId);
-            ViewBag.Teachers = teachers;
+            //SelectList teachers = new SelectList(db.Teachers, "Id", "Name", schedule.TeacherId);
+            //ViewBag.Teachers = teachers;
             SelectList rooms = new SelectList(db.Rooms, "Id", "Number", "PlacesAmount",schedule.RoomId);
             ViewBag.Rooms = rooms;
             SelectList subj = new SelectList(db.Subjects, "Id", "SubjectName",schedule.SubjectId);

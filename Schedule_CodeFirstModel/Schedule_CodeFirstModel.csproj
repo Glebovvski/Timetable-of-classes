@@ -534,7 +534,7 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\SchedulesController.cs" />
     <Compile Include="Controllers\SpecialitiesController.cs" />
-    <Compile Include="Controllers\TeachersController.cs" />
+    <Compile Include="Controllers\SubjectsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -637,6 +637,10 @@
     <Compile Include="Migrations\201712031407040_DaysEnum.cs" />
     <Compile Include="Migrations\201712031407040_DaysEnum.Designer.cs">
       <DependentUpon>201712031407040_DaysEnum.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201712041244119_TeacherSubjectRelationAltered.cs" />
+    <Compile Include="Migrations\201712041244119_TeacherSubjectRelationAltered.Designer.cs">
+      <DependentUpon>201712041244119_TeacherSubjectRelationAltered.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AcademicPlan.cs" />
@@ -1923,15 +1927,16 @@
     <Content Include="Views\Specialities\Delete.cshtml" />
     <Content Include="Views\Specialities\Edit.cshtml" />
     <Content Include="Views\Specialities\Index.cshtml" />
-    <Content Include="Views\Teachers\Create.cshtml" />
-    <Content Include="Views\Teachers\Delete.cshtml" />
-    <Content Include="Views\Teachers\Edit.cshtml" />
-    <Content Include="Views\Teachers\Index.cshtml" />
     <Content Include="Views\Home\Create.cshtml" />
     <Content Include="Views\Home\Edit.cshtml" />
     <Content Include="Views\Home\Delete.cshtml" />
-    <Content Include="Views\Schedules\Create.cshtml" />
     <Content Include="Views\Schedules\Edit.cshtml" />
+    <Content Include="Views\Subjects\Create.cshtml" />
+    <Content Include="Views\Subjects\Delete.cshtml" />
+    <Content Include="Views\Subjects\Edit.cshtml" />
+    <Content Include="Views\Subjects\Index.cshtml" />
+    <Content Include="Views\Subjects\CreateTeacher.cshtml" />
+    <Content Include="Views\Schedules\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -2028,6 +2033,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201712031407040_DaysEnum.resx">
       <DependentUpon>201712031407040_DaysEnum.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712041244119_TeacherSubjectRelationAltered.resx">
+      <DependentUpon>201712041244119_TeacherSubjectRelationAltered.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
