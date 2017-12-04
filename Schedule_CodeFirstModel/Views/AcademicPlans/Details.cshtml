@@ -1,0 +1,43 @@
+﻿@model Schedule_CodeFirstModel.Models.AcademicPlan
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>AcademicPlan</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Semestre.Id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Semestre.Id)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Speciality.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Speciality.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Subject.SubjectName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Subject.SubjectName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
