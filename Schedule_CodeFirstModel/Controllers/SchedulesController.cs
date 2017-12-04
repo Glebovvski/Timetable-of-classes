@@ -16,7 +16,7 @@ namespace Schedule_CodeFirstModel.Controllers
         private ScheduleContext db = new ScheduleContext();
 
         // GET: Schedules
-        public async Task<ActionResult> Index(int id)
+        public async Task<ActionResult> Index(int? id)
         {
             var days = new List<string>() { "Mon", "Tue", "Wed", "Thu", "Fri", "Sat" };
             ViewBag.Days = days;
@@ -48,9 +48,23 @@ namespace Schedule_CodeFirstModel.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Create([Bind(Include = "Id,Day,ClassId,WeekNumber,TeacherId,RoomId,SubjectId,GroupId")] Schedule schedule)
         {
+            var check = db.Schedules.Where(x => x.Group.Id == schedule.GroupId).Where(x => x.Day == schedule.Day).Where(x => x.Class.Id == schedule.ClassId).Where(x => x.WeekNumber == schedule.WeekNumber).FirstOrDefault();
+            if (check != null)
+            {
+                SelectList teachers = new SelectList(db.Teachers, "Id", "Name");
+                ViewBag.Teachers = teachers;
+                SelectList rooms = new SelectList(db.Rooms, "Id", "Number", "PlacesAmount");
+                ViewBag.Rooms = rooms;
+                SelectList subj = new SelectList(db.Subjects, "Id", "SubjectName");
+                ViewBag.Subjects = subj;
+                SelectList classes = new SelectList(db.Classes, "Id", "Number");
+                ViewBag.Classes = classes;
+                SelectList groups = new SelectList(db.Groups, "Id", "GroupName");
+                ViewBag.Groups = groups;
+                ModelState.AddModelError("GroupId", "Schedule for this class is already created! You can Edit it on the form");
+            }
             if (ModelState.IsValid)
             {
-                db.Entry(schedule).State = EntityState.Modified;
                 db.Schedules.Add(schedule);
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index/" + schedule.GroupId);
