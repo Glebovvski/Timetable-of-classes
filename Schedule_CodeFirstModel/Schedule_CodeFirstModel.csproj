@@ -1944,9 +1944,8 @@
     <Content Include="Views\Schedules\Create.cshtml" />
     <Content Include="Views\AcademicPlans\Create.cshtml" />
     <Content Include="Views\AcademicPlans\Delete.cshtml" />
-    <Content Include="Views\AcademicPlans\Details.cshtml" />
     <Content Include="Views\AcademicPlans\Edit.cshtml" />
-    <Content Include="Views\AcademicPlans\Index.cshtml" />
+    <Content Include="Views\AcademicPlans\Plan.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

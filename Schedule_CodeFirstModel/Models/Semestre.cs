@@ -10,6 +10,7 @@ namespace Schedule_CodeFirstModel.Models
     {
         [Required]
         public int Id { get; set; }
+        [Display(Name = "Semestre №")]
         public int Number { get; set; }
     }
 }

@@ -15,28 +15,6 @@ namespace Schedule_CodeFirstModel.Controllers
     {
         private ScheduleContext db = new ScheduleContext();
 
-        // GET: AcademicPlans
-        public async Task<ActionResult> Index()
-        {
-            var academicPlans = db.AcademicPlans.Include(a => a.Semestre).Include(a => a.Speciality).Include(a => a.Subject);
-            return View(await academicPlans.ToListAsync());
-        }
-
-        // GET: AcademicPlans/Details/5
-        public async Task<ActionResult> Details(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            AcademicPlan academicPlan = await db.AcademicPlans.FindAsync(id);
-            if (academicPlan == null)
-            {
-                return HttpNotFound();
-            }
-            return View(academicPlan);
-        }
-
         // GET: AcademicPlans/Create
         public ActionResult Create()
         {
@@ -127,6 +105,16 @@ namespace Schedule_CodeFirstModel.Controllers
             db.AcademicPlans.Remove(academicPlan);
             await db.SaveChangesAsync();
             return RedirectToAction("Index");
+        }
+
+        public async Task<ActionResult> Plan(int id)
+        {
+            var plan =  await db.AcademicPlans.Where(x => x.SpecialityId == id).Include(z => z.Subject).Include(r => r.Semestre).ToListAsync();
+            if (plan == null)
+            {
+                return HttpNotFound();
+            }
+            return View(plan);
         }
 
         protected override void Dispose(bool disposing)

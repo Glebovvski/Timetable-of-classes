@@ -22,11 +22,12 @@
     {
         <tr>
             <td>
-                <a href="~/Home/GroupsBySpec/@item.Id">@item.Name</a>
+                <a href="~/AcademicPlans/Plan/@item.Id">@item.Name</a>
             </td>
             <td>
                 @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                @Html.ActionLink("Delete", "Delete", new { id = item.Id }) |
+                <a href="~/Home/GroupsBySpec/@item.Id">Details</a>
             </td>
         </tr>
     }
