@@ -1,0 +1,818 @@
+﻿@model IEnumerable<Schedule_CodeFirstModel.Models.Schedule>
+@using Schedule_CodeFirstModel.Models
+@{
+    ViewBag.Title = "Schedule";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Schedule for Teacher</h2>
+
+<h1 class="text-center">First Week</h1>
+<table class="table table-bordered table-hover">
+    <tr>
+        <th>Num</th>
+        @foreach (var day in ViewBag.Days)
+        {
+            <th>
+                @Html.DisplayFor(modelItem => day)
+            </th>
+        }
+    </tr>
+    <tr>
+        <td>
+            1<br />
+            8:30-10:05
+        </td>
+        <td>
+            @foreach (var item in Model)
+            {
+                if (item.Class.Number == 1 && item.Day == Day.Mon && item.WeekNumber == Week.firstWeek)
+                {
+                    @Html.DisplayFor(modelItem => item.Subject.SubjectName)<br />
+                    @Html.DisplayFor(modelItem => item.Subject.Teacher.Name)<br />
+                    <span>Room № </span>@Html.DisplayFor(modelItem => item.Room.Number)
+                    break;
+                }
+
+            }
+        </td>
+        <td>
+            @foreach (var item in Model)
+            {
+                if (item.Class.Number == 1 && item.Day == Day.Tue && item.WeekNumber == Week.firstWeek)
+                {
+                    @Html.DisplayFor(modelItem => item.Subject.SubjectName)<br />
+                    @Html.DisplayFor(modelItem => item.Subject.Teacher.Name)<br />
+                    <span>Room № </span>@Html.DisplayFor(modelItem => item.Room.Number)
+                    break;
+                }
+            }
+        </td>
+        <td>
+            @foreach (var item in Model)
+            {
+                if (item.Class.Number == 1 && item.Day == Day.Wed && item.WeekNumber == Week.firstWeek)
+                {
+                    @Html.DisplayFor(modelItem => item.Subject.SubjectName)<br />
+                    @Html.DisplayFor(modelItem => item.Subject.Teacher.Name)<br />
+                    <span>Room № </span>@Html.DisplayFor(modelItem => item.Room.Number)
+                    break;
+                }
+            }
+        </td>
+        <td>
+            @foreach (var item in Model)
+            {
+                if (item.Class.Number == 1 && item.Day == Day.Thu && item.WeekNumber == Week.firstWeek)
+                {
+                    @Html.DisplayFor(modelItem => item.Subject.SubjectName)<br />
+                    @Html.DisplayFor(modelItem => item.Subject.Teacher.Name)<br />
+                    <span>Room № </span>@Html.DisplayFor(modelItem => item.Room.Number)
+                    break;
+                }
+            }
+        </td>
+        <td>
+            @foreach (var item in Model)
+            {
+                if (item.Class.Number == 1 && item.Day == Day.Fri && item.WeekNumber == Week.firstWeek)
+                {
+                    @Html.DisplayFor(modelItem => item.Subject.SubjectName)<br />
+                    @Html.DisplayFor(modelItem => item.Subject.Teacher.Name)<br />
+                    <span>Room № </span>@Html.DisplayFor(modelItem => item.Room.Number)
+                    break;
+                }
+            }
+        </td>
+        <td>
+            @foreach (var item in Model)
+            {
+                if (item.Class.Number == 1 && item.Day == Day.Sat && item.WeekNumber == Week.firstWeek)
+                {
+                    @Html.DisplayFor(modelItem => item.Subject.SubjectName)<br />
+                    @Html.DisplayFor(modelItem => item.Subject.Teacher.Name)<br />
+                    <span>Room № </span>@Html.DisplayFor(modelItem => item.Room.Number)
+                    break;
+                }
+            }
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            2<br />
+            10:25-12:00
+        </td>
+        <td>
+            @foreach (var item in Model)
+            {
+                if (item.Class.Number == 2 && item.Day == Day.Mon && item.WeekNumber == Week.firstWeek)
+                {
+                    @Html.DisplayFor(modelItem => item.Subject.SubjectName)<br />
+                    @Html.DisplayFor(modelItem => item.Subject.Teacher.Name)<br />
+                    <span>Room № </span>@Html.DisplayFor(modelItem => item.Room.Number)
+                    break;
+                }
+            }
+        </td>
+        <td>
+            @foreach (var item in Model)
+            {
+                if (item.Class.Number == 2 && item.Day == Day.Tue && item.WeekNumber == Week.firstWeek)
+                {
+                    @Html.DisplayFor(modelItem => item.Subject.SubjectName)<br />
+                    @Html.DisplayFor(modelItem => item.Subject.Teacher.Name)<br />
+                    <span>Room № </span>@Html.DisplayFor(modelItem => item.Room.Number)
+                    break;
+                }
+            }
+        </td>
+        <td>
+            @foreach (var item in Model)
+            {
+                if (item.Class.Number == 2 && item.Day == Day.Wed && item.WeekNumber == Week.firstWeek)
+                {
+                    @Html.DisplayFor(modelItem => item.Subject.SubjectName)<br />
+                    @Html.DisplayFor(modelItem => item.Subject.Teacher.Name)<br />
+                    <span>Room № </span>@Html.DisplayFor(modelItem => item.Room.Number)
+                    break;
+                }
+            }
+        </td>
+        <td>
+            @foreach (var item in Model)
+            {
+                if (item.Class.Number == 2 && item.Day == Day.Thu && item.WeekNumber == Week.firstWeek)
+                {
+                    @Html.DisplayFor(modelItem => item.Subject.SubjectName)<br />
+                    @Html.DisplayFor(modelItem => item.Subject.Teacher.Name)<br />
+                    <span>Room № </span>@Html.DisplayFor(modelItem => item.Room.Number)
+                    break;
+                }
+            }
+        </td>
+        <td>
+            @foreach (var item in Model)
+            {
+                if (item.Class.Number == 2 && item.Day == Day.Fri && item.WeekNumber == Week.firstWeek)
+                {
+                    @Html.DisplayFor(modelItem => item.Subject.SubjectName)<br />
+                    @Html.DisplayFor(modelItem => item.Subject.Teacher.Name)<br />
+                    <span>Room № </span>@Html.DisplayFor(modelItem => item.Room.Number)
+                    break;
+                }
+            }
+        </td>
+        <td>
+            @foreach (var item in Model)
+            {
+                if (item.Class.Number == 2 && item.Day == Day.Sat && item.WeekNumber == Week.firstWeek)
+                {
+                    @Html.DisplayFor(modelItem => item.Subject.SubjectName)<br />
+                    @Html.DisplayFor(modelItem => item.Subject.Teacher.Name)<br />
+                    <span>Room № </span>@Html.DisplayFor(modelItem => item.Room.Number)
+                    break;
+                }
+            }
+        </td>
+    </tr>
+    <tr>
+        <td>
+            3<br />
+            12:20-13:55
+        </td>
+        <td>
+            @foreach (var item in Model)
+            {
+                if (item.Class.Number == 3 && item.Day == Day.Mon && item.WeekNumber == Week.firstWeek)
+                {
+                    @Html.DisplayFor(modelItem => item.Subject.SubjectName)<br />
+                    @Html.DisplayFor(modelItem => item.Subject.Teacher.Name)<br />
+                    <span>Room № </span>@Html.DisplayFor(modelItem => item.Room.Number)
+                    break;
+                }
+            }
+        </td>
+        <td>
+            @foreach (var item in Model)
+            {
+                if (item.Class.Number == 3 && item.Day == Day.Tue && item.WeekNumber == Week.firstWeek)
+                {
+                    @Html.DisplayFor(modelItem => item.Subject.SubjectName)<br />
+                    @Html.DisplayFor(modelItem => item.Subject.Teacher.Name)<br />
+                    <span>Room № </span>@Html.DisplayFor(modelItem => item.Room.Number)
+                    break;
+                }
+            }
+        </td>
+        <td>
+            @foreach (var item in Model)
+            {
+                if (item.Class.Number == 3 && item.Day == Day.Wed && item.WeekNumber == Week.firstWeek)
+                {
+                    @Html.DisplayFor(modelItem => item.Subject.SubjectName)<br />
+                    @Html.DisplayFor(modelItem => item.Subject.Teacher.Name)<br />
+                    <span>Room № </span>@Html.DisplayFor(modelItem => item.Room.Number)
+                    break;
+                }
+            }
+        </td>
+        <td>
+            @foreach (var item in Model)
+            {
+                if (item.Class.Number == 3 && item.Day == Day.Thu && item.WeekNumber == Week.firstWeek)
+                {
+                    @Html.DisplayFor(modelItem => item.Subject.SubjectName)<br />
+                    @Html.DisplayFor(modelItem => item.Subject.Teacher.Name)<br />
+                    <span>Room № </span>@Html.DisplayFor(modelItem => item.Room.Number)
+                    break;
+                }
+            }
+        </td>
+        <td>
+            @foreach (var item in Model)
+            {
+                if (item.Class.Number == 3 && item.Day == Day.Fri && item.WeekNumber == Week.firstWeek)
+                {
+                    @Html.DisplayFor(modelItem => item.Subject.SubjectName)<br />
+                    @Html.DisplayFor(modelItem => item.Subject.Teacher.Name)<br />
+                    <span>Room № </span>@Html.DisplayFor(modelItem => item.Room.Number)
+                    break;
+                }
+            }
+        </td>
+        <td>
+            @foreach (var item in Model)
+            {
+                if (item.Class.Number == 3 && item.Day == Day.Sat && item.WeekNumber == Week.firstWeek)
+                {
+                    @Html.DisplayFor(modelItem => item.Subject.SubjectName)<br />
+                    @Html.DisplayFor(modelItem => item.Subject.Teacher.Name)<br />
+                    <span>Room № </span>@Html.DisplayFor(modelItem => item.Room.Number)
+                    break;
+                }
+            }
+        </td>
+    </tr>
+    <tr>
+        <td>
+            4<br />
+            14:15-15:50
+        </td>
+        <td>
+            @foreach (var item in Model)
+            {
+                if (item.Class.Number == 4 && item.Day == Day.Mon && item.WeekNumber == Week.firstWeek)
+                {
+                    @Html.DisplayFor(modelItem => item.Subject.SubjectName)<br />
+                    @Html.DisplayFor(modelItem => item.Subject.Teacher.Name)<br />
+                    <span>Room № </span>@Html.DisplayFor(modelItem => item.Room.Number)
+                    break;
+                }
+            }
+        </td>
+        <td>
+            @foreach (var item in Model)
+            {
+                if (item.Class.Number == 4 && item.Day == Day.Tue && item.WeekNumber == Week.firstWeek)
+                {
+                    @Html.DisplayFor(modelItem => item.Subject.SubjectName)<br />
+                    @Html.DisplayFor(modelItem => item.Subject.Teacher.Name)<br />
+                    <span>Room № </span>@Html.DisplayFor(modelItem => item.Room.Number)
+                    break;
+                }
+            }
+        </td>
+        <td>
+            @foreach (var item in Model)
+            {
+                if (item.Class.Number == 4 && item.Day == Day.Wed && item.WeekNumber == Week.firstWeek)
+                {
+                    @Html.DisplayFor(modelItem => item.Subject.SubjectName)<br />
+                    @Html.DisplayFor(modelItem => item.Subject.Teacher.Name)<br />
+                    <span>Room № </span>@Html.DisplayFor(modelItem => item.Room.Number)
+                    break;
+                }
+            }
+        </td>
+        <td>
+            @foreach (var item in Model)
+            {
+                if (item.Class.Number == 4 && item.Day == Day.Thu && item.WeekNumber == Week.firstWeek)
+                {
+                    @Html.DisplayFor(modelItem => item.Subject.SubjectName)<br />
+                    @Html.DisplayFor(modelItem => item.Subject.Teacher.Name)<br />
+                    <span>Room № </span>@Html.DisplayFor(modelItem => item.Room.Number)
+                    break;
+                }
+            }
+        </td>
+        <td>
+            @foreach (var item in Model)
+            {
+                if (item.Class.Number == 4 && item.Day == Day.Fri && item.WeekNumber == Week.firstWeek)
+                {
+                    @Html.DisplayFor(modelItem => item.Subject.SubjectName)<br />
+                    @Html.DisplayFor(modelItem => item.Subject.Teacher.Name)<br />
+                    <span>Room № </span>@Html.DisplayFor(modelItem => item.Room.Number)
+                    break;
+                }
+            }
+        </td>
+        <td>
+            @foreach (var item in Model)
+            {
+                if (item.Class.Number == 4 && item.Day == Day.Sat && item.WeekNumber == Week.firstWeek)
+                {
+                    @Html.DisplayFor(modelItem => item.Subject.SubjectName)<br />
+                    @Html.DisplayFor(modelItem => item.Subject.Teacher.Name)<br />
+                    <span>Room № </span>@Html.DisplayFor(modelItem => item.Room.Number)
+                    break;
+                }
+            }
+        </td>
+    </tr>
+    <tr>
+        <td>
+            5<br />
+            16:10-17:45
+        </td>
+        <td>
+            @foreach (var item in Model)
+            {
+                if (item.Class.Number == 5 && item.Day == Day.Mon && item.WeekNumber == Week.firstWeek)
+                {
+                    @Html.DisplayFor(modelItem => item.Subject.SubjectName)<br />
+                    @Html.DisplayFor(modelItem => item.Subject.Teacher.Name)<br />
+                    <span>Room № </span>@Html.DisplayFor(modelItem => item.Room.Number)
+                    break;
+                }
+            }
+        </td>
+        <td>
+            @foreach (var item in Model)
+            {
+                if (item.Class.Number == 5 && item.Day == Day.Tue && item.WeekNumber == Week.firstWeek)
+                {
+                    @Html.DisplayFor(modelItem => item.Subject.SubjectName)<br />
+                    @Html.DisplayFor(modelItem => item.Subject.Teacher.Name)<br />
+                    <span>Room № </span>@Html.DisplayFor(modelItem => item.Room.Number)
+                    break;
+                }
+            }
+        </td>
+        <td>
+            @foreach (var item in Model)
+            {
+                if (item.Class.Number == 5 && item.Day == Day.Wed && item.WeekNumber == Week.firstWeek)
+                {
+                    @Html.DisplayFor(modelItem => item.Subject.SubjectName)<br />
+                    @Html.DisplayFor(modelItem => item.Subject.Teacher.Name)<br />
+                    <span>Room № </span>@Html.DisplayFor(modelItem => item.Room.Number)
+                    break;
+                }
+            }
+        </td>
+        <td>
+            @foreach (var item in Model)
+            {
+                if (item.Class.Number == 5 && item.Day == Day.Thu && item.WeekNumber == Week.firstWeek)
+                {
+                    @Html.DisplayFor(modelItem => item.Subject.SubjectName)<br />
+                    @Html.DisplayFor(modelItem => item.Subject.Teacher.Name)<br />
+                    <span>Room № </span>@Html.DisplayFor(modelItem => item.Room.Number)
+                    break;
+                }
+            }
+        </td>
+        <td>
+            @foreach (var item in Model)
+            {
+                if (item.Class.Number == 5 && item.Day == Day.Fri && item.WeekNumber == Week.firstWeek)
+                {
+                    @Html.DisplayFor(modelItem => item.Subject.SubjectName)<br />
+                    @Html.DisplayFor(modelItem => item.Subject.Teacher.Name)<br />
+                    <span>Room № </span>@Html.DisplayFor(modelItem => item.Room.Number)
+                    break;
+                }
+            }
+        </td>
+        <td>
+            @foreach (var item in Model)
+            {
+                if (item.Class.Number == 5 && item.Day == Day.Sat && item.WeekNumber == Week.firstWeek)
+                {
+                    @Html.DisplayFor(modelItem => item.Subject.SubjectName)<br />
+                    @Html.DisplayFor(modelItem => item.Subject.Teacher.Name)<br />
+                    <span>Room № </span>@Html.DisplayFor(modelItem => item.Room.Number)
+                    break;
+                }
+            }
+        </td>
+    </tr>
+</table>
+
+
+<h1 class="text-center">Second Week</h1>
+<table class="table table-bordered table-hover">
+    <tr>
+        <th>Num</th>
+        @foreach (var day in ViewBag.Days)
+        {
+            <th>
+                @Html.DisplayFor(modelItem => day)
+            </th>
+        }
+    </tr>
+    <tr>
+        <td>
+            1<br />
+            8:30-10:05
+        </td>
+        <td>
+            @foreach (var item in Model)
+            {
+                if (item.Class.Number == 1 && item.Day == Day.Mon && item.WeekNumber == Week.secondWeek)
+                {
+                    @Html.DisplayFor(modelItem => item.Subject.SubjectName)<br />
+                    @Html.DisplayFor(modelItem => item.Subject.Teacher.Name)<br />
+                    <span>Room № </span>@Html.DisplayFor(modelItem => item.Room.Number)
+                    break;
+                }
+            }
+        </td>
+        <td>
+            @foreach (var item in Model)
+            {
+                if (item.Class.Number == 1 && item.Day == Day.Tue && item.WeekNumber == Week.secondWeek)
+                {
+                    @Html.DisplayFor(modelItem => item.Subject.SubjectName)<br />
+                    @Html.DisplayFor(modelItem => item.Subject.Teacher.Name)<br />
+                    <span>Room № </span>@Html.DisplayFor(modelItem => item.Room.Number)
+                    break;
+                }
+            }
+        </td>
+        <td>
+            @foreach (var item in Model)
+            {
+                if (item.Class.Number == 1 && item.Day == Day.Wed && item.WeekNumber == Week.secondWeek)
+                {
+                    @Html.DisplayFor(modelItem => item.Subject.SubjectName)<br />
+                    @Html.DisplayFor(modelItem => item.Subject.Teacher.Name)<br />
+                    <span>Room № </span>@Html.DisplayFor(modelItem => item.Room.Number)
+                    break;
+                }
+            }
+        </td>
+        <td>
+            @foreach (var item in Model)
+            {
+                if (item.Class.Number == 1 && item.Day == Day.Thu && item.WeekNumber == Week.secondWeek)
+                {
+                    @Html.DisplayFor(modelItem => item.Subject.SubjectName)<br />
+                    @Html.DisplayFor(modelItem => item.Subject.Teacher.Name)<br />
+                    <span>Room № </span>@Html.DisplayFor(modelItem => item.Room.Number)
+                    break;
+                }
+            }
+        </td>
+        <td>
+            @foreach (var item in Model)
+            {
+                if (item.Class.Number == 1 && item.Day == Day.Fri && item.WeekNumber == Week.secondWeek)
+                {
+                    @Html.DisplayFor(modelItem => item.Subject.SubjectName)<br />
+                    @Html.DisplayFor(modelItem => item.Subject.Teacher.Name)<br />
+                    <span>Room № </span>@Html.DisplayFor(modelItem => item.Room.Number)
+                    break;
+                }
+            }
+        </td>
+        <td>
+            @foreach (var item in Model)
+            {
+                if (item.Class.Number == 1 && item.Day == Day.Sat && item.WeekNumber == Week.secondWeek)
+                {
+                    @Html.DisplayFor(modelItem => item.Subject.SubjectName)<br />
+                    @Html.DisplayFor(modelItem => item.Subject.Teacher.Name)<br />
+                    <span>Room № </span>@Html.DisplayFor(modelItem => item.Room.Number)
+                    break;
+                }
+            }
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            2<br />
+            10:25-12:00
+        </td>
+        <td>
+            @foreach (var item in Model)
+            {
+                if (item.Class.Number == 2 && item.Day == Day.Mon && item.WeekNumber == Week.secondWeek)
+                {
+                    @Html.DisplayFor(modelItem => item.Subject.SubjectName)<br />
+                    @Html.DisplayFor(modelItem => item.Subject.Teacher.Name)<br />
+                    <span>Room № </span>@Html.DisplayFor(modelItem => item.Room.Number)
+                    break;
+                }
+            }
+        </td>
+        <td>
+            @foreach (var item in Model)
+            {
+                if (item.Class.Number == 2 && item.Day == Day.Tue && item.WeekNumber == Week.secondWeek)
+                {
+                    @Html.DisplayFor(modelItem => item.Subject.SubjectName)<br />
+                    @Html.DisplayFor(modelItem => item.Subject.Teacher.Name)<br />
+                    <span>Room № </span>@Html.DisplayFor(modelItem => item.Room.Number)
+                    break;
+                }
+            }
+        </td>
+        <td>
+            @foreach (var item in Model)
+            {
+                if (item.Class.Number == 2 && item.Day == Day.Wed && item.WeekNumber == Week.secondWeek)
+                {
+                    @Html.DisplayFor(modelItem => item.Subject.SubjectName)<br />
+                    @Html.DisplayFor(modelItem => item.Subject.Teacher.Name)<br />
+                    <span>Room № </span>@Html.DisplayFor(modelItem => item.Room.Number)
+                    break;
+                }
+            }
+        </td>
+        <td>
+            @foreach (var item in Model)
+            {
+                if (item.Class.Number == 2 && item.Day == Day.Thu && item.WeekNumber == Week.secondWeek)
+                {
+                    @Html.DisplayFor(modelItem => item.Subject.SubjectName)<br />
+                    @Html.DisplayFor(modelItem => item.Subject.Teacher.Name)<br />
+                    <span>Room № </span>@Html.DisplayFor(modelItem => item.Room.Number)
+                    break;
+                }
+            }
+        </td>
+        <td>
+            @foreach (var item in Model)
+            {
+                if (item.Class.Number == 2 && item.Day == Day.Fri && item.WeekNumber == Week.secondWeek)
+                {
+                    @Html.DisplayFor(modelItem => item.Subject.SubjectName)<br />
+                    @Html.DisplayFor(modelItem => item.Subject.Teacher.Name)<br />
+                    <span>Room № </span>@Html.DisplayFor(modelItem => item.Room.Number)
+                    break;
+                }
+            }
+        </td>
+        <td>
+            @foreach (var item in Model)
+            {
+                if (item.Class.Number == 2 && item.Day == Day.Sat && item.WeekNumber == Week.secondWeek)
+                {
+                    @Html.DisplayFor(modelItem => item.Subject.SubjectName)<br />
+                    @Html.DisplayFor(modelItem => item.Subject.Teacher.Name)<br />
+                    <span>Room № </span>@Html.DisplayFor(modelItem => item.Room.Number)
+                    break;
+                }
+            }
+        </td>
+    </tr>
+    <tr>
+        <td>
+            3<br />
+            12:20-13:55
+        </td>
+        <td>
+            @foreach (var item in Model)
+            {
+                if (item.Class.Number == 3 && item.Day == Day.Mon && item.WeekNumber == Week.secondWeek)
+                {
+                    @Html.DisplayFor(modelItem => item.Subject.SubjectName)<br />
+                    @Html.DisplayFor(modelItem => item.Subject.Teacher.Name)<br />
+                    <span>Room № </span>@Html.DisplayFor(modelItem => item.Room.Number)
+                    break;
+                }
+            }
+        </td>
+        <td>
+            @foreach (var item in Model)
+            {
+                if (item.Class.Number == 3 && item.Day == Day.Tue && item.WeekNumber == Week.secondWeek)
+                {
+                    @Html.DisplayFor(modelItem => item.Subject.SubjectName)<br />
+                    @Html.DisplayFor(modelItem => item.Subject.Teacher.Name)<br />
+                    <span>Room № </span>@Html.DisplayFor(modelItem => item.Room.Number)
+                    break;
+                }
+            }
+        </td>
+        <td>
+            @foreach (var item in Model)
+            {
+                if (item.Class.Number == 3 && item.Day == Day.Wed && item.WeekNumber == Week.secondWeek)
+                {
+                    @Html.DisplayFor(modelItem => item.Subject.SubjectName)<br />
+                    @Html.DisplayFor(modelItem => item.Subject.Teacher.Name)<br />
+                    <span>Room № </span>@Html.DisplayFor(modelItem => item.Room.Number)
+                    break;
+                }
+            }
+        </td>
+        <td>
+            @foreach (var item in Model)
+            {
+                if (item.Class.Number == 3 && item.Day == Day.Thu && item.WeekNumber == Week.secondWeek)
+                {
+                    @Html.DisplayFor(modelItem => item.Subject.SubjectName)<br />
+                    @Html.DisplayFor(modelItem => item.Subject.Teacher.Name)<br />
+                    <span>Room № </span>@Html.DisplayFor(modelItem => item.Room.Number)
+                    break;
+                }
+            }
+        </td>
+        <td>
+            @foreach (var item in Model)
+            {
+                if (item.Class.Number == 3 && item.Day == Day.Fri && item.WeekNumber == Week.secondWeek)
+                {
+                    @Html.DisplayFor(modelItem => item.Subject.SubjectName)<br />
+                    @Html.DisplayFor(modelItem => item.Subject.Teacher.Name)<br />
+                    <span>Room № </span>@Html.DisplayFor(modelItem => item.Room.Number)
+                    break;
+                }
+            }
+        </td>
+        <td>
+            @foreach (var item in Model)
+            {
+                if (item.Class.Number == 3 && item.Day == Day.Sat && item.WeekNumber == Week.secondWeek)
+                {
+                    @Html.DisplayFor(modelItem => item.Subject.SubjectName)<br />
+                    @Html.DisplayFor(modelItem => item.Subject.Teacher.Name)<br />
+                    <span>Room № </span>@Html.DisplayFor(modelItem => item.Room.Number)<br />
+                    break;
+                }
+            }
+        </td>
+    </tr>
+    <tr>
+        <td>
+            4<br />
+            14:15-15:50
+        </td>
+        <td>
+            @foreach (var item in Model)
+            {
+                if (item.Class.Number == 4 && item.Day == Day.Mon && item.WeekNumber == Week.secondWeek)
+                {
+                    @Html.DisplayFor(modelItem => item.Subject.SubjectName)<br />
+                    @Html.DisplayFor(modelItem => item.Subject.Teacher.Name)<br />
+                    <span>Room № </span>@Html.DisplayFor(modelItem => item.Room.Number)
+                    break;
+                }
+            }
+        </td>
+        <td>
+            @foreach (var item in Model)
+            {
+                if (item.Class.Number == 4 && item.Day == Day.Tue && item.WeekNumber == Week.secondWeek)
+                {
+                    @Html.DisplayFor(modelItem => item.Subject.SubjectName)<br />
+                    @Html.DisplayFor(modelItem => item.Subject.Teacher.Name)<br />
+                    <span>Room № </span>@Html.DisplayFor(modelItem => item.Room.Number)<br />
+                    break;
+                }
+            }
+        </td>
+        <td>
+            @foreach (var item in Model)
+            {
+                if (item.Class.Number == 4 && item.Day == Day.Wed && item.WeekNumber == Week.secondWeek)
+                {
+                    @Html.DisplayFor(modelItem => item.Subject.SubjectName)<br />
+                    @Html.DisplayFor(modelItem => item.Subject.Teacher.Name)<br />
+                    <span>Room № </span>@Html.DisplayFor(modelItem => item.Room.Number)<br />
+                    break;
+                }
+            }
+        </td>
+        <td>
+            @foreach (var item in Model)
+            {
+                if (item.Class.Number == 4 && item.Day == Day.Thu && item.WeekNumber == Week.secondWeek)
+                {
+                    @Html.DisplayFor(modelItem => item.Subject.SubjectName)<br />
+                    @Html.DisplayFor(modelItem => item.Subject.Teacher.Name)<br />
+                    <span>Room № </span>@Html.DisplayFor(modelItem => item.Room.Number)<br />
+                    break;
+                }
+            }
+        </td>
+        <td>
+            @foreach (var item in Model)
+            {
+                if (item.Class.Number == 4 && item.Day == Day.Fri && item.WeekNumber == Week.secondWeek)
+                {
+                    @Html.DisplayFor(modelItem => item.Subject.SubjectName)<br />
+                    @Html.DisplayFor(modelItem => item.Subject.Teacher.Name)<br />
+                    <span>Room № </span>@Html.DisplayFor(modelItem => item.Room.Number)<br />
+                    break;
+                }
+            }
+        </td>
+        <td>
+            @foreach (var item in Model)
+            {
+                if (item.Class.Number == 4 && item.Day == Day.Sat && item.WeekNumber == Week.secondWeek)
+                {
+                    @Html.DisplayFor(modelItem => item.Subject.SubjectName)<br />
+                    @Html.DisplayFor(modelItem => item.Subject.Teacher.Name)<br />
+                    <span>Room № </span>@Html.DisplayFor(modelItem => item.Room.Number)<br />
+                    break;
+                }
+            }
+        </td>
+    </tr>
+    <tr>
+        <td>
+            5<br />
+            16:10-17:45
+        </td>
+        <td>
+            @foreach (var item in Model)
+            {
+                if (item.Class.Number == 5 && item.Day == Day.Mon && item.WeekNumber == Week.secondWeek)
+                {
+                    @Html.DisplayFor(modelItem => item.Subject.SubjectName)<br />
+                    @Html.DisplayFor(modelItem => item.Subject.Teacher.Name)<br />
+                    <span>Room № </span>@Html.DisplayFor(modelItem => item.Room.Number)<br />
+                    break;
+                }
+            }
+        </td>
+        <td>
+            @foreach (var item in Model)
+            {
+                if (item.Class.Number == 5 && item.Day == Day.Tue && item.WeekNumber == Week.secondWeek)
+                {
+                    @Html.DisplayFor(modelItem => item.Subject.SubjectName)<br />
+                    @Html.DisplayFor(modelItem => item.Subject.Teacher.Name)<br />
+                    <span>Room № </span>@Html.DisplayFor(modelItem => item.Room.Number)<br />
+                    break;
+                }
+            }
+        </td>
+        <td>
+            @foreach (var item in Model)
+            {
+                if (item.Class.Number == 5 && item.Day == Day.Wed && item.WeekNumber == Week.secondWeek)
+                {
+                    @Html.DisplayFor(modelItem => item.Subject.SubjectName)<br />
+                    @Html.DisplayFor(modelItem => item.Subject.Teacher.Name)<br />
+                    <span>Room № </span>@Html.DisplayFor(modelItem => item.Room.Number)<br />
+                    break;
+                }
+            }
+        </td>
+        <td>
+            @foreach (var item in Model)
+            {
+                if (item.Class.Number == 5 && item.Day == Day.Thu && item.WeekNumber == Week.secondWeek)
+                {
+                    @Html.DisplayFor(modelItem => item.Subject.SubjectName)<br />
+                    @Html.DisplayFor(modelItem => item.Subject.Teacher.Name)<br />
+                    <span>Room № </span>@Html.DisplayFor(modelItem => item.Room.Number)<br />
+                    break;
+                }
+            }
+        </td>
+        <td>
+            @foreach (var item in Model)
+            {
+                if (item.Class.Number == 5 && item.Day == Day.Fri && item.WeekNumber == Week.secondWeek)
+                {
+                    @Html.DisplayFor(modelItem => item.Subject.SubjectName)<br />
+                    @Html.DisplayFor(modelItem => item.Subject.Teacher.Name)<br />
+                    <span>Room № </span>@Html.DisplayFor(modelItem => item.Room.Number)<br />
+                    break;
+                }
+            }
+        </td>
+        <td>
+            @foreach (var item in Model)
+            {
+                if (item.Class.Number == 5 && item.Day == Day.Sat && item.WeekNumber == Week.secondWeek)
+                {
+                    @Html.DisplayFor(modelItem => item.Subject.SubjectName)<br />
+                    @Html.DisplayFor(modelItem => item.Subject.Teacher.Name)<br />
+                    <span>Room № </span>@Html.DisplayFor(modelItem => item.Room.Number)
+                    break;
+                }
+            }
+        </td>
+    </tr>
+</table>

@@ -24,6 +24,14 @@ namespace Schedule_CodeFirstModel.Controllers
             return View(schedule);
         }
 
+        public async Task<ActionResult> ScheduleTeacher(int? id)
+        {
+            var days = new List<string>() { "Mon", "Tue", "Wed", "Thu", "Fri", "Sat" };
+            ViewBag.Days = days;
+            var schedule = await db.Schedules.Where(x => x.TeacherId == id).Include(d => d.Subject).Include(r => r.Room).Include(c => c.Class).Include(x=>x.Group).Distinct().ToListAsync();
+            return View(schedule);
+        }
+
         // GET: Schedules/Create
         public ActionResult Create()
         {

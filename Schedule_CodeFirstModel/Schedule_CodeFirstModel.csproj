@@ -1946,6 +1946,7 @@
     <Content Include="Views\AcademicPlans\Edit.cshtml" />
     <Content Include="Views\AcademicPlans\Plan.cshtml" />
     <Content Include="Views\Schedules\Delete.cshtml" />
+    <Content Include="Views\Schedules\ScheduleTeacher.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

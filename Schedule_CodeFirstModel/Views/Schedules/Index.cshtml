@@ -25,17 +25,17 @@
         </td>
         <td>
             @foreach (var item in Model)
-            {
-                if (item.Class.Number == 1 && item.Day == Day.Mon && item.WeekNumber == Week.firstWeek)
-                {
-                    @Html.DisplayFor(modelItem => item.Subject.SubjectName)<br />
-                    @Html.DisplayFor(modelItem => item.Subject.Teacher.Name)<br />
-                    <span>Room № </span>@Html.DisplayFor(modelItem => item.Room.Number)<br />
-                    @Html.DisplayFor(modelItem => item.Room.PlacesAmount)<span> places</span>
-                    @Html.ActionLink("Edit", "Edit", new { id = item.Id })
-                    @Html.ActionLink("Delete", "Delete", new { id = item.Id })
-                }
-             }
+    {
+        if (item.Class.Number == 1 && item.Day == Day.Mon && item.WeekNumber == Week.firstWeek)
+        {
+            @Html.DisplayFor(modelItem => item.Subject.SubjectName)<br />
+            @Html.ActionLink(item.Teacher.Name, "ScheduleTeacher", new { id = item.TeacherId })<br />
+            <span>Room № </span>@Html.DisplayFor(modelItem => item.Room.Number)<br />
+            @Html.DisplayFor(modelItem => item.Room.PlacesAmount)<span> places</span>
+            @Html.ActionLink("Edit", "Edit", new { id = item.Id }) <span> | </span>
+            @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+}
+}
         </td>
         <td>
             @foreach (var item in Model)
@@ -43,10 +43,10 @@
         if (item.Class.Number == 1 && item.Day == Day.Tue && item.WeekNumber == Week.firstWeek)
         {
             @Html.DisplayFor(modelItem => item.Subject.SubjectName)<br />
-            @Html.DisplayFor(modelItem => item.Subject.Teacher.Name)<br />
+            @Html.ActionLink(item.Teacher.Name, "ScheduleTeacher", new { id = item.TeacherId })<br />
             <span>Room № </span>@Html.DisplayFor(modelItem => item.Room.Number)<br />
             @Html.DisplayFor(modelItem => item.Room.PlacesAmount)<span> places</span>
-            @Html.ActionLink("Edit", "Edit", new { id = item.Id })
+            @Html.ActionLink("Edit", "Edit", new { id = item.Id }) <span> | </span>
             @Html.ActionLink("Delete", "Delete", new { id = item.Id })
 }
 }
@@ -57,55 +57,57 @@
         if (item.Class.Number == 1 && item.Day == Day.Wed && item.WeekNumber == Week.firstWeek)
         {
             @Html.DisplayFor(modelItem => item.Subject.SubjectName)<br />
-            @Html.DisplayFor(modelItem => item.Subject.Teacher.Name)<br />
+            @Html.ActionLink(item.Teacher.Name, "ScheduleTeacher", new { id = item.TeacherId })<br />
             <span>Room № </span>@Html.DisplayFor(modelItem => item.Room.Number)<br />
             @Html.DisplayFor(modelItem => item.Room.PlacesAmount)<span> places</span>
-            @Html.ActionLink("Edit", "Edit", new { id = item.Id })
+            @Html.ActionLink("Edit", "Edit", new { id = item.Id })<span> | </span>
             @Html.ActionLink("Delete", "Delete", new { id = item.Id })
 }
 }
         </td>
-    <td>
-        @foreach (var item in Model)
-            {
-                if (item.Class.Number == 1 && item.Day == Day.Thu && item.WeekNumber == Week.firstWeek)
-                {
-                @Html.DisplayFor(modelItem => item.Subject.SubjectName)<br />
-                    @Html.DisplayFor(modelItem => item.Subject.Teacher.Name)<br />
-                    <span>Room № </span>@Html.DisplayFor(modelItem => item.Room.Number)<br />
-                    @Html.DisplayFor(modelItem => item.Room.PlacesAmount)<span> places</span>
-                    @Html.ActionLink("Edit", "Edit", new { id = item.Id })
+        <td>
+            @foreach (var item in Model)
+    {
+        if (item.Class.Number == 1 && item.Day == Day.Thu && item.WeekNumber == Week.firstWeek)
+        {
+            @Html.DisplayFor(modelItem => item.Subject.SubjectName)<br />
+            @Html.ActionLink(item.Teacher.Name, "ScheduleTeacher", new { id = item.TeacherId })<br />
+            <span>Room № </span>@Html.DisplayFor(modelItem => item.Room.Number)<br />
+            @Html.DisplayFor(modelItem => item.Room.PlacesAmount)<span> places</span>
+            @Html.ActionLink("Edit", "Edit", new { id = item.Id })<span> | </span>
+            @Html.ActionLink("Delete", "Delete", new { id = item.Id })
 
-            }
-        }
-    </td>
+}
+}
+        </td>
     <td>
         @foreach (var item in Model)
     {
         if (item.Class.Number == 1 && item.Day == Day.Fri && item.WeekNumber == Week.firstWeek)
         {
             @Html.DisplayFor(modelItem => item.Subject.SubjectName)<br />
-            @Html.DisplayFor(modelItem => item.Subject.Teacher.Name)<br />
+            @Html.ActionLink(item.Teacher.Name, "ScheduleTeacher", new { id = item.TeacherId })<br />
             <span>Room № </span>@Html.DisplayFor(modelItem => item.Room.Number)<br />
             @Html.DisplayFor(modelItem => item.Room.PlacesAmount)<span> places</span>
-            @Html.ActionLink("Edit", "Edit", new { id = item.Id })
+            @Html.ActionLink("Edit", "Edit", new { id = item.Id })<span> | </span>
             @Html.ActionLink("Delete", "Delete", new { id = item.Id })
     }
 }
     </td>
     <td>
         @foreach (var item in Model)
-            {
-                if (item.Class.Number == 1 && item.Day == Day.Sat && item.WeekNumber == Week.firstWeek)
-                {
-                @Html.DisplayFor(modelItem => item.Subject.SubjectName)<br />
-                    @Html.DisplayFor(modelItem => item.Subject.Teacher.Name)<br />
-                    <span>Room № </span>@Html.DisplayFor(modelItem => item.Room.Number)<br />
-                    @Html.DisplayFor(modelItem => item.Room.PlacesAmount)<span> places</span>
-                    @Html.ActionLink("Edit", "Edit", new { id = item.Id })
+    {
+        if (item.Class.Number == 1 && item.Day == Day.Sat && item.WeekNumber == Week.firstWeek)
+        {
+            @Html.DisplayFor(modelItem => item.Subject.SubjectName)<br />
+            @Html.ActionLink(item.Teacher.Name, "ScheduleTeacher", new { id = item.TeacherId })<br />
+            <span>Room № </span>@Html.DisplayFor(modelItem => item.Room.Number)<br />
+            @Html.DisplayFor(modelItem => item.Room.PlacesAmount)<span> places</span>
+            @Html.ActionLink("Edit", "Edit", new { id = item.Id })<span> | </span>
+            @Html.ActionLink("Delete", "Delete", new { id = item.Id })
 
-            }
-        }
+    }
+}
     </td>
     </tr>
 
@@ -120,10 +122,10 @@
         if (item.Class.Number == 2 && item.Day == Day.Mon && item.WeekNumber == Week.firstWeek)
         {
             @Html.DisplayFor(modelItem => item.Subject.SubjectName)<br />
-            @Html.DisplayFor(modelItem => item.Subject.Teacher.Name)<br />
+            @Html.ActionLink(item.Teacher.Name, "ScheduleTeacher", new { id = item.TeacherId })<br />
             <span>Room № </span>@Html.DisplayFor(modelItem => item.Room.Number)<br />
             @Html.DisplayFor(modelItem => item.Room.PlacesAmount)<span> places</span>
-            @Html.ActionLink("Edit", "Edit", new { id = item.Id })
+            @Html.ActionLink("Edit", "Edit", new { id = item.Id })<span> | </span>
             @Html.ActionLink("Delete", "Delete", new { id = item.Id })
 }
 }
@@ -134,10 +136,10 @@
         if (item.Class.Number == 2 && item.Day == Day.Tue && item.WeekNumber == Week.firstWeek)
         {
             @Html.DisplayFor(modelItem => item.Subject.SubjectName)<br />
-            @Html.DisplayFor(modelItem => item.Subject.Teacher.Name)<br />
+            @Html.ActionLink(item.Teacher.Name, "ScheduleTeacher", new { id = item.TeacherId })<br />
             <span>Room № </span>@Html.DisplayFor(modelItem => item.Room.Number)<br />
             @Html.DisplayFor(modelItem => item.Room.PlacesAmount)<span> places</span>
-            @Html.ActionLink("Edit", "Edit", new { id = item.Id })
+            @Html.ActionLink("Edit", "Edit", new { id = item.Id })<span> | </span>
             @Html.ActionLink("Delete", "Delete", new { id = item.Id })
 }
 }
@@ -148,10 +150,10 @@
         if (item.Class.Number == 2 && item.Day == Day.Wed && item.WeekNumber == Week.firstWeek)
         {
             @Html.DisplayFor(modelItem => item.Subject.SubjectName)<br />
-            @Html.DisplayFor(modelItem => item.Subject.Teacher.Name)<br />
+            @Html.ActionLink(item.Teacher.Name, "ScheduleTeacher", new { id = item.TeacherId })<br />
             <span>Room № </span>@Html.DisplayFor(modelItem => item.Room.Number)<br />
             @Html.DisplayFor(modelItem => item.Room.PlacesAmount)<span> places</span>
-            @Html.ActionLink("Edit", "Edit", new { id = item.Id })
+            @Html.ActionLink("Edit", "Edit", new { id = item.Id })<span> | </span>
             @Html.ActionLink("Delete", "Delete", new { id = item.Id })
 }
 }
@@ -162,10 +164,10 @@
         if (item.Class.Number == 2 && item.Day == Day.Thu && item.WeekNumber == Week.firstWeek)
         {
             @Html.DisplayFor(modelItem => item.Subject.SubjectName)<br />
-            @Html.DisplayFor(modelItem => item.Subject.Teacher.Name)<br />
+            @Html.ActionLink(item.Teacher.Name, "ScheduleTeacher", new { id = item.TeacherId })<br />
             <span>Room № </span>@Html.DisplayFor(modelItem => item.Room.Number)<br />
             @Html.DisplayFor(modelItem => item.Room.PlacesAmount)<span> places</span>
-            @Html.ActionLink("Edit", "Edit", new { id = item.Id })
+            @Html.ActionLink("Edit", "Edit", new { id = item.Id })<span> | </span>
             @Html.ActionLink("Delete", "Delete", new { id = item.Id })
 }
 }
@@ -176,10 +178,10 @@
         if (item.Class.Number == 2 && item.Day == Day.Fri && item.WeekNumber == Week.firstWeek)
         {
             @Html.DisplayFor(modelItem => item.Subject.SubjectName)<br />
-            @Html.DisplayFor(modelItem => item.Subject.Teacher.Name)<br />
+            @Html.ActionLink(item.Teacher.Name, "ScheduleTeacher", new { id = item.TeacherId })<br />
             <span>Room № </span>@Html.DisplayFor(modelItem => item.Room.Number)<br />
             @Html.DisplayFor(modelItem => item.Room.PlacesAmount)<span> places</span>
-            @Html.ActionLink("Edit", "Edit", new { id = item.Id })
+            @Html.ActionLink("Edit", "Edit", new { id = item.Id })<span> | </span>
             @Html.ActionLink("Delete", "Delete", new { id = item.Id })
 }
 }
@@ -190,10 +192,10 @@
         if (item.Class.Number == 2 && item.Day == Day.Sat && item.WeekNumber == Week.firstWeek)
         {
             @Html.DisplayFor(modelItem => item.Subject.SubjectName)<br />
-            @Html.DisplayFor(modelItem => item.Subject.Teacher.Name)<br />
+            @Html.ActionLink(item.Teacher.Name, "ScheduleTeacher", new { id = item.TeacherId })<br />
             <span>Room № </span>@Html.DisplayFor(modelItem => item.Room.Number)<br />
             @Html.DisplayFor(modelItem => item.Room.PlacesAmount)<span> places</span>
-            @Html.ActionLink("Edit", "Edit", new { id = item.Id })
+            @Html.ActionLink("Edit", "Edit", new { id = item.Id })<span> | </span>
             @Html.ActionLink("Delete", "Delete", new { id = item.Id })
 }
 }
@@ -210,10 +212,10 @@
         if (item.Class.Number == 3 && item.Day == Day.Mon && item.WeekNumber == Week.firstWeek)
         {
             @Html.DisplayFor(modelItem => item.Subject.SubjectName)<br />
-            @Html.DisplayFor(modelItem => item.Subject.Teacher.Name)<br />
+            @Html.ActionLink(item.Teacher.Name, "ScheduleTeacher", new { id = item.TeacherId })<br />
             <span>Room № </span>@Html.DisplayFor(modelItem => item.Room.Number)<br />
             @Html.DisplayFor(modelItem => item.Room.PlacesAmount)<span> places</span>
-            @Html.ActionLink("Edit", "Edit", new { id = item.Id })
+            @Html.ActionLink("Edit", "Edit", new { id = item.Id })<span> | </span>
             @Html.ActionLink("Delete", "Delete", new { id = item.Id })
 }
 }
@@ -224,10 +226,10 @@
         if (item.Class.Number == 3 && item.Day == Day.Tue && item.WeekNumber == Week.firstWeek)
         {
             @Html.DisplayFor(modelItem => item.Subject.SubjectName)<br />
-            @Html.DisplayFor(modelItem => item.Subject.Teacher.Name)<br />
+            @Html.ActionLink(item.Teacher.Name, "ScheduleTeacher", new { id = item.TeacherId })<br />
             <span>Room № </span>@Html.DisplayFor(modelItem => item.Room.Number)<br />
             @Html.DisplayFor(modelItem => item.Room.PlacesAmount)<span> places</span>
-            @Html.ActionLink("Edit", "Edit", new { id = item.Id })
+            @Html.ActionLink("Edit", "Edit", new { id = item.Id })<span> | </span>
             @Html.ActionLink("Delete", "Delete", new { id = item.Id })
 }
 }
@@ -238,10 +240,10 @@
         if (item.Class.Number == 3 && item.Day == Day.Wed && item.WeekNumber == Week.firstWeek)
         {
             @Html.DisplayFor(modelItem => item.Subject.SubjectName)<br />
-            @Html.DisplayFor(modelItem => item.Subject.Teacher.Name)<br />
+            @Html.ActionLink(item.Teacher.Name, "ScheduleTeacher", new { id = item.TeacherId })<br />
             <span>Room № </span>@Html.DisplayFor(modelItem => item.Room.Number)<br />
             @Html.DisplayFor(modelItem => item.Room.PlacesAmount)<span> places</span>
-            @Html.ActionLink("Edit", "Edit", new { id = item.Id })
+            @Html.ActionLink("Edit", "Edit", new { id = item.Id })<span> | </span>
             @Html.ActionLink("Delete", "Delete", new { id = item.Id })
 }
 }
@@ -252,10 +254,10 @@
         if (item.Class.Number == 3 && item.Day == Day.Thu && item.WeekNumber == Week.firstWeek)
         {
             @Html.DisplayFor(modelItem => item.Subject.SubjectName)<br />
-            @Html.DisplayFor(modelItem => item.Subject.Teacher.Name)<br />
+            @Html.ActionLink(item.Teacher.Name, "ScheduleTeacher", new { id = item.TeacherId })<br />
             <span>Room № </span>@Html.DisplayFor(modelItem => item.Room.Number)<br />
             @Html.DisplayFor(modelItem => item.Room.PlacesAmount)<span> places</span>
-            @Html.ActionLink("Edit", "Edit", new { id = item.Id })
+            @Html.ActionLink("Edit", "Edit", new { id = item.Id })<span> | </span>
             @Html.ActionLink("Delete", "Delete", new { id = item.Id })
 }
 }
@@ -266,10 +268,10 @@
         if (item.Class.Number == 3 && item.Day == Day.Fri && item.WeekNumber == Week.firstWeek)
         {
             @Html.DisplayFor(modelItem => item.Subject.SubjectName)<br />
-            @Html.DisplayFor(modelItem => item.Subject.Teacher.Name)<br />
+            @Html.ActionLink(item.Teacher.Name, "ScheduleTeacher", new { id = item.TeacherId })<br />
             <span>Room № </span>@Html.DisplayFor(modelItem => item.Room.Number)<br />
             @Html.DisplayFor(modelItem => item.Room.PlacesAmount)<span> places</span>
-            @Html.ActionLink("Edit", "Edit", new { id = item.Id })
+            @Html.ActionLink("Edit", "Edit", new { id = item.Id })<span> | </span>
             @Html.ActionLink("Delete", "Delete", new { id = item.Id })
 }
 }
@@ -280,10 +282,10 @@
         if (item.Class.Number == 3 && item.Day == Day.Sat && item.WeekNumber == Week.firstWeek)
         {
             @Html.DisplayFor(modelItem => item.Subject.SubjectName)<br />
-            @Html.DisplayFor(modelItem => item.Subject.Teacher.Name)<br />
+            @Html.ActionLink(item.Teacher.Name, "ScheduleTeacher", new { id = item.TeacherId })<br />
             <span>Room № </span>@Html.DisplayFor(modelItem => item.Room.Number)<br />
             @Html.DisplayFor(modelItem => item.Room.PlacesAmount)<span> places</span>
-            @Html.ActionLink("Edit", "Edit", new { id = item.Id })
+            @Html.ActionLink("Edit", "Edit", new { id = item.Id })<span> | </span>
             @Html.ActionLink("Delete", "Delete", new { id = item.Id })
 }
 }
@@ -300,10 +302,10 @@
         if (item.Class.Number == 4 && item.Day == Day.Mon && item.WeekNumber == Week.firstWeek)
         {
             @Html.DisplayFor(modelItem => item.Subject.SubjectName)<br />
-            @Html.DisplayFor(modelItem => item.Subject.Teacher.Name)<br />
+            @Html.ActionLink(item.Teacher.Name, "ScheduleTeacher", new { id = item.TeacherId })<br />
             <span>Room № </span>@Html.DisplayFor(modelItem => item.Room.Number)<br />
             @Html.DisplayFor(modelItem => item.Room.PlacesAmount)<span> places</span>
-            @Html.ActionLink("Edit", "Edit", new { id = item.Id })
+            @Html.ActionLink("Edit", "Edit", new { id = item.Id })<span> | </span>
             @Html.ActionLink("Delete", "Delete", new { id = item.Id })
 }
 }
@@ -314,10 +316,10 @@
         if (item.Class.Number == 4 && item.Day == Day.Tue && item.WeekNumber == Week.firstWeek)
         {
             @Html.DisplayFor(modelItem => item.Subject.SubjectName)<br />
-            @Html.DisplayFor(modelItem => item.Subject.Teacher.Name)<br />
+            @Html.ActionLink(item.Teacher.Name, "ScheduleTeacher", new { id = item.TeacherId })<br />
             <span>Room № </span>@Html.DisplayFor(modelItem => item.Room.Number)<br />
             @Html.DisplayFor(modelItem => item.Room.PlacesAmount)<span> places</span>
-            @Html.ActionLink("Edit", "Edit", new { id = item.Id })
+            @Html.ActionLink("Edit", "Edit", new { id = item.Id })<span> | </span>
             @Html.ActionLink("Delete", "Delete", new { id = item.Id })
 }
 }
@@ -328,10 +330,10 @@
         if (item.Class.Number == 4 && item.Day == Day.Wed && item.WeekNumber == Week.firstWeek)
         {
             @Html.DisplayFor(modelItem => item.Subject.SubjectName)<br />
-            @Html.DisplayFor(modelItem => item.Subject.Teacher.Name)<br />
+            @Html.ActionLink(item.Teacher.Name, "ScheduleTeacher", new { id = item.TeacherId })<br />
             <span>Room № </span>@Html.DisplayFor(modelItem => item.Room.Number)<br />
             @Html.DisplayFor(modelItem => item.Room.PlacesAmount)<span> places</span>
-            @Html.ActionLink("Edit", "Edit", new { id = item.Id })
+            @Html.ActionLink("Edit", "Edit", new { id = item.Id })<span> | </span>
             @Html.ActionLink("Delete", "Delete", new { id = item.Id })
 }
 }
@@ -342,10 +344,10 @@
         if (item.Class.Number == 4 && item.Day == Day.Thu && item.WeekNumber == Week.firstWeek)
         {
             @Html.DisplayFor(modelItem => item.Subject.SubjectName)<br />
-            @Html.DisplayFor(modelItem => item.Subject.Teacher.Name)<br />
+            @Html.ActionLink(item.Teacher.Name, "ScheduleTeacher", new { id = item.TeacherId })<br />
             <span>Room № </span>@Html.DisplayFor(modelItem => item.Room.Number)<br />
             @Html.DisplayFor(modelItem => item.Room.PlacesAmount)<span> places</span>
-            @Html.ActionLink("Edit", "Edit", new { id = item.Id })
+            @Html.ActionLink("Edit", "Edit", new { id = item.Id })<span> | </span>
             @Html.ActionLink("Delete", "Delete", new { id = item.Id })
 }
 }
@@ -356,10 +358,10 @@
         if (item.Class.Number == 4 && item.Day == Day.Fri && item.WeekNumber == Week.firstWeek)
         {
             @Html.DisplayFor(modelItem => item.Subject.SubjectName)<br />
-            @Html.DisplayFor(modelItem => item.Subject.Teacher.Name)<br />
+            @Html.ActionLink(item.Teacher.Name, "ScheduleTeacher", new { id = item.TeacherId })<br />
             <span>Room № </span>@Html.DisplayFor(modelItem => item.Room.Number)<br />
             @Html.DisplayFor(modelItem => item.Room.PlacesAmount)<span> places</span>
-            @Html.ActionLink("Edit", "Edit", new { id = item.Id })
+            @Html.ActionLink("Edit", "Edit", new { id = item.Id })<span> | </span>
             @Html.ActionLink("Delete", "Delete", new { id = item.Id })
 }
 }
@@ -370,10 +372,10 @@
         if (item.Class.Number == 4 && item.Day == Day.Sat && item.WeekNumber == Week.firstWeek)
         {
             @Html.DisplayFor(modelItem => item.Subject.SubjectName)<br />
-            @Html.DisplayFor(modelItem => item.Subject.Teacher.Name)<br />
+            @Html.ActionLink(item.Teacher.Name, "ScheduleTeacher", new { id = item.TeacherId })<br />
             <span>Room № </span>@Html.DisplayFor(modelItem => item.Room.Number)<br />
             @Html.DisplayFor(modelItem => item.Room.PlacesAmount)<span> places</span>
-            @Html.ActionLink("Edit", "Edit", new { id = item.Id })
+            @Html.ActionLink("Edit", "Edit", new { id = item.Id })<span> | </span>
             @Html.ActionLink("Delete", "Delete", new { id = item.Id })
 }
 }
@@ -390,10 +392,10 @@
         if (item.Class.Number == 5 && item.Day == Day.Mon && item.WeekNumber == Week.firstWeek)
         {
             @Html.DisplayFor(modelItem => item.Subject.SubjectName)<br />
-            @Html.DisplayFor(modelItem => item.Subject.Teacher.Name)<br />
+            @Html.ActionLink(item.Teacher.Name, "ScheduleTeacher", new { id = item.TeacherId })<br />
             <span>Room № </span>@Html.DisplayFor(modelItem => item.Room.Number)<br />
             @Html.DisplayFor(modelItem => item.Room.PlacesAmount)<span> places</span>
-            @Html.ActionLink("Edit", "Edit", new { id = item.Id })
+            @Html.ActionLink("Edit", "Edit", new { id = item.Id })<span> | </span>
             @Html.ActionLink("Delete", "Delete", new { id = item.Id })
 }
 }
@@ -404,10 +406,10 @@
         if (item.Class.Number == 5 && item.Day == Day.Tue && item.WeekNumber == Week.firstWeek)
         {
             @Html.DisplayFor(modelItem => item.Subject.SubjectName)<br />
-            @Html.DisplayFor(modelItem => item.Subject.Teacher.Name)<br />
+            @Html.ActionLink(item.Teacher.Name, "ScheduleTeacher", new { id = item.TeacherId })<br />
             <span>Room № </span>@Html.DisplayFor(modelItem => item.Room.Number)<br />
             @Html.DisplayFor(modelItem => item.Room.PlacesAmount)<span> places</span>
-            @Html.ActionLink("Edit", "Edit", new { id = item.Id })
+            @Html.ActionLink("Edit", "Edit", new { id = item.Id })<span> | </span>
             @Html.ActionLink("Delete", "Delete", new { id = item.Id })
 }
 }
@@ -418,10 +420,10 @@
         if (item.Class.Number == 5 && item.Day == Day.Wed && item.WeekNumber == Week.firstWeek)
         {
             @Html.DisplayFor(modelItem => item.Subject.SubjectName)<br />
-            @Html.DisplayFor(modelItem => item.Subject.Teacher.Name)<br />
+            @Html.ActionLink(item.Teacher.Name, "ScheduleTeacher", new { id = item.TeacherId })<br />
             <span>Room № </span>@Html.DisplayFor(modelItem => item.Room.Number)<br />
             @Html.DisplayFor(modelItem => item.Room.PlacesAmount)<span> places</span>
-            @Html.ActionLink("Edit", "Edit", new { id = item.Id })
+            @Html.ActionLink("Edit", "Edit", new { id = item.Id })<span> | </span>
             @Html.ActionLink("Delete", "Delete", new { id = item.Id })
 }
 }
@@ -432,10 +434,10 @@
         if (item.Class.Number == 5 && item.Day == Day.Thu && item.WeekNumber == Week.firstWeek)
         {
             @Html.DisplayFor(modelItem => item.Subject.SubjectName)<br />
-            @Html.DisplayFor(modelItem => item.Subject.Teacher.Name)<br />
+            @Html.ActionLink(item.Teacher.Name, "ScheduleTeacher", new { id = item.TeacherId })<br />
             <span>Room № </span>@Html.DisplayFor(modelItem => item.Room.Number)<br />
             @Html.DisplayFor(modelItem => item.Room.PlacesAmount)<span> places</span>
-            @Html.ActionLink("Edit", "Edit", new { id = item.Id })
+            @Html.ActionLink("Edit", "Edit", new { id = item.Id })<span> | </span>
             @Html.ActionLink("Delete", "Delete", new { id = item.Id })
 }
 }
@@ -446,10 +448,10 @@
         if (item.Class.Number == 5 && item.Day == Day.Fri && item.WeekNumber == Week.firstWeek)
         {
             @Html.DisplayFor(modelItem => item.Subject.SubjectName)<br />
-            @Html.DisplayFor(modelItem => item.Subject.Teacher.Name)<br />
+            @Html.ActionLink(item.Teacher.Name, "ScheduleTeacher", new { id = item.TeacherId })<br />
             <span>Room № </span>@Html.DisplayFor(modelItem => item.Room.Number)<br />
             @Html.DisplayFor(modelItem => item.Room.PlacesAmount)<span> places</span>
-            @Html.ActionLink("Edit", "Edit", new { id = item.Id })
+            @Html.ActionLink("Edit", "Edit", new { id = item.Id })<span> | </span>
             @Html.ActionLink("Delete", "Delete", new { id = item.Id })
 }
 }
@@ -460,10 +462,10 @@
         if (item.Class.Number == 5 && item.Day == Day.Sat && item.WeekNumber == Week.firstWeek)
         {
             @Html.DisplayFor(modelItem => item.Subject.SubjectName)<br />
-            @Html.DisplayFor(modelItem => item.Subject.Teacher.Name)<br />
+            @Html.ActionLink(item.Teacher.Name, "ScheduleTeacher", new { id = item.TeacherId })<br />
             <span>Room № </span>@Html.DisplayFor(modelItem => item.Room.Number)<br />
             @Html.DisplayFor(modelItem => item.Room.PlacesAmount)<span> places</span>
-            @Html.ActionLink("Edit", "Edit", new { id = item.Id })
+            @Html.ActionLink("Edit", "Edit", new { id = item.Id })<span> | </span>
             @Html.ActionLink("Delete", "Delete", new { id = item.Id })
 }
 }
@@ -494,10 +496,10 @@
         if (item.Class.Number == 1 && item.Day == Day.Mon && item.WeekNumber == Week.secondWeek)
         {
             @Html.DisplayFor(modelItem => item.Subject.SubjectName)<br />
-            @Html.DisplayFor(modelItem => item.Subject.Teacher.Name)<br />
+            @Html.ActionLink(item.Teacher.Name, "ScheduleTeacher", new { id = item.TeacherId })<br />
             <span>Room № </span>@Html.DisplayFor(modelItem => item.Room.Number)<br />
             @Html.DisplayFor(modelItem => item.Room.PlacesAmount)<span> places</span>
-            @Html.ActionLink("Edit", "Edit", new { id = item.Id })
+            @Html.ActionLink("Edit", "Edit", new { id = item.Id })<span> | </span>
             @Html.ActionLink("Delete", "Delete", new { id = item.Id })
 }
 }
@@ -508,10 +510,10 @@
         if (item.Class.Number == 1 && item.Day == Day.Tue && item.WeekNumber == Week.secondWeek)
         {
             @Html.DisplayFor(modelItem => item.Subject.SubjectName)<br />
-            @Html.DisplayFor(modelItem => item.Subject.Teacher.Name)<br />
+            @Html.ActionLink(item.Teacher.Name, "ScheduleTeacher", new { id = item.TeacherId })<br />
             <span>Room № </span>@Html.DisplayFor(modelItem => item.Room.Number)<br />
             @Html.DisplayFor(modelItem => item.Room.PlacesAmount)<span> places</span>
-            @Html.ActionLink("Edit", "Edit", new { id = item.Id })
+            @Html.ActionLink("Edit", "Edit", new { id = item.Id })<span> | </span>
             @Html.ActionLink("Delete", "Delete", new { id = item.Id })
 }
 }
@@ -522,10 +524,10 @@
         if (item.Class.Number == 1 && item.Day == Day.Wed && item.WeekNumber == Week.secondWeek)
         {
             @Html.DisplayFor(modelItem => item.Subject.SubjectName)<br />
-            @Html.DisplayFor(modelItem => item.Subject.Teacher.Name)<br />
+            @Html.ActionLink(item.Teacher.Name, "ScheduleTeacher", new { id = item.TeacherId })<br />
             <span>Room № </span>@Html.DisplayFor(modelItem => item.Room.Number)<br />
             @Html.DisplayFor(modelItem => item.Room.PlacesAmount)<span> places</span>
-            @Html.ActionLink("Edit", "Edit", new { id = item.Id })
+            @Html.ActionLink("Edit", "Edit", new { id = item.Id })<span> | </span>
             @Html.ActionLink("Delete", "Delete", new { id = item.Id })
 }
 }
@@ -536,10 +538,10 @@
         if (item.Class.Number == 1 && item.Day == Day.Thu && item.WeekNumber == Week.secondWeek)
         {
             @Html.DisplayFor(modelItem => item.Subject.SubjectName)<br />
-            @Html.DisplayFor(modelItem => item.Subject.Teacher.Name)<br />
+            @Html.ActionLink(item.Teacher.Name, "ScheduleTeacher", new { id = item.TeacherId })<br />
             <span>Room № </span>@Html.DisplayFor(modelItem => item.Room.Number)<br />
             @Html.DisplayFor(modelItem => item.Room.PlacesAmount)<span> places</span>
-            @Html.ActionLink("Edit", "Edit", new { id = item.Id })
+            @Html.ActionLink("Edit", "Edit", new { id = item.Id })<span> | </span>
             @Html.ActionLink("Delete", "Delete", new { id = item.Id })
 }
 }
@@ -550,10 +552,10 @@
         if (item.Class.Number == 1 && item.Day == Day.Fri && item.WeekNumber == Week.secondWeek)
         {
             @Html.DisplayFor(modelItem => item.Subject.SubjectName)<br />
-            @Html.DisplayFor(modelItem => item.Subject.Teacher.Name)<br />
+            @Html.ActionLink(item.Teacher.Name, "ScheduleTeacher", new { id = item.TeacherId })<br />
             <span>Room № </span>@Html.DisplayFor(modelItem => item.Room.Number)<br />
             @Html.DisplayFor(modelItem => item.Room.PlacesAmount)<span> places</span>
-            @Html.ActionLink("Edit", "Edit", new { id = item.Id })
+            @Html.ActionLink("Edit", "Edit", new { id = item.Id })<span> | </span>
             @Html.ActionLink("Delete", "Delete", new { id = item.Id })
 }
 }
@@ -564,10 +566,10 @@
         if (item.Class.Number == 1 && item.Day == Day.Sat && item.WeekNumber == Week.secondWeek)
         {
             @Html.DisplayFor(modelItem => item.Subject.SubjectName)<br />
-            @Html.DisplayFor(modelItem => item.Subject.Teacher.Name)<br />
+            @Html.ActionLink(item.Teacher.Name, "ScheduleTeacher", new { id = item.TeacherId })<br />
             <span>Room № </span>@Html.DisplayFor(modelItem => item.Room.Number)<br />
             @Html.DisplayFor(modelItem => item.Room.PlacesAmount)<span> places</span>
-            @Html.ActionLink("Edit", "Edit", new { id = item.Id })
+            @Html.ActionLink("Edit", "Edit", new { id = item.Id })<span> | </span>
             @Html.ActionLink("Delete", "Delete", new { id = item.Id })
 }
 }
@@ -585,10 +587,10 @@
         if (item.Class.Number == 2 && item.Day == Day.Mon && item.WeekNumber == Week.secondWeek)
         {
             @Html.DisplayFor(modelItem => item.Subject.SubjectName)<br />
-            @Html.DisplayFor(modelItem => item.Subject.Teacher.Name)<br />
+            @Html.ActionLink(item.Teacher.Name, "ScheduleTeacher", new { id = item.TeacherId })<br />
             <span>Room № </span>@Html.DisplayFor(modelItem => item.Room.Number)<br />
             @Html.DisplayFor(modelItem => item.Room.PlacesAmount)<span> places</span>
-            @Html.ActionLink("Edit", "Edit", new { id = item.Id })
+            @Html.ActionLink("Edit", "Edit", new { id = item.Id })<span> | </span>
             @Html.ActionLink("Delete", "Delete", new { id = item.Id })
 }
 }
@@ -599,10 +601,10 @@
         if (item.Class.Number == 2 && item.Day == Day.Tue && item.WeekNumber == Week.secondWeek)
         {
             @Html.DisplayFor(modelItem => item.Subject.SubjectName)<br />
-            @Html.DisplayFor(modelItem => item.Subject.Teacher.Name)<br />
+            @Html.ActionLink(item.Teacher.Name, "ScheduleTeacher", new { id = item.TeacherId })<br />
             <span>Room № </span>@Html.DisplayFor(modelItem => item.Room.Number)<br />
             @Html.DisplayFor(modelItem => item.Room.PlacesAmount)<span> places</span>
-            @Html.ActionLink("Edit", "Edit", new { id = item.Id })
+            @Html.ActionLink("Edit", "Edit", new { id = item.Id })<span> | </span>
             @Html.ActionLink("Delete", "Delete", new { id = item.Id })
 }
 }
@@ -613,10 +615,10 @@
         if (item.Class.Number == 2 && item.Day == Day.Wed && item.WeekNumber == Week.secondWeek)
         {
             @Html.DisplayFor(modelItem => item.Subject.SubjectName)<br />
-            @Html.DisplayFor(modelItem => item.Subject.Teacher.Name)<br />
+            @Html.ActionLink(item.Teacher.Name, "ScheduleTeacher", new { id = item.TeacherId })<br />
             <span>Room № </span>@Html.DisplayFor(modelItem => item.Room.Number)<br />
             @Html.DisplayFor(modelItem => item.Room.PlacesAmount)<span> places</span>
-            @Html.ActionLink("Edit", "Edit", new { id = item.Id })
+            @Html.ActionLink("Edit", "Edit", new { id = item.Id })<span> | </span>
             @Html.ActionLink("Delete", "Delete", new { id = item.Id })
 }
 }
@@ -627,10 +629,10 @@
         if (item.Class.Number == 2 && item.Day == Day.Thu && item.WeekNumber == Week.secondWeek)
         {
             @Html.DisplayFor(modelItem => item.Subject.SubjectName)<br />
-            @Html.DisplayFor(modelItem => item.Subject.Teacher.Name)<br />
+            @Html.ActionLink(item.Teacher.Name, "ScheduleTeacher", new { id = item.TeacherId })<br />
             <span>Room № </span>@Html.DisplayFor(modelItem => item.Room.Number)<br />
             @Html.DisplayFor(modelItem => item.Room.PlacesAmount)<span> places</span>
-            @Html.ActionLink("Edit", "Edit", new { id = item.Id })
+            @Html.ActionLink("Edit", "Edit", new { id = item.Id })<span> | </span>
             @Html.ActionLink("Delete", "Delete", new { id = item.Id })
 }
 }
@@ -641,10 +643,10 @@
         if (item.Class.Number == 2 && item.Day == Day.Fri && item.WeekNumber == Week.secondWeek)
         {
             @Html.DisplayFor(modelItem => item.Subject.SubjectName)<br />
-            @Html.DisplayFor(modelItem => item.Subject.Teacher.Name)<br />
+            @Html.ActionLink(item.Teacher.Name, "ScheduleTeacher", new { id = item.TeacherId })<br />
             <span>Room № </span>@Html.DisplayFor(modelItem => item.Room.Number)<br />
             @Html.DisplayFor(modelItem => item.Room.PlacesAmount)<span> places</span>
-            @Html.ActionLink("Edit", "Edit", new { id = item.Id })
+            @Html.ActionLink("Edit", "Edit", new { id = item.Id })<span> | </span>
             @Html.ActionLink("Delete", "Delete", new { id = item.Id })
 }
 }
@@ -655,10 +657,10 @@
         if (item.Class.Number == 2 && item.Day == Day.Sat && item.WeekNumber == Week.secondWeek)
         {
             @Html.DisplayFor(modelItem => item.Subject.SubjectName)<br />
-            @Html.DisplayFor(modelItem => item.Subject.Teacher.Name)<br />
+            @Html.ActionLink(item.Teacher.Name, "ScheduleTeacher", new { id = item.TeacherId })<br />
             <span>Room № </span>@Html.DisplayFor(modelItem => item.Room.Number)<br />
             @Html.DisplayFor(modelItem => item.Room.PlacesAmount)<span> places</span>
-            @Html.ActionLink("Edit", "Edit", new { id = item.Id })
+            @Html.ActionLink("Edit", "Edit", new { id = item.Id })<span> | </span>
             @Html.ActionLink("Delete", "Delete", new { id = item.Id })
 }
 }
@@ -675,10 +677,10 @@
         if (item.Class.Number == 3 && item.Day == Day.Mon && item.WeekNumber == Week.secondWeek)
         {
             @Html.DisplayFor(modelItem => item.Subject.SubjectName)<br />
-            @Html.DisplayFor(modelItem => item.Subject.Teacher.Name)<br />
+            @Html.ActionLink(item.Teacher.Name, "ScheduleTeacher", new { id = item.TeacherId })<br />
             <span>Room № </span>@Html.DisplayFor(modelItem => item.Room.Number)<br />
             @Html.DisplayFor(modelItem => item.Room.PlacesAmount)<span> places</span>
-            @Html.ActionLink("Edit", "Edit", new { id = item.Id })
+            @Html.ActionLink("Edit", "Edit", new { id = item.Id })<span> | </span>
             @Html.ActionLink("Delete", "Delete", new { id = item.Id })
 }
 }
@@ -689,10 +691,10 @@
         if (item.Class.Number == 3 && item.Day == Day.Tue && item.WeekNumber == Week.secondWeek)
         {
             @Html.DisplayFor(modelItem => item.Subject.SubjectName)<br />
-            @Html.DisplayFor(modelItem => item.Subject.Teacher.Name)<br />
+            @Html.ActionLink(item.Teacher.Name, "ScheduleTeacher", new { id = item.TeacherId })<br />
             <span>Room № </span>@Html.DisplayFor(modelItem => item.Room.Number)<br />
             @Html.DisplayFor(modelItem => item.Room.PlacesAmount)<span> places</span>
-            @Html.ActionLink("Edit", "Edit", new { id = item.Id })
+            @Html.ActionLink("Edit", "Edit", new { id = item.Id })<span> | </span>
             @Html.ActionLink("Delete", "Delete", new { id = item.Id })
 }
 }
@@ -703,10 +705,10 @@
         if (item.Class.Number == 3 && item.Day == Day.Wed && item.WeekNumber == Week.secondWeek)
         {
             @Html.DisplayFor(modelItem => item.Subject.SubjectName)<br />
-            @Html.DisplayFor(modelItem => item.Subject.Teacher.Name)<br />
+            @Html.ActionLink(item.Teacher.Name, "ScheduleTeacher", new { id = item.TeacherId })<br />
             <span>Room № </span>@Html.DisplayFor(modelItem => item.Room.Number)<br />
             @Html.DisplayFor(modelItem => item.Room.PlacesAmount)<span> places</span>
-            @Html.ActionLink("Edit", "Edit", new { id = item.Id })
+            @Html.ActionLink("Edit", "Edit", new { id = item.Id })<span> | </span>
             @Html.ActionLink("Delete", "Delete", new { id = item.Id })
 }
 }
@@ -717,10 +719,10 @@
         if (item.Class.Number == 3 && item.Day == Day.Thu && item.WeekNumber == Week.secondWeek)
         {
             @Html.DisplayFor(modelItem => item.Subject.SubjectName)<br />
-            @Html.DisplayFor(modelItem => item.Subject.Teacher.Name)<br />
+            @Html.ActionLink(item.Teacher.Name, "ScheduleTeacher", new { id = item.TeacherId })<br />
             <span>Room № </span>@Html.DisplayFor(modelItem => item.Room.Number)<br />
             @Html.DisplayFor(modelItem => item.Room.PlacesAmount)<span> places</span>
-            @Html.ActionLink("Edit", "Edit", new { id = item.Id })
+            @Html.ActionLink("Edit", "Edit", new { id = item.Id })<span> | </span>
             @Html.ActionLink("Delete", "Delete", new { id = item.Id })
 }
 }
@@ -731,10 +733,10 @@
         if (item.Class.Number == 3 && item.Day == Day.Fri && item.WeekNumber == Week.secondWeek)
         {
             @Html.DisplayFor(modelItem => item.Subject.SubjectName)<br />
-            @Html.DisplayFor(modelItem => item.Subject.Teacher.Name)<br />
+            @Html.ActionLink(item.Teacher.Name, "ScheduleTeacher", new { id = item.TeacherId })<br />
             <span>Room № </span>@Html.DisplayFor(modelItem => item.Room.Number)<br />
             @Html.DisplayFor(modelItem => item.Room.PlacesAmount)<span> places</span>
-            @Html.ActionLink("Edit", "Edit", new { id = item.Id })
+            @Html.ActionLink("Edit", "Edit", new { id = item.Id })<span> | </span>
             @Html.ActionLink("Delete", "Delete", new { id = item.Id })
 }
 }
@@ -745,10 +747,10 @@
         if (item.Class.Number == 3 && item.Day == Day.Sat && item.WeekNumber == Week.secondWeek)
         {
             @Html.DisplayFor(modelItem => item.Subject.SubjectName)<br />
-            @Html.DisplayFor(modelItem => item.Subject.Teacher.Name)<br />
+            @Html.ActionLink(item.Teacher.Name, "ScheduleTeacher", new { id = item.TeacherId })<br />
             <span>Room № </span>@Html.DisplayFor(modelItem => item.Room.Number)<br />
             @Html.DisplayFor(modelItem => item.Room.PlacesAmount)<span> places</span>
-            @Html.ActionLink("Edit", "Edit", new { id = item.Id })
+            @Html.ActionLink("Edit", "Edit", new { id = item.Id })<span> | </span>
             @Html.ActionLink("Delete", "Delete", new { id = item.Id })
 }
 }
@@ -765,10 +767,10 @@
         if (item.Class.Number == 4 && item.Day == Day.Mon && item.WeekNumber == Week.secondWeek)
         {
             @Html.DisplayFor(modelItem => item.Subject.SubjectName)<br />
-            @Html.DisplayFor(modelItem => item.Subject.Teacher.Name)<br />
+            @Html.ActionLink(item.Teacher.Name, "ScheduleTeacher", new { id = item.TeacherId })<br />
             <span>Room № </span>@Html.DisplayFor(modelItem => item.Room.Number)<br />
             @Html.DisplayFor(modelItem => item.Room.PlacesAmount)<span> places</span>
-            @Html.ActionLink("Edit", "Edit", new { id = item.Id })
+            @Html.ActionLink("Edit", "Edit", new { id = item.Id })<span> | </span>
             @Html.ActionLink("Delete", "Delete", new { id = item.Id })
 }
 }
@@ -779,10 +781,10 @@
         if (item.Class.Number == 4 && item.Day == Day.Tue && item.WeekNumber == Week.secondWeek)
         {
             @Html.DisplayFor(modelItem => item.Subject.SubjectName)<br />
-            @Html.DisplayFor(modelItem => item.Subject.Teacher.Name)<br />
+            @Html.ActionLink(item.Teacher.Name, "ScheduleTeacher", new { id = item.TeacherId })<br/>
             <span>Room № </span>@Html.DisplayFor(modelItem => item.Room.Number)<br />
             @Html.DisplayFor(modelItem => item.Room.PlacesAmount)<span> places</span>
-            @Html.ActionLink("Edit", "Edit", new { id = item.Id })
+            @Html.ActionLink("Edit", "Edit", new { id = item.Id })<span> | </span>
             @Html.ActionLink("Delete", "Delete", new { id = item.Id })
 }
 }
@@ -793,10 +795,10 @@
         if (item.Class.Number == 4 && item.Day == Day.Wed && item.WeekNumber == Week.secondWeek)
         {
             @Html.DisplayFor(modelItem => item.Subject.SubjectName)<br />
-            @Html.DisplayFor(modelItem => item.Subject.Teacher.Name)<br />
+            @Html.ActionLink(item.Teacher.Name, "ScheduleTeacher", new { id = item.TeacherId })<br/>
             <span>Room № </span>@Html.DisplayFor(modelItem => item.Room.Number)<br />
             @Html.DisplayFor(modelItem => item.Room.PlacesAmount)<span> places</span>
-            @Html.ActionLink("Edit", "Edit", new { id = item.Id })
+            @Html.ActionLink("Edit", "Edit", new { id = item.Id })<span> | </span>
             @Html.ActionLink("Delete", "Delete", new { id = item.Id })
 }
 }
@@ -807,10 +809,10 @@
         if (item.Class.Number == 4 && item.Day == Day.Thu && item.WeekNumber == Week.secondWeek)
         {
             @Html.DisplayFor(modelItem => item.Subject.SubjectName)<br />
-            @Html.DisplayFor(modelItem => item.Subject.Teacher.Name)<br />
+            @Html.ActionLink(item.Teacher.Name, "ScheduleTeacher", new { id = item.TeacherId })<br/>
             <span>Room № </span>@Html.DisplayFor(modelItem => item.Room.Number)<br />
             @Html.DisplayFor(modelItem => item.Room.PlacesAmount)<span> places</span>
-            @Html.ActionLink("Edit", "Edit", new { id = item.Id })
+            @Html.ActionLink("Edit", "Edit", new { id = item.Id })<span> | </span>
             @Html.ActionLink("Delete", "Delete", new { id = item.Id })
 }
 }
@@ -821,10 +823,10 @@
         if (item.Class.Number == 4 && item.Day == Day.Fri && item.WeekNumber == Week.secondWeek)
         {
             @Html.DisplayFor(modelItem => item.Subject.SubjectName)<br />
-            @Html.DisplayFor(modelItem => item.Subject.Teacher.Name)<br />
+            @Html.ActionLink(item.Teacher.Name, "ScheduleTeacher", new { id = item.TeacherId })<br/>
             <span>Room № </span>@Html.DisplayFor(modelItem => item.Room.Number)<br />
             @Html.DisplayFor(modelItem => item.Room.PlacesAmount)<span> places</span>
-            @Html.ActionLink("Edit", "Edit", new { id = item.Id })
+            @Html.ActionLink("Edit", "Edit", new { id = item.Id })<span> | </span>
             @Html.ActionLink("Delete", "Delete", new { id = item.Id })
 }
 }
@@ -835,10 +837,10 @@
         if (item.Class.Number == 4 && item.Day == Day.Sat && item.WeekNumber == Week.secondWeek)
         {
             @Html.DisplayFor(modelItem => item.Subject.SubjectName)<br />
-            @Html.DisplayFor(modelItem => item.Subject.Teacher.Name)<br />
+            @Html.ActionLink(item.Teacher.Name, "ScheduleTeacher", new { id = item.TeacherId })<br/>
             <span>Room № </span>@Html.DisplayFor(modelItem => item.Room.Number)<br />
             @Html.DisplayFor(modelItem => item.Room.PlacesAmount)<span> places</span>
-            @Html.ActionLink("Edit", "Edit", new { id = item.Id })
+            @Html.ActionLink("Edit", "Edit", new { id = item.Id })<span> | </span>
             @Html.ActionLink("Delete", "Delete", new { id = item.Id })
 }
 }
@@ -855,10 +857,10 @@
         if (item.Class.Number == 5 && item.Day == Day.Mon && item.WeekNumber == Week.secondWeek)
         {
             @Html.DisplayFor(modelItem => item.Subject.SubjectName)<br />
-            @Html.DisplayFor(modelItem => item.Subject.Teacher.Name)<br />
+            @Html.ActionLink(item.Teacher.Name, "ScheduleTeacher", new { id = item.TeacherId })<br />
             <span>Room № </span>@Html.DisplayFor(modelItem => item.Room.Number)<br />
             @Html.DisplayFor(modelItem => item.Room.PlacesAmount)<span> places</span>
-            @Html.ActionLink("Edit", "Edit", new { id = item.Id })
+            @Html.ActionLink("Edit", "Edit", new { id = item.Id })<span> | </span>
             @Html.ActionLink("Delete", "Delete", new { id = item.Id })
 }
 }
@@ -869,10 +871,10 @@
         if (item.Class.Number == 5 && item.Day == Day.Tue && item.WeekNumber == Week.secondWeek)
         {
             @Html.DisplayFor(modelItem => item.Subject.SubjectName)<br />
-            @Html.DisplayFor(modelItem => item.Subject.Teacher.Name)<br />
+            @Html.ActionLink(item.Teacher.Name, "ScheduleTeacher", new { id = item.TeacherId })<br />
             <span>Room № </span>@Html.DisplayFor(modelItem => item.Room.Number)<br />
             @Html.DisplayFor(modelItem => item.Room.PlacesAmount)<span> places</span>
-            @Html.ActionLink("Edit", "Edit", new { id = item.Id })
+            @Html.ActionLink("Edit", "Edit", new { id = item.Id })<span> | </span>
             @Html.ActionLink("Delete", "Delete", new { id = item.Id })
 }
 }
@@ -883,10 +885,10 @@
         if (item.Class.Number == 5 && item.Day == Day.Wed && item.WeekNumber == Week.secondWeek)
         {
             @Html.DisplayFor(modelItem => item.Subject.SubjectName)<br />
-            @Html.DisplayFor(modelItem => item.Subject.Teacher.Name)<br />
+            @Html.ActionLink(item.Teacher.Name, "ScheduleTeacher", new { id = item.TeacherId })<br />
             <span>Room № </span>@Html.DisplayFor(modelItem => item.Room.Number)<br />
             @Html.DisplayFor(modelItem => item.Room.PlacesAmount)<span> places</span>
-            @Html.ActionLink("Edit", "Edit", new { id = item.Id })
+            @Html.ActionLink("Edit", "Edit", new { id = item.Id })<span> | </span>
             @Html.ActionLink("Delete", "Delete", new { id = item.Id })
 }
 }
@@ -897,10 +899,10 @@
         if (item.Class.Number == 5 && item.Day == Day.Thu && item.WeekNumber == Week.secondWeek)
         {
             @Html.DisplayFor(modelItem => item.Subject.SubjectName)<br />
-            @Html.DisplayFor(modelItem => item.Subject.Teacher.Name)<br />
+            @Html.ActionLink(item.Teacher.Name, "ScheduleTeacher", new { id = item.TeacherId })<br />
             <span>Room № </span>@Html.DisplayFor(modelItem => item.Room.Number)<br />
             @Html.DisplayFor(modelItem => item.Room.PlacesAmount)<span> places</span>
-            @Html.ActionLink("Edit", "Edit", new { id = item.Id })
+            @Html.ActionLink("Edit", "Edit", new { id = item.Id })<span> | </span>
             @Html.ActionLink("Delete", "Delete", new { id = item.Id })
 }
 }
@@ -911,10 +913,10 @@
         if (item.Class.Number == 5 && item.Day == Day.Fri && item.WeekNumber == Week.secondWeek)
         {
             @Html.DisplayFor(modelItem => item.Subject.SubjectName)<br />
-            @Html.DisplayFor(modelItem => item.Subject.Teacher.Name)<br />
+            @Html.ActionLink(item.Teacher.Name, "ScheduleTeacher", new { id = item.TeacherId })<br />
             <span>Room № </span>@Html.DisplayFor(modelItem => item.Room.Number)<br />
             @Html.DisplayFor(modelItem => item.Room.PlacesAmount)<span> places</span>
-            @Html.ActionLink("Edit", "Edit", new { id = item.Id })
+            @Html.ActionLink("Edit", "Edit", new { id = item.Id })<span> | </span>
             @Html.ActionLink("Delete", "Delete", new { id = item.Id })
 }
 }
@@ -925,10 +927,10 @@
         if (item.Class.Number == 5 && item.Day == Day.Sat && item.WeekNumber == Week.secondWeek)
         {
             @Html.DisplayFor(modelItem => item.Subject.SubjectName)<br />
-            @Html.DisplayFor(modelItem => item.Subject.Teacher.Name)<br />
+            @Html.ActionLink(item.Teacher.Name,"ScheduleTeacher",new { id=item.TeacherId})<br />
             <span>Room № </span>@Html.DisplayFor(modelItem => item.Room.Number)<br />
             @Html.DisplayFor(modelItem => item.Room.PlacesAmount)<span> places</span>
-            @Html.ActionLink("Edit", "Edit", new { id = item.Id })
+            @Html.ActionLink("Edit", "Edit", new { id = item.Id })<span> | </span>
             @Html.ActionLink("Delete", "Delete", new { id = item.Id })
 }
 }
