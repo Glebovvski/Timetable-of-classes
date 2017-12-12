@@ -1926,7 +1926,6 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Schedules\Delete.cshtml" />
     <Content Include="Views\Schedules\Index.cshtml" />
     <Content Include="Views\Specialities\Create.cshtml" />
     <Content Include="Views\Specialities\Delete.cshtml" />
@@ -1946,6 +1945,7 @@
     <Content Include="Views\AcademicPlans\Delete.cshtml" />
     <Content Include="Views\AcademicPlans\Edit.cshtml" />
     <Content Include="Views\AcademicPlans\Plan.cshtml" />
+    <Content Include="Views\Schedules\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

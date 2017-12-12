@@ -48,8 +48,28 @@ namespace Schedule_CodeFirstModel.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Create([Bind(Include = "Id,Day,ClassId,WeekNumber,TeacherId,RoomId,SubjectId,GroupId")] Schedule schedule)
         {
-            var check = db.Schedules.Where(x => x.Group.Id == schedule.GroupId).Where(x => x.Day == schedule.Day).Where(x => x.Class.Id == schedule.ClassId).Where(x => x.WeekNumber == schedule.WeekNumber).FirstOrDefault();
-            if (check != null)
+            var checkIfScheduleIsAlreadyCreated = db.Schedules.Where(x => x.Group.Id == schedule.GroupId)
+                                                              .Where(x => x.Day == schedule.Day)
+                                                              .Where(x => x.Class.Id == schedule.ClassId)
+                                                              .Where(x => x.WeekNumber == schedule.WeekNumber).FirstOrDefault();
+
+            var checkIfTeacherIsAlreadyTaken = db.Schedules.Where(x => x.GroupId != schedule.GroupId)
+                                                           .Where(x => x.RoomId != schedule.RoomId)
+                                                           .Where(x => x.Room.PlacesAmount > 20)
+                                                           .Where(x => x.SubjectId == schedule.SubjectId)
+                                                           .Where(x => x.TeacherId == schedule.TeacherId)
+                                                           .Where(x => x.Day == schedule.Day)
+                                                           .Where(x => x.Class.Id == schedule.ClassId)
+                                                           .Where(x => x.WeekNumber == schedule.WeekNumber).
+                                                           FirstOrDefault();
+
+            if (checkIfScheduleIsAlreadyCreated != null)
+                ModelState.AddModelError("", "Schedule for this class is already created! You can Edit it on the form");
+
+            if (checkIfTeacherIsAlreadyTaken != null)
+                ModelState.AddModelError("", "This teacher already has class at this time");
+
+            if (!ModelState.IsValid)
             {
                 SelectList teachers = new SelectList(db.Teachers, "Id", "Name");
                 ViewBag.Teachers = teachers;
@@ -61,9 +81,8 @@ namespace Schedule_CodeFirstModel.Controllers
                 ViewBag.Classes = classes;
                 SelectList groups = new SelectList(db.Groups, "Id", "GroupName");
                 ViewBag.Groups = groups;
-                ModelState.AddModelError("GroupId", "Schedule for this class is already created! You can Edit it on the form");
             }
-            if (ModelState.IsValid)
+            else
             {
                 db.Schedules.Add(schedule);
                 await db.SaveChangesAsync();
@@ -85,8 +104,7 @@ namespace Schedule_CodeFirstModel.Controllers
             {
                 return HttpNotFound();
             }
-            //SelectList teachers = new SelectList(db.Teachers, "Id", "Name", schedule.TeacherId);
-            //ViewBag.Teachers = teachers;
+
             SelectList rooms = new SelectList(db.Rooms, "Id", "Number", "PlacesAmount",schedule.RoomId);
             ViewBag.Rooms = rooms;
             SelectList subj = new SelectList(db.Subjects, "Id", "SubjectName",schedule.SubjectId);
@@ -106,23 +124,55 @@ namespace Schedule_CodeFirstModel.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Edit([Bind(Include = "Id,GroupId,Day,ClassId,WeekNumber,TeacherId,RoomId,SubjectId")] Schedule schedule)
         {
-            if (ModelState.IsValid)
+            var checkIfTeacherIsAlreadyTaken = db.Schedules.Where(x => x.GroupId != schedule.GroupId)
+                                                           .Where(x => x.RoomId!=schedule.RoomId)
+                                                           .Where(x => x.Room.PlacesAmount>20)
+                                                           .Where(x => x.SubjectId==schedule.SubjectId)
+                                                           .Where(x => x.TeacherId == schedule.TeacherId)
+                                                           .Where(x => x.Day == schedule.Day)
+                                                           .Where(x => x.Class.Id == schedule.ClassId)
+                                                           .Where(x => x.WeekNumber == schedule.WeekNumber).FirstOrDefault();
+
+            if (checkIfTeacherIsAlreadyTaken != null)
+                ModelState.AddModelError("SubjectId", "Teacher for this subject already has class at this time in group "+checkIfTeacherIsAlreadyTaken.Group.GroupName);
+
+            if (!ModelState.IsValid)
+            {
+                SelectList rooms = new SelectList(db.Rooms, "Id", "Number", "PlacesAmount", schedule.RoomId);
+                ViewBag.Rooms = rooms;
+                SelectList subj = new SelectList(db.Subjects, "Id", "SubjectName", schedule.SubjectId);
+                ViewBag.Subjects = subj;
+                SelectList groups = new SelectList(db.Groups, "Id", "GroupName");
+                ViewBag.Groups = groups;
+                SelectList classes = new SelectList(db.Classes, "Id", "Number");
+                ViewBag.Classes = classes;
+            }
+            else
             {
                 db.Entry(schedule).State = EntityState.Modified;
                 await db.SaveChangesAsync();
-                return RedirectToAction("Index/"+schedule.GroupId);
+                return RedirectToAction("Index/" + schedule.GroupId);
             }
-            return RedirectToAction("Index",schedule.GroupId);
+            return View(schedule);
         }
 
         // GET: Schedules/Delete/5
         public async Task<ActionResult> Delete(int? id)
         {
+            
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Schedule schedule = await db.Schedules.FindAsync(id);
+            SelectList rooms = new SelectList(db.Rooms, "Id", "Number", "PlacesAmount", schedule.RoomId);
+            ViewBag.Rooms = rooms;
+            SelectList subj = new SelectList(db.Subjects, "Id", "SubjectName", schedule.SubjectId);
+            ViewBag.Subjects = subj;
+            SelectList groups = new SelectList(db.Groups, "Id", "GroupName");
+            ViewBag.Groups = groups;
+            SelectList classes = new SelectList(db.Classes, "Id", "Number");
+            ViewBag.Classes = classes;
             if (schedule == null)
             {
                 return HttpNotFound();
@@ -138,7 +188,7 @@ namespace Schedule_CodeFirstModel.Controllers
             Schedule schedule = await db.Schedules.FindAsync(id);
             db.Schedules.Remove(schedule);
             await db.SaveChangesAsync();
-            return RedirectToAction("Index");
+            return RedirectToAction("Index/" + schedule.GroupId);
         }
 
         protected override void Dispose(bool disposing)
