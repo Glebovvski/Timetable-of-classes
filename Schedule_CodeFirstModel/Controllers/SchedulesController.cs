@@ -16,19 +16,25 @@ namespace Schedule_CodeFirstModel.Controllers
         private ScheduleContext db = new ScheduleContext();
 
         // GET: Schedules
+        
         public async Task<ActionResult> Index(int? id)
         {
             var days = new List<string>() { "Mon", "Tue", "Wed", "Thu", "Fri", "Sat" };
             ViewBag.Days = days;
-            var schedule = await db.Schedules.Where(x => x.Group.Id == id).Include(d => d.Subject).Include(r => r.Room).Include(c => c.Class).ToListAsync();
+            var schedule = await db.Schedules.Where(x => x.Group.Id == id).Include(d => d.Subject).Include(r => r.Room).Include(c => c.Class).Include(c=>c.Teacher).ToListAsync();
             return View(schedule);
+        }
+
+        public ActionResult GeneratePDF(int id)
+        {
+            return new Rotativa.ActionAsPdf("Index",id);
         }
 
         public async Task<ActionResult> ScheduleTeacher(int? id)
         {
             var days = new List<string>() { "Mon", "Tue", "Wed", "Thu", "Fri", "Sat" };
             ViewBag.Days = days;
-            var schedule = await db.Schedules.Where(x => x.TeacherId == id).Include(d => d.Subject).Include(r => r.Room).Include(c => c.Class).Include(x=>x.Group).Distinct().ToListAsync();
+            var schedule = await db.Schedules.Where(x => x.TeacherId == id).Include(d => d.Subject).Include(r => r.Room).Include(c => c.Class).Include(x=>x.Group).ToListAsync();
             return View(schedule);
         }
 
@@ -121,7 +127,8 @@ namespace Schedule_CodeFirstModel.Controllers
             ViewBag.Groups = groups;
             SelectList classes = new SelectList(db.Classes, "Id", "Number");
             ViewBag.Classes = classes;
-
+            SelectList teachers = new SelectList(db.Teachers, "Id", "Name", schedule.TeacherId);
+            ViewBag.Teachers = teachers;
             return View(schedule);
         }
 

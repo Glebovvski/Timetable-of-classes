@@ -27,6 +27,11 @@ namespace Schedule_CodeFirstModel.Controllers
             return View(groups);
         }
 
+        public ActionResult GeneratePDF()
+        {
+            return new Rotativa.ActionAsPdf("Index");
+        }
+
         public async Task<ActionResult> GroupsBySpec(int id)
         {
             var groupsbyspec = await context.Groups.Where(x => x.Speciality.Id == id).Include(spec => spec.Speciality).Include(c => c.Course).ToListAsync();

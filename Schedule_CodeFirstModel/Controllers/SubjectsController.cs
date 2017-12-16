@@ -22,7 +22,10 @@ namespace Schedule_CodeFirstModel.Controllers
             return View(await subjects.ToListAsync());
         }
 
-
+        public ActionResult GeneratePDF()
+        {
+            return new Rotativa.ActionAsPdf("Index");
+        }
         public ActionResult CreateTeacher()
         {
             return View();
