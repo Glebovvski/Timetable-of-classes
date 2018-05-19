@@ -1,0 +1,69 @@
+﻿@model IEnumerable<Schedule_CodeFirstModel.Models.Bookkeeping>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Student.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StudentStatus.AverageScoreEqualsOrLessThanNeeded)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StudentStatus.DisabledPerson)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StudentStatus.Orphan)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StudentStatus.Scholarship)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StudentStatus.SingleChild)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SumToPay)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Student.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StudentStatus.AverageScoreEqualsOrLessThanNeeded)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StudentStatus.DisabledPerson)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StudentStatus.Orphan)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StudentStatus.Scholarship)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StudentStatus.SingleChild)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SumToPay)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+        </td>
+    </tr>
+}
+
+</table>

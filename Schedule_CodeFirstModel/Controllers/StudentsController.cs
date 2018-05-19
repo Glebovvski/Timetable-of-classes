@@ -5,56 +5,48 @@ using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using System.Xml;
 
 namespace Schedule_CodeFirstModel.Controllers
 {
-    public class UniversitiesController : Controller
+    public class StudentsController : Controller
     {
         private ScheduleContext context;
-        public UniversitiesController()
+        public StudentsController()
         {
             context = new ScheduleContext();
         }
-        // GET: Universities
-        public ActionResult Index()
+        // GET: Students
+        public ActionResult Index(int id)
         {
-            var univers = context.Universities.ToList();
-            return View(univers);
+            var students = context.Students.Where(x => x.GroupId == id).ToList();
+            return View(students);
         }
 
-        public ActionResult Universities()
-        {
-            XmlDocument doc = new XmlDocument();
-            var xml = context.Database.SqlQuery<string>("GetUnivers").ToList();
-            doc.LoadXml(xml[0].ToString());
-            doc.Save(@"D:\VSProjects\GIS_KURSACH\Schedule_CodeFirstModel\map.xml");
-            return View();
-        }
-
-        // GET: Universities/Details/5
+        // GET: Students/Details/5
         public ActionResult Details(int id)
         {
             return View();
         }
 
-        // GET: Universities/Create
+        // GET: Students/Create
         public ActionResult Create()
         {
+            SelectList groups = new SelectList(context.Groups, "Id", "GroupName");
+            ViewBag.Groups = groups;
             return View();
         }
 
-        // POST: Universities/Create
+        // POST: Students/Create
         [HttpPost]
-        public ActionResult Create(University university)
+        public ActionResult Create(Student student)
         {
             try
             {
                 if (ModelState.IsValid)
                 {
-                    context.Universities.Add(university);
+                    context.Students.Add(student);
                     context.SaveChanges();
-                    return RedirectToAction("Universities");
+                    return Redirect("~/Students/Index/" + student.GroupId);
                 }
                 return View();
             }
@@ -64,23 +56,26 @@ namespace Schedule_CodeFirstModel.Controllers
             }
         }
 
-        // GET: Universities/Edit/5
+        // GET: Students/Edit/5
         public ActionResult Edit(int id)
         {
-            return View(context.Universities.Find(id));
+            Student student = context.Students.Find(id);
+            SelectList groups = new SelectList(context.Groups, "Id", "GroupName", student.GroupId);
+            ViewBag.Groups = groups;
+            return View(student);
         }
 
-        // POST: Universities/Edit/5
+        // POST: Students/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, University university)
+        public ActionResult Edit(int id, Student student)
         {
             try
             {
                 if (ModelState.IsValid)
                 {
-                    context.Entry(university).State = EntityState.Modified;
+                    context.Entry(student).State = EntityState.Modified;
                     context.SaveChanges();
-                    return RedirectToAction("Universities");
+                    return Redirect("~/Students/Index/" + student.GroupId);
                 }
                 return View();
             }
@@ -90,21 +85,22 @@ namespace Schedule_CodeFirstModel.Controllers
             }
         }
 
-        // GET: Universities/Delete/5
+        // GET: Students/Delete/5
+        [HttpGet]
         public ActionResult Delete(int id)
         {
-            return View(context.Universities.Find(id));
+            return View(context.Students.Find(id));
         }
 
-        // POST: Universities/Delete/5
+        // POST: Students/Delete/5
         [HttpPost,ActionName("Delete")]
         public ActionResult DeleteConfirmed(int id)
         {
             try
             {
-                context.Universities.Remove(context.Universities.Find(id));
+                context.Students.Remove(context.Students.Find(id));
                 context.SaveChanges();
-                return RedirectToAction("Index");
+                return Redirect("~/Home/Index/");
             }
             catch
             {

@@ -29,7 +29,7 @@
             <a href="~/Schedules/Index/@item.Id">@item.GroupName</a>
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Students)
+            <a href="~/Students/Index/@item.Id">@item.Students.Count</a>
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Course.Number)

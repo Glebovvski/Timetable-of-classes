@@ -1,0 +1,58 @@
+﻿@model IEnumerable<Schedule_CodeFirstModel.Models.StudentStatus>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Scholarship)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SingleChild)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AverageScoreEqualsOrLessThanNeeded)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Orphan)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DisabledPerson)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Scholarship)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SingleChild)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AverageScoreEqualsOrLessThanNeeded)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Orphan)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DisabledPerson)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>

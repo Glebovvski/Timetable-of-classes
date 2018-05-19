@@ -536,10 +536,13 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AcademicPlansController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\BookkeepingController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\SchedulesController.cs" />
     <Compile Include="Controllers\SpecialitiesController.cs" />
+    <Compile Include="Controllers\StudentsController.cs" />
+    <Compile Include="Controllers\StudentStatusController.cs" />
     <Compile Include="Controllers\SubjectsController.cs" />
     <Compile Include="Controllers\UniversitiesController.cs" />
     <Compile Include="Global.asax.cs">
@@ -669,9 +672,18 @@
     <Compile Include="Migrations\201805191108224_qwerty.Designer.cs">
       <DependentUpon>201805191108224_qwerty.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201805191322413_bookkeeping table.cs" />
+    <Compile Include="Migrations\201805191322413_bookkeeping table.Designer.cs">
+      <DependentUpon>201805191322413_bookkeeping table.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201805191325243_new tables.cs" />
+    <Compile Include="Migrations\201805191325243_new tables.Designer.cs">
+      <DependentUpon>201805191325243_new tables.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AcademicPlan.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Bookkeeping.cs" />
     <Compile Include="Models\Class.cs" />
     <Compile Include="Models\Course.cs" />
     <Compile Include="Models\Day.cs" />
@@ -683,6 +695,8 @@
     <Compile Include="Models\ScheduleContext.cs" />
     <Compile Include="Models\Semestre.cs" />
     <Compile Include="Models\Speciality.cs" />
+    <Compile Include="Models\Student.cs" />
+    <Compile Include="Models\StudentStatus.cs" />
     <Compile Include="Models\Subject.cs" />
     <Compile Include="Models\Teacher.cs" />
     <Compile Include="Models\University.cs" />
@@ -1982,6 +1996,17 @@
     <Content Include="Views\Universities\Edit.cshtml" />
     <Content Include="Views\Universities\Delete.cshtml" />
     <Content Include="Views\Universities\Create.cshtml" />
+    <Content Include="Views\Students\Index.cshtml" />
+    <Content Include="Views\Students\Create.cshtml" />
+    <Content Include="Views\Students\Edit.cshtml" />
+    <Content Include="Views\Students\Delete.cshtml" />
+    <Content Include="Views\Bookkeeping\Index.cshtml" />
+    <Content Include="Views\Bookkeeping\Edit.cshtml" />
+    <Content Include="Views\StudentStatus\Index.cshtml" />
+    <Content Include="Views\StudentStatus\Edit.cshtml" />
+    <Content Include="Views\Bookkeeping\Delete.cshtml" />
+    <Content Include="Views\Bookkeeping\Create.cshtml" />
+    <Content Include="Views\StudentStatus\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -2096,6 +2121,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201805191108224_qwerty.resx">
       <DependentUpon>201805191108224_qwerty.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805191322413_bookkeeping table.resx">
+      <DependentUpon>201805191322413_bookkeeping table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805191325243_new tables.resx">
+      <DependentUpon>201805191325243_new tables.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

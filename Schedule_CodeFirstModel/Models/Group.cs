@@ -19,13 +19,12 @@ namespace Schedule_CodeFirstModel.Models
         [Range(1,6)]
         public int CourseId { get; set; }
         public virtual Course Course { get; set; }
-        [Range(1,22)]
-        public int Students { get; set; }
         [Display(Name = "Speciality")]
         public int SpecialityId { get; set; }
         public virtual Speciality Speciality { get; set; }
         [Display(Name ="Speciality")]
         public int UniversityId { get; set; }
         public virtual University University { get; set; }
+        public ICollection<Student> Students { get; set; }
     }
 }
