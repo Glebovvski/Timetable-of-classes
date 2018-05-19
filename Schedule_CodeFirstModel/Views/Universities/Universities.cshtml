@@ -1,0 +1,88 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<div id="map" style="height:500px;width:100%;"></div>
+<script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCA8lZOPIQEhZ66kSgBT5mEVdO6oaBNPW4&callback=initMap">
+</script>
+<script>
+    
+    function initMap() {
+        var map = new google.maps.Map(document.getElementById('map'), {
+            center: new google.maps.LatLng(50.449471, 30.460775),
+            zoom: 8
+        });
+        var infoWindow = new google.maps.InfoWindow;
+
+        downloadUrl('http://localhost:63381/map.xml', function (data) {
+            var xml = data.responseXML;
+            var markers = xml.documentElement.getElementsByTagName('Universities');
+            Array.prototype.forEach.call(markers, function (markerElem) {
+                var id = markerElem.getAttribute('Id');
+                var name = markerElem.getAttribute('Name');
+                var address = markerElem.getAttribute('Address');
+                var point = new google.maps.LatLng(
+                    parseFloat(markerElem.getAttribute('lat')),
+                    parseFloat(markerElem.getAttribute('lng')));
+
+                var infowincontent = document.createElement('div');
+                var strong = document.createElement('strong');
+                strong.textContent = name
+                infowincontent.appendChild(strong);
+                infowincontent.appendChild(document.createElement('br'));
+
+                var text = document.createElement('text');
+                text.textContent = address;
+                infowincontent.appendChild(text);
+                infowincontent.appendChild(document.createElement('br'));
+
+
+                var a = document.createElement('a');
+                var linkText = document.createTextNode("Edit");
+                a.appendChild(linkText);
+                a.title = "Edit";
+                a.href = "Edit/" + id;
+                infowincontent.appendChild(a);
+
+                var aa = document.createElement('a');
+                var linkText = document.createTextNode(" Delete");
+                aa.appendChild(linkText);
+                aa.title = " Delete";
+                aa.href = "Delete/" + id;
+                infowincontent.appendChild(aa);
+                
+                var marker = new google.maps.Marker({
+                    map: map,
+                    position: point
+                });
+                marker.addListener('click', function () {
+                    infoWindow.setContent(infowincontent);
+                    infoWindow.open(map, marker);
+                });
+            });
+        });
+    }
+
+    function downloadUrl(url, callback) {
+        var request = window.ActiveXObject ?
+            new ActiveXObject('Microsoft.XMLHTTP') :
+            new XMLHttpRequest;
+
+        request.onreadystatechange = function () {
+            if (request.readyState == 4) {
+                request.onreadystatechange = doNothing;
+                callback(request, request.status);
+            }
+        };
+
+        request.open('GET', url, true);
+        request.send(null);
+    }
+
+    function doNothing() { }
+
+</script>

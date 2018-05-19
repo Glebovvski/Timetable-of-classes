@@ -21,8 +21,14 @@ namespace Schedule_CodeFirstModel.Controllers
             context = new ScheduleContext();
         }
 
-        public async Task<ActionResult> Index()
+        public async Task<ActionResult> Index(int? id)
         {
+            if (id != null)
+            {
+                var groupsByUniver = await context.Groups.Include(s => s.Speciality).Include(c => c.Course).Where(x => x.UniversityId == id).ToListAsync();
+                return View(groupsByUniver);
+            }
+
             var groups = await context.Groups.Include(spec=>spec.Speciality).Include(c=>c.Course).ToListAsync();
             return View(groups);
         }
