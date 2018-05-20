@@ -16,10 +16,15 @@ namespace Schedule_CodeFirstModel.Controllers
         private ScheduleContext db = new ScheduleContext();
 
         // GET: Subjects
-        public async Task<ActionResult> Index()
+        public async Task<ActionResult> Index(int? id)
         {
-            var subjects = db.Subjects.Include(s => s.Teacher);
-            return View(await subjects.ToListAsync());
+            if (id == null)
+                return Redirect("~/Universities/Index");
+            else
+            {
+                var subjects = db.Subjects.Include(s => s.Teacher).Where(x => x.Teacher.UniversityId == id);
+                return View(await subjects.ToListAsync());
+            }
         }
 
         public ActionResult GeneratePDF()
@@ -28,11 +33,14 @@ namespace Schedule_CodeFirstModel.Controllers
         }
         public ActionResult CreateTeacher()
         {
+            var teachers = db.Universities.ToList();
+            SelectList sl = new SelectList(teachers, "Id", "Name");
+            ViewBag.Univers = sl;
             return View();
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> CreateTeacher([Bind(Include = "Id,Name")] Teacher teacher)
+        public async Task<ActionResult> CreateTeacher([Bind(Include = "Id,Name,UniversityId")] Teacher teacher)
         {
             if (ModelState.IsValid)
             {

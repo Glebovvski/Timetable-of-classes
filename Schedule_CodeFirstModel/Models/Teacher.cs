@@ -9,6 +9,7 @@ namespace Schedule_CodeFirstModel.Models
         [Required]
         [MaxLength(25)]
         public string Name { get; set; }
-
+        public int UniversityId { get; set; }
+        public virtual University University { get; set; }
     }
 }

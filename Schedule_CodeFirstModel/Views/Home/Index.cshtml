@@ -4,6 +4,9 @@
     @Html.ActionLink("Add Group", "Create")
 </p>
 <p>
+    <a href="~/TeachersBookkeeping/Index/@ViewBag.UniverId">Teachers Bookkeeping</a>
+</p>
+<p>
     @Html.ActionLink("To PDF", "GeneratePDF")
 </p>
 <table class="table">
@@ -40,9 +43,10 @@
         <td>
             <a href="~/Bookkeeping/Index/@item.Id">Bookkeeping</a>
         </td>
+        
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+            @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.Id })
         </td>
     </tr>
 }

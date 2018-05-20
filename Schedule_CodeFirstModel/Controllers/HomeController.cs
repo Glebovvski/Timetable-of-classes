@@ -26,6 +26,7 @@ namespace Schedule_CodeFirstModel.Controllers
             if (id != null)
             {
                 var groupsByUniver = await context.Groups.Include(s => s.Speciality).Include(c => c.Course).Include(st => st.Students).Where(x => x.UniversityId == id).ToListAsync();
+                ViewBag.UniverId = id;
                 return View(groupsByUniver);
             }
             else return Redirect("~/Universities/Index");

@@ -26,5 +26,6 @@ namespace Schedule_CodeFirstModel.Models
         public DbSet<Bookkeeping> Bookkeepings { get; set; }
         public DbSet<StudentStatus> StudentStatuses { get; set; }
         public DbSet<Student> Students { get; set; }
+        public DbSet<TeachersBookkeeping> teachersBookkeepings { get; set; }
     }
 }

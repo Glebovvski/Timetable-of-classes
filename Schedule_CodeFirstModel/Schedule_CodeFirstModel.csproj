@@ -544,6 +544,7 @@
     <Compile Include="Controllers\StudentsController.cs" />
     <Compile Include="Controllers\StudentStatusController.cs" />
     <Compile Include="Controllers\SubjectsController.cs" />
+    <Compile Include="Controllers\TeachersBookkeepingController.cs" />
     <Compile Include="Controllers\UniversitiesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -684,6 +685,18 @@
     <Compile Include="Migrations\201805201034267_Discount Sum.Designer.cs">
       <DependentUpon>201805201034267_Discount Sum.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201805201127535_teachers bookkeeping.cs" />
+    <Compile Include="Migrations\201805201127535_teachers bookkeeping.Designer.cs">
+      <DependentUpon>201805201127535_teachers bookkeeping.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201805201132007_university_teacher_foreign_key.cs" />
+    <Compile Include="Migrations\201805201132007_university_teacher_foreign_key.Designer.cs">
+      <DependentUpon>201805201132007_university_teacher_foreign_key.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201805201151046_actual_salary column on TeachersBookkeeping table.cs" />
+    <Compile Include="Migrations\201805201151046_actual_salary column on TeachersBookkeeping table.Designer.cs">
+      <DependentUpon>201805201151046_actual_salary column on TeachersBookkeeping table.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AcademicPlan.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -703,6 +716,7 @@
     <Compile Include="Models\StudentStatus.cs" />
     <Compile Include="Models\Subject.cs" />
     <Compile Include="Models\Teacher.cs" />
+    <Compile Include="Models\TeachersBookkeeping.cs" />
     <Compile Include="Models\University.cs" />
     <Compile Include="Models\Week.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -1987,7 +2001,6 @@
     <Content Include="Views\Subjects\Delete.cshtml" />
     <Content Include="Views\Subjects\Edit.cshtml" />
     <Content Include="Views\Subjects\Index.cshtml" />
-    <Content Include="Views\Subjects\CreateTeacher.cshtml" />
     <Content Include="Views\Schedules\Create.cshtml" />
     <Content Include="Views\AcademicPlans\Create.cshtml" />
     <Content Include="Views\AcademicPlans\Delete.cshtml" />
@@ -2011,6 +2024,11 @@
     <Content Include="Views\Bookkeeping\Delete.cshtml" />
     <Content Include="Views\Bookkeeping\Create.cshtml" />
     <Content Include="Views\StudentStatus\Create.cshtml" />
+    <Content Include="Views\TeachersBookkeeping\Index.cshtml" />
+    <Content Include="Views\TeachersBookkeeping\Edit.cshtml" />
+    <Content Include="Views\TeachersBookkeeping\Create.cshtml" />
+    <Content Include="Views\Subjects\CreateTeacher.cshtml" />
+    <Content Include="Views\TeachersBookkeeping\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -2134,6 +2152,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201805201034267_Discount Sum.resx">
       <DependentUpon>201805201034267_Discount Sum.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805201127535_teachers bookkeeping.resx">
+      <DependentUpon>201805201127535_teachers bookkeeping.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805201132007_university_teacher_foreign_key.resx">
+      <DependentUpon>201805201132007_university_teacher_foreign_key.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805201151046_actual_salary column on TeachersBookkeeping table.resx">
+      <DependentUpon>201805201151046_actual_salary column on TeachersBookkeeping table.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
