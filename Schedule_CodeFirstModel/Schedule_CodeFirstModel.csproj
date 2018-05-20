@@ -680,6 +680,10 @@
     <Compile Include="Migrations\201805191325243_new tables.Designer.cs">
       <DependentUpon>201805191325243_new tables.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201805201034267_Discount Sum.cs" />
+    <Compile Include="Migrations\201805201034267_Discount Sum.Designer.cs">
+      <DependentUpon>201805201034267_Discount Sum.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AcademicPlan.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -2127,6 +2131,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201805191325243_new tables.resx">
       <DependentUpon>201805191325243_new tables.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805201034267_Discount Sum.resx">
+      <DependentUpon>201805201034267_Discount Sum.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

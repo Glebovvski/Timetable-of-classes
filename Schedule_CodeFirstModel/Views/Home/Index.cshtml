@@ -38,6 +38,9 @@
             @Html.DisplayFor(modelItem => item.Speciality.Name)
         </td>
         <td>
+            <a href="~/Bookkeeping/Index/@item.Id">Bookkeeping</a>
+        </td>
+        <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
             @Html.ActionLink("Delete", "Delete", new { id=item.Id })
         </td>

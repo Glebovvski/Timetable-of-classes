@@ -35,7 +35,7 @@
         </th>
         <th></th>
     </tr>
-
+    @{int i = 0; }
 @foreach (var item in Model) {
     <tr>
         <td>
@@ -57,7 +57,7 @@
             @Html.DisplayFor(modelItem => item.StudentStatus.SingleChild)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.SumToPay)
+            @Html.DisplayFor(modelItem => item.DiscountSum)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |

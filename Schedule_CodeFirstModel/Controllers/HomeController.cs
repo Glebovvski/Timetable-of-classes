@@ -25,12 +25,10 @@ namespace Schedule_CodeFirstModel.Controllers
         {
             if (id != null)
             {
-                var groupsByUniver = await context.Groups.Include(s => s.Speciality).Include(c => c.Course).Include(st=>st.Students).Where(x => x.UniversityId == id).ToListAsync();
+                var groupsByUniver = await context.Groups.Include(s => s.Speciality).Include(c => c.Course).Include(st => st.Students).Where(x => x.UniversityId == id).ToListAsync();
                 return View(groupsByUniver);
             }
-
-            var groups = await context.Groups.Include(spec=>spec.Speciality).Include(c=>c.Course).Include(st => st.Students).ToListAsync();
-            return View(groups);
+            else return Redirect("~/Universities/Index");
         }
 
         public ActionResult GeneratePDF()

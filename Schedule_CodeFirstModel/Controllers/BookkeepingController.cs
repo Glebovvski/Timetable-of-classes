@@ -18,10 +18,39 @@ namespace Schedule_CodeFirstModel.Controllers
             context = new ScheduleContext();
         }
         // GET: Bookkeeping
-        public ActionResult Index()
+        public ActionResult Index(int? id)
         {
-            var bookkeepings = context.Bookkeepings.Include(x => x.Student).Include(st => st.StudentStatus).ToList();
-            return View(bookkeepings);
+            CalculateSumToPay();
+            if (id == null)
+            {
+                return Redirect("~/Universities/Index");
+            }
+            else
+            {
+                var books = context.Bookkeepings.Include(x => x.Student).Include(st => st.StudentStatus).Where(x => x.Student.GroupId == id).ToList();
+                return View(books);
+            }
+        }
+
+        public void CalculateSumToPay()
+        {
+            var books = context.Bookkeepings.ToList();
+            foreach (var item in books)
+            {
+                double defaultSum = item.SumToPay;
+                if (item.StudentStatus.AverageScoreEqualsOrLessThanNeeded)
+                    defaultSum *= 0.9;
+                if (item.StudentStatus.DisabledPerson)
+                    defaultSum *= 0.5;
+                if (item.StudentStatus.Orphan)
+                    defaultSum *= 0.5;
+                if (item.StudentStatus.Scholarship)
+                    defaultSum *= 0.95;
+                if (!item.StudentStatus.SingleChild)
+                    defaultSum *= 0.9;
+                item.DiscountSum = defaultSum;
+                context.SaveChanges();
+            }
         }
 
         // GET: Bookkeeping/Details/5

@@ -11,6 +11,7 @@ namespace Schedule_CodeFirstModel.Models
         public int Id { get; set; }
         [Display(Name = "Sum to pay")]
         public double SumToPay { get; set; }
+        public double DiscountSum { get; set; }
         public int StudentId { get; set; }
         public virtual Student Student { get; set; }
         public int StudentStatusId { get; set; }
