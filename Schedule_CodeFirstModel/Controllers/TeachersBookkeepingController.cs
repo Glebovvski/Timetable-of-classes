@@ -6,6 +6,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Data.Entity;
 using System.Data.SqlClient;
+using System.Xml;
 
 namespace Schedule_CodeFirstModel.Controllers
 {
@@ -26,6 +27,7 @@ namespace Schedule_CodeFirstModel.Controllers
             {
                 CalculateActualSalary();
                 var teachers = context.teachersBookkeepings.Include(x => x.Teachers).Where(x => x.Teachers.UniversityId == id).ToList();
+                ViewBag.UniverId = id;
                 return View(teachers);
             }
         }
@@ -41,6 +43,15 @@ namespace Schedule_CodeFirstModel.Controllers
                 item.ActualSalary = item.Salary + bonus;
                 context.SaveChanges();
             }
+        }
+
+        public ActionResult TeachersMap(int id)
+        {
+            XmlDocument doc = new XmlDocument();
+            var xml = context.Database.SqlQuery<string>("GetTeachers @univerId="+id).ToList();
+            doc.LoadXml(xml[0].ToString());
+            doc.Save(@"D:\VSProjects\GIS_KURSACH\Schedule_CodeFirstModel\teachers.xml");
+            return View();
         }
 
         // GET: TeachersBookkeeping/Details/5

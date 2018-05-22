@@ -697,6 +697,10 @@
     <Compile Include="Migrations\201805201151046_actual_salary column on TeachersBookkeeping table.Designer.cs">
       <DependentUpon>201805201151046_actual_salary column on TeachersBookkeeping table.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201805221316596_teacher addresses.cs" />
+    <Compile Include="Migrations\201805221316596_teacher addresses.Designer.cs">
+      <DependentUpon>201805221316596_teacher addresses.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AcademicPlan.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -2029,6 +2033,7 @@
     <Content Include="Views\TeachersBookkeeping\Create.cshtml" />
     <Content Include="Views\Subjects\CreateTeacher.cshtml" />
     <Content Include="Views\TeachersBookkeeping\Delete.cshtml" />
+    <Content Include="Views\TeachersBookkeeping\TeachersMap.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -2161,6 +2166,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201805201151046_actual_salary column on TeachersBookkeeping table.resx">
       <DependentUpon>201805201151046_actual_salary column on TeachersBookkeeping table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805221316596_teacher addresses.resx">
+      <DependentUpon>201805221316596_teacher addresses.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
