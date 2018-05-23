@@ -546,6 +546,7 @@
     <Compile Include="Controllers\SubjectsController.cs" />
     <Compile Include="Controllers\TeachersBookkeepingController.cs" />
     <Compile Include="Controllers\UniversitiesController.cs" />
+    <Compile Include="Repositories\AcademicPlanRepository.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -702,28 +703,30 @@
       <DependentUpon>201805221316596_teacher addresses.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Models\AcademicPlan.cs" />
-    <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\Bookkeeping.cs" />
-    <Compile Include="Models\Class.cs" />
-    <Compile Include="Models\Course.cs" />
-    <Compile Include="Models\Day.cs" />
-    <Compile Include="Models\Group.cs" />
-    <Compile Include="Models\IdentityModels.cs" />
-    <Compile Include="Models\ManageViewModels.cs" />
-    <Compile Include="Models\Room.cs" />
-    <Compile Include="Models\Schedule.cs" />
-    <Compile Include="Models\ScheduleContext.cs" />
-    <Compile Include="Models\Semestre.cs" />
-    <Compile Include="Models\Speciality.cs" />
-    <Compile Include="Models\Student.cs" />
-    <Compile Include="Models\StudentStatus.cs" />
-    <Compile Include="Models\Subject.cs" />
-    <Compile Include="Models\Teacher.cs" />
-    <Compile Include="Models\TeachersBookkeeping.cs" />
-    <Compile Include="Models\University.cs" />
-    <Compile Include="Models\Week.cs" />
+    <Compile Include="Domain\Models\AcademicPlan.cs" />
+    <Compile Include="Domain\Models\AccountViewModels.cs" />
+    <Compile Include="Domain\Models\Bookkeeping.cs" />
+    <Compile Include="Domain\Models\Class.cs" />
+    <Compile Include="Domain\Models\Course.cs" />
+    <Compile Include="Domain\Models\Day.cs" />
+    <Compile Include="Domain\Models\Group.cs" />
+    <Compile Include="Domain\Models\IdentityModels.cs" />
+    <Compile Include="Domain\Models\ManageViewModels.cs" />
+    <Compile Include="Domain\Models\Room.cs" />
+    <Compile Include="Domain\Models\Schedule.cs" />
+    <Compile Include="Domain\Models\ScheduleContext.cs" />
+    <Compile Include="Domain\Models\Semestre.cs" />
+    <Compile Include="Domain\Models\Speciality.cs" />
+    <Compile Include="Domain\Models\Student.cs" />
+    <Compile Include="Domain\Models\StudentStatus.cs" />
+    <Compile Include="Domain\Models\Subject.cs" />
+    <Compile Include="Domain\Models\Teacher.cs" />
+    <Compile Include="Domain\Models\TeachersBookkeeping.cs" />
+    <Compile Include="Domain\Models\University.cs" />
+    <Compile Include="Domain\Models\Week.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\IRepository.cs" />
+    <Compile Include="Repositories\SubjectRepository.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>

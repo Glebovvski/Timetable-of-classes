@@ -29,7 +29,7 @@ namespace Schedule_CodeFirstModel.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "Id,SpecialityId,SemestreId,SubjectId")] AcademicPlan academicPlan)
+        public async Task<ActionResult> Create([Bind(Include = "Id,SpecialityId,SemestreId,SubjectId")] Subject academicPlan)
         {
             if (ModelState.IsValid)
             {
@@ -51,7 +51,7 @@ namespace Schedule_CodeFirstModel.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            AcademicPlan academicPlan = await db.AcademicPlans.FindAsync(id);
+            Subject academicPlan = await db.AcademicPlans.FindAsync(id);
             if (academicPlan == null)
             {
                 return HttpNotFound();
@@ -67,7 +67,7 @@ namespace Schedule_CodeFirstModel.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit([Bind(Include = "Id,SpecialityId,SemestreId,SubjectId")] AcademicPlan academicPlan)
+        public async Task<ActionResult> Edit([Bind(Include = "Id,SpecialityId,SemestreId,SubjectId")] Subject academicPlan)
         {
             if (ModelState.IsValid)
             {
@@ -88,7 +88,7 @@ namespace Schedule_CodeFirstModel.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            AcademicPlan academicPlan = await db.AcademicPlans.FindAsync(id);
+            Subject academicPlan = await db.AcademicPlans.FindAsync(id);
             if (academicPlan == null)
             {
                 return HttpNotFound();
@@ -101,7 +101,7 @@ namespace Schedule_CodeFirstModel.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> DeleteConfirmed(int id)
         {
-            AcademicPlan academicPlan = await db.AcademicPlans.FindAsync(id);
+            Subject academicPlan = await db.AcademicPlans.FindAsync(id);
             db.AcademicPlans.Remove(academicPlan);
             await db.SaveChangesAsync();
             return RedirectToAction("Index");
