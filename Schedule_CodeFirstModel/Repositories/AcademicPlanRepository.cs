@@ -164,7 +164,9 @@ namespace Schedule_CodeFirstModel.Models
 
             using (connection)
             {
+                connection.Open();
                 readplan.ExecuteNonQuery();
+                connection.Close();
             }
         }
     }

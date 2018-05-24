@@ -38,11 +38,21 @@ namespace Schedule.Tests
         }
 
         [TestMethod]
-        public void GetAllAcademicPlans()
+        public void GetAllAcademicPlansTest()
         {
             AcademicPlanRepository rep = new AcademicPlanRepository();
             List<AcademicPlan> plans = rep.Read();
             Assert.IsNotNull(plans);
+        }
+
+        [TestMethod]
+        public void UpdateAcademPlanTest()
+        {
+            AcademicPlanRepository rep = new AcademicPlanRepository();
+            AcademicPlan plan = rep.Read(26);
+            plan.SpecialityId = 2;
+            rep.Update(plan);
+            Assert.AreEqual(2, plan.SpecialityId);
         }
     }
 }
