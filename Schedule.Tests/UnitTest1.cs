@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Schedule_CodeFirstModel.Models;
 
@@ -34,6 +35,14 @@ namespace Schedule.Tests
             rep.Delete(27);
             AcademicPlan plan = rep.Read(27);
             Assert.IsNull(plan);
+        }
+
+        [TestMethod]
+        public void GetAllAcademicPlans()
+        {
+            AcademicPlanRepository rep = new AcademicPlanRepository();
+            List<AcademicPlan> plans = rep.Read();
+            Assert.IsNotNull(plans);
         }
     }
 }

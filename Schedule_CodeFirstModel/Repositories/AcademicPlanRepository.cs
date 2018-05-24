@@ -63,34 +63,39 @@ namespace Schedule_CodeFirstModel.Models
             List<AcademicPlan> academicPlans = new List<AcademicPlan>();
             SqlCommand readplan = new SqlCommand("GetAcademicPlan", connection);
             readplan.CommandType = CommandType.StoredProcedure;
-
-            using(SqlDataReader reader = readplan.ExecuteReader())
+            using (connection)
             {
-                if (reader.Read())
+                connection.Open();
+                using (SqlDataReader reader = readplan.ExecuteReader())
                 {
-                    academicPlans.Add(new AcademicPlan(){
-                        Id = int.Parse(reader["Id"].ToString()),
-                        SemestreId = int.Parse(reader["SemestreId"].ToString()),
-                        SpecialityId = int.Parse(reader["SpecialityId"].ToString()),
-                        SubjectId = int.Parse(reader["SubjectId"].ToString()),
-                        Semestre = new Semestre()
+                    if (reader.Read())
+                    {
+                        academicPlans.Add(new AcademicPlan()
                         {
-                            Id = int.Parse(reader["SemestreId"].ToString()),
-                            Number = int.Parse(reader["Number"].ToString()),
-                        },
-                        Speciality = new Speciality()
-                        {
-                            Id=int.Parse(reader["SpecialityId"].ToString()),
-                            Name=reader["Name"].ToString()
-                        },
-                        Subject = new Subject()
-                        {
-                            Id=int.Parse(reader["SubjectId"].ToString()),
-                            TeacherId = int.Parse(reader["TeacherId"].ToString()),
-                            SubjectName = reader["SubjectName"].ToString()
-                        }
-                    });
+                            Id = int.Parse(reader["Id"].ToString()),
+                            SemestreId = int.Parse(reader["SemestreId"].ToString()),
+                            SpecialityId = int.Parse(reader["SpecialityId"].ToString()),
+                            SubjectId = int.Parse(reader["SubjectId"].ToString()),
+                            Semestre = new Semestre()
+                            {
+                                Id = int.Parse(reader["SemestreId"].ToString()),
+                                Number = int.Parse(reader["Number"].ToString()),
+                            },
+                            Speciality = new Speciality()
+                            {
+                                Id = int.Parse(reader["SpecialityId"].ToString()),
+                                Name = reader["Name"].ToString()
+                            },
+                            Subject = new Subject()
+                            {
+                                Id = int.Parse(reader["SubjectId"].ToString()),
+                                TeacherId = int.Parse(reader["TeacherId"].ToString()),
+                                SubjectName = reader["SubjectName"].ToString()
+                            }
+                        });
+                    }
                 }
+                connection.Close();
             }
             return academicPlans;
         }
