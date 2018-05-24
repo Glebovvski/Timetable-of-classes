@@ -12,7 +12,7 @@ namespace Schedule_CodeFirstModel.Models
         public ScheduleContext() : base("ScheduleContext")
         {
         }
-        public DbSet<Subject> AcademicPlans { get; set; }
+        public DbSet<AcademicPlan> AcademicPlans { get; set; }
         public DbSet<Course> Courses { get; set; }
         public DbSet<Group> Groups { get; set; }
         public DbSet<Room> Rooms { get; set; }

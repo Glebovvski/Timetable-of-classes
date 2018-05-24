@@ -1,13 +1,12 @@
-﻿using System;
+﻿using Schedule_CodeFirstModel.Models;
+using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Data.Entity;
 using System.Linq;
-using System.Threading.Tasks;
 using System.Net;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
-using Schedule_CodeFirstModel.Models;
 
 namespace Schedule_CodeFirstModel.Controllers
 {
@@ -29,7 +28,7 @@ namespace Schedule_CodeFirstModel.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "Id,SpecialityId,SemestreId,SubjectId")] Subject academicPlan)
+        public async Task<ActionResult> Create([Bind(Include = "Id,SpecialityId,SemestreId,SubjectId")] AcademicPlan academicPlan)
         {
             if (ModelState.IsValid)
             {
@@ -51,7 +50,7 @@ namespace Schedule_CodeFirstModel.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Subject academicPlan = await db.AcademicPlans.FindAsync(id);
+            AcademicPlan academicPlan = await db.AcademicPlans.FindAsync(id);
             if (academicPlan == null)
             {
                 return HttpNotFound();
@@ -67,7 +66,7 @@ namespace Schedule_CodeFirstModel.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit([Bind(Include = "Id,SpecialityId,SemestreId,SubjectId")] Subject academicPlan)
+        public async Task<ActionResult> Edit([Bind(Include = "Id,SpecialityId,SemestreId,SubjectId")] AcademicPlan academicPlan)
         {
             if (ModelState.IsValid)
             {
@@ -88,7 +87,7 @@ namespace Schedule_CodeFirstModel.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Subject academicPlan = await db.AcademicPlans.FindAsync(id);
+            AcademicPlan academicPlan = await db.AcademicPlans.FindAsync(id);
             if (academicPlan == null)
             {
                 return HttpNotFound();
@@ -101,7 +100,7 @@ namespace Schedule_CodeFirstModel.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> DeleteConfirmed(int id)
         {
-            Subject academicPlan = await db.AcademicPlans.FindAsync(id);
+            AcademicPlan academicPlan = await db.AcademicPlans.FindAsync(id);
             db.AcademicPlans.Remove(academicPlan);
             await db.SaveChangesAsync();
             return RedirectToAction("Index");
@@ -109,14 +108,14 @@ namespace Schedule_CodeFirstModel.Controllers
 
         public async Task<ActionResult> Plan(int id)
         {
-            var plan =  await db.AcademicPlans.Where(x => x.SpecialityId == id).Include(z => z.Subject).Include(r => r.Semestre).ToListAsync();
+            var plan = await db.AcademicPlans.Where(x => x.SpecialityId == id).Include(z => z.Subject).Include(r => r.Semestre).ToListAsync();
             if (plan == null)
             {
                 return HttpNotFound();
             }
             return View(plan);
         }
-        
+
 
         protected override void Dispose(bool disposing)
         {

@@ -16,7 +16,7 @@ namespace Schedule_CodeFirstModel.Models
         private SqlConnection connection;
         public AcademicPlanRepository()
         {
-            connectionString = ConfigurationManager.ConnectionStrings["ScheduleContext"].ConnectionString;
+            connectionString = "Data Source=DESKTOP-50OOFA6;Initial Catalog=ScheduleDB;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";//ConfigurationManager.ConnectionStrings["ScheduleContext"].ConnectionString;
             connection = new SqlConnection(connectionString);
         }
         
@@ -100,37 +100,40 @@ namespace Schedule_CodeFirstModel.Models
             readplan.Parameters.Add(new SqlParameter("@Id", SqlDbType.Int));
             readplan.Parameters["@Id"].Value = id;
             AcademicPlan plan = null;
-            using (SqlDataReader reader = readplan.ExecuteReader())
+            using (connection)
             {
-                if (reader.Read())
+                connection.Open();
+                using (SqlDataReader reader = readplan.ExecuteReader())
                 {
-                    plan = new AcademicPlan()
+                    if (reader.Read())
                     {
-                        Id = int.Parse(reader["Id"].ToString()),
-                        SemestreId = int.Parse(reader["SemestreId"].ToString()),
-                        SpecialityId = int.Parse(reader["SpecialityId"].ToString()),
-                        SubjectId = int.Parse(reader["SubjectId"].ToString()),
-                        Semestre = new Semestre()
+                        plan = new AcademicPlan()
                         {
-                            Id = int.Parse(reader["SemestreId"].ToString()),
-                            Number = int.Parse(reader["Number"].ToString()),
-                        },
-                        Speciality = new Speciality()
-                        {
-                            Id = int.Parse(reader["SpecialityId"].ToString()),
-                            Name = reader["Name"].ToString()
-                        },
-                        Subject = new Subject()
-                        {
-                            Id = int.Parse(reader["SubjectId"].ToString()),
-                            TeacherId = int.Parse(reader["TeacherId"].ToString()),
-                            SubjectName = reader["SubjectName"].ToString()
-                        }
-                    };
+                            Id = int.Parse(reader["Id"].ToString()),
+                            SemestreId = int.Parse(reader["SemestreId"].ToString()),
+                            SpecialityId = int.Parse(reader["SpecialityId"].ToString()),
+                            SubjectId = int.Parse(reader["SubjectId"].ToString()),
+                            Semestre = new Semestre()
+                            {
+                                Id = int.Parse(reader["SemestreId"].ToString()),
+                                Number = int.Parse(reader["Number"].ToString()),
+                            },
+                            Speciality = new Speciality()
+                            {
+                                Id = int.Parse(reader["SpecialityId"].ToString()),
+                                Name = reader["Name"].ToString()
+                            },
+                            Subject = new Subject()
+                            {
+                                Id = int.Parse(reader["SubjectId"].ToString()),
+                                TeacherId = int.Parse(reader["TeacherId"].ToString()),
+                                SubjectName = reader["SubjectName"].ToString()
+                            }
+                        };
+                    }
+                    return plan;
                 }
-                return plan;
             }
-            
         }
 
         public void Update(AcademicPlan data)
