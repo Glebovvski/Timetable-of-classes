@@ -54,6 +54,7 @@ namespace Schedule_CodeFirstModel.Models
             {
                 connection.Open();
                 delete.ExecuteNonQuery();
+                connection.Close();
             }
         }
 
@@ -96,11 +97,14 @@ namespace Schedule_CodeFirstModel.Models
 
         public AcademicPlan Read(int id)
         {
+            string connectionStr = "Data Source=DESKTOP-50OOFA6;Initial Catalog=ScheduleDB;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+            SqlConnection connection = new SqlConnection(connectionStr);
             SqlCommand readplan = new SqlCommand("GetAcademicPlanById", connection);
             readplan.CommandType = CommandType.StoredProcedure;
             readplan.Parameters.Add(new SqlParameter("@Id", SqlDbType.Int));
             readplan.Parameters["@Id"].Value = id;
             AcademicPlan plan = null;
+            
             using (connection)
             {
                 connection.Open();

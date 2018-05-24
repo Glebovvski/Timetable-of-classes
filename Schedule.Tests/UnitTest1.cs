@@ -26,5 +26,14 @@ namespace Schedule.Tests
                 SubjectId = 1
             };
         }
+
+        [TestMethod]
+        public void DeleteAcademPlanTest()
+        {
+            AcademicPlanRepository rep = new AcademicPlanRepository();
+            rep.Delete(27);
+            AcademicPlan plan = rep.Read(27);
+            Assert.IsNull(plan);
+        }
     }
 }
