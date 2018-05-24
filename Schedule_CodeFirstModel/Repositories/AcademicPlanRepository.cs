@@ -38,6 +38,7 @@ namespace Schedule_CodeFirstModel.Models
             {
                 connection.Open();
                 addNewAcademPlan.ExecuteNonQuery();
+                connection.Close();
             }
         }
 
