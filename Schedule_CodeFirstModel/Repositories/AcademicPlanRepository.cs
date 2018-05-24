@@ -147,7 +147,7 @@ namespace Schedule_CodeFirstModel.Models
             readplan.Parameters["@SemestreId"].Value = data.SemestreId;
 
             readplan.Parameters.Add(new SqlParameter("@SubjectId", SqlDbType.Int));
-            readplan.Parameters["@SemestreId"].Value = data.SemestreId;
+            readplan.Parameters["@SubjectId"].Value = data.SemestreId;
 
             using (connection)
             {
