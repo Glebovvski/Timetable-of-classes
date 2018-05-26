@@ -1,4 +1,6 @@
-﻿using Schedule_CodeFirstModel.Models;
+﻿using Ninject;
+using Schedule_CodeFirstModel.Models;
+using Schedule_CodeFirstModel.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -7,13 +9,18 @@ using System.Net;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
+using Unity;
 
 namespace Schedule_CodeFirstModel.Controllers
 {
     public class AcademicPlansController : Controller
     {
         private ScheduleContext db = new ScheduleContext();
-
+        private readonly IRepository<AcademicPlan> repo;
+        public AcademicPlansController(IRepository<AcademicPlan> repo)
+        {
+            this.repo = repo;
+        }
         // GET: AcademicPlans/Create
         public ActionResult Create()
         {

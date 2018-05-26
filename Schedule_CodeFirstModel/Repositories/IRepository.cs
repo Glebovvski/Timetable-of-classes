@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Schedule_CodeFirstModel.Repositories
 {
-    interface IRepository<T>
+    public interface IRepository<T>
     {
         void Create(T data);
         List<T> Read();
