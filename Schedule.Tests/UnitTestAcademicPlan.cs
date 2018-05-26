@@ -6,7 +6,7 @@ using Schedule_CodeFirstModel.Models;
 namespace Schedule.Tests
 {
     [TestClass]
-    public class UnitTest1
+    public class UnitTestAcademicPlan
     {
         [TestMethod]
         public void GetAcademPlanById()
@@ -32,8 +32,8 @@ namespace Schedule.Tests
         public void DeleteAcademPlanTest()
         {
             AcademicPlanRepository rep = new AcademicPlanRepository();
-            rep.Delete(27);
-            AcademicPlan plan = rep.Read(27);
+            rep.Delete(26);
+            AcademicPlan plan = rep.Read(26);
             Assert.IsNull(plan);
         }
 
