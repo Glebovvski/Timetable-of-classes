@@ -16,6 +16,11 @@ namespace Schedule_CodeFirstModel.Controllers
         private ScheduleContext db = new ScheduleContext();
 
         // GET: Subjects
+        /// <summary>
+        /// Gets the list of Subjects from database
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public async Task<ActionResult> Index(int? id)
         {
             if (id == null)
@@ -27,10 +32,15 @@ namespace Schedule_CodeFirstModel.Controllers
             }
         }
 
+        /// <summary>
+        /// Generates PDF file based on data
+        /// </summary>
+        /// <returns></returns>
         public ActionResult GeneratePDF()
         {
             return new Rotativa.ActionAsPdf("Index");
         }
+
         public ActionResult CreateTeacher()
         {
             var teachers = db.Universities.ToList();
@@ -38,6 +48,12 @@ namespace Schedule_CodeFirstModel.Controllers
             ViewBag.Univers = sl;
             return View();
         }
+
+        /// <summary>
+        /// Creates new Teacher
+        /// </summary>
+        /// <param name="teacher"></param>
+        /// <returns></returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> CreateTeacher([Bind(Include = "Id,Name,UniversityId")] Teacher teacher)
@@ -58,6 +74,11 @@ namespace Schedule_CodeFirstModel.Controllers
             return View();
         }
 
+        /// <summary>
+        /// Creates new Subject
+        /// </summary>
+        /// <param name="subject"></param>
+        /// <returns></returns>
         // POST: Subjects/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
@@ -93,8 +114,11 @@ namespace Schedule_CodeFirstModel.Controllers
         }
 
         // POST: Subjects/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        /// <summary>
+        /// Updates information about Subject
+        /// </summary>
+        /// <param name="subject"></param>
+        /// <returns></returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Edit([Bind(Include = "Id,SubjectName,TeacherId")] Subject subject)
@@ -124,6 +148,11 @@ namespace Schedule_CodeFirstModel.Controllers
             return View(subject);
         }
 
+        /// <summary>
+        /// Deletes Subject from database
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         // POST: Subjects/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]

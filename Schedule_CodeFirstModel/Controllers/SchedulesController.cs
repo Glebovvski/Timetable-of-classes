@@ -8,6 +8,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Schedule_CodeFirstModel.Models;
+using Schedule_CodeFirstModel.Domain.Models;
 
 namespace Schedule_CodeFirstModel.Controllers
 {
@@ -16,13 +17,18 @@ namespace Schedule_CodeFirstModel.Controllers
         private ScheduleContext db = new ScheduleContext();
 
         // GET: Schedules
-        
-        public async Task<ActionResult> Index(int? id)
+        /// <summary>
+        /// Get Schedule for the specific group
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public async Task<ActionResult> Index(int id)
         {
             var days = new List<string>() { "Mon", "Tue", "Wed", "Thu", "Fri", "Sat" };
             ViewBag.Days = days;
-            var schedule = await db.Schedules.Where(x => x.Group.Id == id).Include(d => d.Subject).Include(r => r.Room).Include(c => c.Class).Include(c=>c.Teacher).ToListAsync();
-            return View(schedule);
+            Schedule schedule = new Schedule();
+            var scheduleList = schedule.GetSchedule(id);
+            return View(scheduleList);
         }
 
         public ActionResult GeneratePDF(int id)
@@ -30,12 +36,18 @@ namespace Schedule_CodeFirstModel.Controllers
             return new Rotativa.ActionAsPdf("Index",id);
         }
 
-        public async Task<ActionResult> ScheduleTeacher(int? id)
+        /// <summary>
+        /// Get Schedule for the specific teacher
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public ActionResult ScheduleTeacher(int id)
         {
             var days = new List<string>() { "Mon", "Tue", "Wed", "Thu", "Fri", "Sat" };
             ViewBag.Days = days;
-            var schedule = await db.Schedules.Where(x => x.TeacherId == id).Include(d => d.Subject).Include(r => r.Room).Include(c => c.Class).Include(x=>x.Group).ToListAsync();
-            return View(schedule);
+            TeacherSchedule schedule = new TeacherSchedule();
+            var scheduleList = schedule.GetSchedule(id);
+            return View(scheduleList);
         }
 
         // GET: Schedules/Create
@@ -56,8 +68,11 @@ namespace Schedule_CodeFirstModel.Controllers
         }
 
         // POST: Schedules/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        /// <summary>
+        /// Creates new Schedule
+        /// </summary>
+        /// <param name="schedule"></param>
+        /// <returns></returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Create([Bind(Include = "Id,Day,ClassId,WeekNumber,TeacherId,RoomId,SubjectId,GroupId")] Schedule schedule)
@@ -133,8 +148,11 @@ namespace Schedule_CodeFirstModel.Controllers
         }
 
         // POST: Schedules/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        /// <summary>
+        /// Update existing Schedule for one class
+        /// </summary>
+        /// <param name="schedule"></param>
+        /// <returns></returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Edit([Bind(Include = "Id,GroupId,Day,ClassId,WeekNumber,TeacherId,RoomId,SubjectId")] Schedule schedule)
@@ -196,6 +214,11 @@ namespace Schedule_CodeFirstModel.Controllers
         }
 
         // POST: Schedules/Delete/5
+        /// <summary>
+        /// Deletes specific Schedule for class
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> DeleteConfirmed(int id)

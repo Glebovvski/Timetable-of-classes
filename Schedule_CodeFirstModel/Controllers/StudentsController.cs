@@ -16,6 +16,11 @@ namespace Schedule_CodeFirstModel.Controllers
             context = new ScheduleContext();
         }
         // GET: Students
+        /// <summary>
+        /// Gets the list of students in the group
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public ActionResult Index(int id)
         {
             var students = context.Students.Where(x => x.GroupId == id).ToList();
@@ -37,6 +42,11 @@ namespace Schedule_CodeFirstModel.Controllers
         }
 
         // POST: Students/Create
+        /// <summary>
+        /// Creates new Student
+        /// </summary>
+        /// <param name="student"></param>
+        /// <returns></returns>
         [HttpPost]
         public ActionResult Create(Student student)
         {
@@ -66,6 +76,12 @@ namespace Schedule_CodeFirstModel.Controllers
         }
 
         // POST: Students/Edit/5
+        /// <summary>
+        /// Updates information about student
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="student"></param>
+        /// <returns></returns>
         [HttpPost]
         public ActionResult Edit(int id, Student student)
         {
@@ -93,6 +109,11 @@ namespace Schedule_CodeFirstModel.Controllers
         }
 
         // POST: Students/Delete/5
+        /// <summary>
+        /// Deletes Student
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpPost,ActionName("Delete")]
         public ActionResult DeleteConfirmed(int id)
         {

@@ -21,6 +21,11 @@ namespace Schedule_CodeFirstModel.Controllers
             context = new ScheduleContext();
         }
 
+        /// <summary>
+        /// Gets list of groups in the specific university
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public async Task<ActionResult> Index(int? id)
         {
             if (id != null)
@@ -32,11 +37,20 @@ namespace Schedule_CodeFirstModel.Controllers
             else return Redirect("~/Universities/Index");
         }
 
+        /// <summary>
+        /// Generates PDF file based on list of groups
+        /// </summary>
+        /// <returns></returns>
         public ActionResult GeneratePDF()
         {
             return new Rotativa.ActionAsPdf("Index");
         }
 
+        /// <summary>
+        /// Filter groups by speciality
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public async Task<ActionResult> GroupsBySpec(int id)
         {
             var groupsbyspec = await context.Groups.Where(x => x.Speciality.Id == id).Include(spec => spec.Speciality).Include(c => c.Course).ToListAsync();
@@ -53,6 +67,11 @@ namespace Schedule_CodeFirstModel.Controllers
             return View();
         }
 
+        /// <summary>
+        /// Creates new Group
+        /// </summary>
+        /// <param name="group"></param>
+        /// <returns></returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Create([Bind(Include = "Id, GroupName, CourseId, Students,SpecialityId")] Group group)
@@ -89,8 +108,11 @@ namespace Schedule_CodeFirstModel.Controllers
         }
 
         // POST: Teachers/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        /// <summary>
+        /// Updates existing group
+        /// </summary>
+        /// <param name="group"></param>
+        /// <returns></returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Edit([Bind(Include = "Id, GroupName, CourseId, Students,SpecialityId")] Group group)
@@ -120,6 +142,11 @@ namespace Schedule_CodeFirstModel.Controllers
         }
 
         // POST: Teachers/Delete/5
+        /// <summary>
+        /// Deletes specific group
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> DeleteConfirmed(int id)

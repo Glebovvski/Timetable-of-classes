@@ -17,12 +17,20 @@ namespace Schedule_CodeFirstModel.Controllers
             context = new ScheduleContext();
         }
         // GET: Universities
+        /// <summary>
+        /// Gets the list of universities
+        /// </summary>
+        /// <returns></returns>
         public ActionResult Index()
         {
             var univers = context.Universities.ToList();
             return View(univers);
         }
 
+        /// <summary>
+        /// Gets map with universities
+        /// </summary>
+        /// <returns></returns>
         public ActionResult Universities()
         {
             XmlDocument doc = new XmlDocument();
@@ -45,6 +53,11 @@ namespace Schedule_CodeFirstModel.Controllers
         }
 
         // POST: Universities/Create
+        /// <summary>
+        /// Creates new university
+        /// </summary>
+        /// <param name="university"></param>
+        /// <returns></returns>
         [HttpPost]
         public ActionResult Create(University university)
         {
@@ -71,6 +84,12 @@ namespace Schedule_CodeFirstModel.Controllers
         }
 
         // POST: Universities/Edit/5
+        /// <summary>
+        /// Updates information about University
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="university"></param>
+        /// <returns></returns>
         [HttpPost]
         public ActionResult Edit(int id, University university)
         {
@@ -97,6 +116,11 @@ namespace Schedule_CodeFirstModel.Controllers
         }
 
         // POST: Universities/Delete/5
+        /// <summary>
+        /// Deletes University from database
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpPost,ActionName("Delete")]
         public ActionResult DeleteConfirmed(int id)
         {

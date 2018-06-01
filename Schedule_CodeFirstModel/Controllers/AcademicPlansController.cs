@@ -31,8 +31,11 @@ namespace Schedule_CodeFirstModel.Controllers
         }
 
         // POST: AcademicPlans/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        /// <summary>
+        /// Creates new Academic Plan
+        /// </summary>
+        /// <param name="academicPlan"></param>
+        /// <returns></returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Create([Bind(Include = "Id,SpecialityId,SemestreId,SubjectId")] AcademicPlan academicPlan)
@@ -69,8 +72,11 @@ namespace Schedule_CodeFirstModel.Controllers
         }
 
         // POST: AcademicPlans/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        /// <summary>
+        /// Updates existing Academic Plan
+        /// </summary>
+        /// <param name="academicPlan"></param>
+        /// <returns></returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Edit([Bind(Include = "Id,SpecialityId,SemestreId,SubjectId")] AcademicPlan academicPlan)
@@ -103,6 +109,11 @@ namespace Schedule_CodeFirstModel.Controllers
         }
 
         // POST: AcademicPlans/Delete/5
+        /// <summary>
+        /// Deletes Academic Plan from Database
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> DeleteConfirmed(int id)
@@ -113,6 +124,11 @@ namespace Schedule_CodeFirstModel.Controllers
             return RedirectToAction("Index");
         }
 
+        /// <summary>
+        /// Gets Academic Plan by Id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public async Task<ActionResult> Plan(int id)
         {
             var plan = await db.AcademicPlans.Where(x => x.SpecialityId == id).Include(z => z.Subject).Include(r => r.Semestre).ToListAsync();

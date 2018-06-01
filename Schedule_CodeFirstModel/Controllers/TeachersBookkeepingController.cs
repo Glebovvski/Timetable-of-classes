@@ -19,6 +19,11 @@ namespace Schedule_CodeFirstModel.Controllers
             context = new ScheduleContext();
         }
         // GET: TeachersBookkeeping
+        /// <summary>
+        /// Gets info about specific bookkeeping teacher
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public ActionResult Index(int? id)
         {
             if (id == null)
@@ -32,6 +37,9 @@ namespace Schedule_CodeFirstModel.Controllers
             }
         }
 
+        /// <summary>
+        /// Calculates salary of the teacher based on parameters
+        /// </summary>
         public void CalculateActualSalary()
         {
             var teachers = context.teachersBookkeepings.ToList();
@@ -45,6 +53,11 @@ namespace Schedule_CodeFirstModel.Controllers
             }
         }
 
+        /// <summary>
+        /// Gets map with markers where teachers live
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public ActionResult TeachersMap(int id)
         {
             XmlDocument doc = new XmlDocument();
@@ -77,6 +90,11 @@ namespace Schedule_CodeFirstModel.Controllers
         }
 
         // POST: TeachersBookkeeping/Create
+        /// <summary>
+        /// Creates bookkeeping for a new Teacher
+        /// </summary>
+        /// <param name="teacher"></param>
+        /// <returns></returns>
         [HttpPost]
         public ActionResult Create(TeachersBookkeeping teacher)
         {
@@ -101,6 +119,12 @@ namespace Schedule_CodeFirstModel.Controllers
         }
 
         // POST: TeachersBookkeeping/Edit/5
+        /// <summary>
+        /// Updates information about teacher's bookkeeping
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="teacher"></param>
+        /// <returns></returns>
         [HttpPost]
         public ActionResult Edit(int id, [Bind(Include = "Id,TeacherId,Teachers,Hours,Experience_months,Salary,Taxes,Bonus")]TeachersBookkeeping teacher)
         {
@@ -127,6 +151,11 @@ namespace Schedule_CodeFirstModel.Controllers
         }
 
         // POST: TeachersBookkeeping/Delete/5
+        /// <summary>
+        /// Deletes teacher's bookkeeping
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpPost,ActionName("Delete")]
         public ActionResult DeleteConfirmed(int id)
         {

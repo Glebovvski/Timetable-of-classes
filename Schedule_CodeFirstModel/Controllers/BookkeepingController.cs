@@ -18,6 +18,11 @@ namespace Schedule_CodeFirstModel.Controllers
             context = new ScheduleContext();
         }
         // GET: Bookkeeping
+        /// <summary>
+        /// Get bookkeeping for the specific student
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public ActionResult Index(int? id)
         {
             CalculateSumToPay();
@@ -32,6 +37,9 @@ namespace Schedule_CodeFirstModel.Controllers
             }
         }
 
+        /// <summary>
+        /// Calculates Sum the student must pay based on parameters
+        /// </summary>
         public void CalculateSumToPay()
         {
             var books = context.Bookkeepings.ToList();
@@ -60,6 +68,10 @@ namespace Schedule_CodeFirstModel.Controllers
         }
 
         // GET: Bookkeeping/Create
+        /// <summary>
+        /// Creates new bookkeeping for a student
+        /// </summary>
+        /// <returns></returns>
         public ActionResult Create()
         {
             var list = new List<Student>();
@@ -105,6 +117,12 @@ namespace Schedule_CodeFirstModel.Controllers
         }
 
         // POST: Bookkeeping/Edit/5
+        /// <summary>
+        /// Update parameters for a student bookkeeping
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="boo"></param>
+        /// <returns></returns>
         [HttpPost]
         public ActionResult Edit(int id, [Bind(Include = "Id,StudentStatusId,StudentStatus,SumToPay,StudentId,Student")]Bookkeeping boo)
         {
@@ -137,6 +155,12 @@ namespace Schedule_CodeFirstModel.Controllers
         }
 
         // POST: Bookkeeping/Delete/5
+        /// <summary>
+        /// Deletes Student bookkeeping
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="bookkeeping"></param>
+        /// <returns></returns>
         [HttpPost]
         public ActionResult Delete(int id, Bookkeeping bookkeeping)
         {

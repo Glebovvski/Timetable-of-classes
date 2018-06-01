@@ -16,6 +16,10 @@ namespace Schedule_CodeFirstModel.Controllers
         private ScheduleContext db = new ScheduleContext();
 
         // GET: Specialities
+        /// <summary>
+        /// Gets the list of specialities
+        /// </summary>
+        /// <returns></returns>
         public async Task<ActionResult> Index()
         {
             return View(await db.Specialities.ToListAsync());
@@ -28,8 +32,11 @@ namespace Schedule_CodeFirstModel.Controllers
         }
 
         // POST: Specialities/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        /// <summary>
+        /// Creates new speciality
+        /// </summary>
+        /// <param name="speciality"></param>
+        /// <returns></returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Create([Bind(Include = "Id,Name")] Speciality speciality)
@@ -59,6 +66,11 @@ namespace Schedule_CodeFirstModel.Controllers
             return View(speciality);
         }
 
+        /// <summary>
+        /// Updates information about speciality
+        /// </summary>
+        /// <param name="speciality"></param>
+        /// <returns></returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Edit([Bind(Include = "Id,Name")] Speciality speciality)
@@ -88,6 +100,11 @@ namespace Schedule_CodeFirstModel.Controllers
         }
 
         // POST: Specialities/Delete/5
+        /// <summary>
+        /// Deletes speciality
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> DeleteConfirmed(int id)

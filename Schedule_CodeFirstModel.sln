@@ -5,7 +5,9 @@ VisualStudioVersion = 15.0.27004.2005
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Schedule_CodeFirstModel", "Schedule_CodeFirstModel\Schedule_CodeFirstModel.csproj", "{9638B405-4FEA-4B8F-848B-235414A6DA07}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Schedule.Tests", "Schedule.Tests\Schedule.Tests.csproj", "{8FBFA42E-E5CA-4AEC-A969-09EF22B9CC6C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Schedules.Tests", "Schedule.Tests\Schedules.Tests.csproj", "{8FBFA42E-E5CA-4AEC-A969-09EF22B9CC6C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL.EF", "DAL.EF\DAL.EF.csproj", "{103F2561-92A1-49DC-808E-3093A6A181EA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{8FBFA42E-E5CA-4AEC-A969-09EF22B9CC6C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8FBFA42E-E5CA-4AEC-A969-09EF22B9CC6C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8FBFA42E-E5CA-4AEC-A969-09EF22B9CC6C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{103F2561-92A1-49DC-808E-3093A6A181EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{103F2561-92A1-49DC-808E-3093A6A181EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{103F2561-92A1-49DC-808E-3093A6A181EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{103F2561-92A1-49DC-808E-3093A6A181EA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
