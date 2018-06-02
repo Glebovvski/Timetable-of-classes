@@ -8,27 +8,33 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Schedule_CodeFirstModel.Models;
+using Schedule_CodeFirstModel.Repositories;
 
 namespace Schedule_CodeFirstModel.Controllers
 {
     public class SubjectsController : Controller
     {
         private ScheduleContext db = new ScheduleContext();
-
+        private readonly IRepository<Subject> repo;
+        public SubjectsController(IRepository<Subject> repo)
+        {
+            this.repo = repo;
+        }
         // GET: Subjects
         /// <summary>
         /// Gets the list of Subjects from database
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        public async Task<ActionResult> Index(int? id)
+        public ActionResult Index(int id)
         {
             if (id == null)
                 return Redirect("~/Universities/Index");
             else
             {
-                var subjects = db.Subjects.Include(s => s.Teacher).Where(x => x.Teacher.UniversityId == id);
-                return View(await subjects.ToListAsync());
+                SubjectRepository repo = new SubjectRepository();
+                var subjects = repo.GetSubjectsForUniversity(id);
+                return View(subjects);
             }
         }
 
@@ -88,8 +94,7 @@ namespace Schedule_CodeFirstModel.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Subjects.Add(subject);
-                await db.SaveChangesAsync();
+                repo.Create(subject);
                 return RedirectToAction("Index");
             }
 
@@ -98,13 +103,13 @@ namespace Schedule_CodeFirstModel.Controllers
         }
 
         // GET: Subjects/Edit/5
-        public async Task<ActionResult> Edit(int? id)
+        public async Task<ActionResult> Edit(int id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Subject subject = await db.Subjects.FindAsync(id);
+            Subject subject = repo.Read(id);
             if (subject == null)
             {
                 return HttpNotFound();
@@ -125,8 +130,7 @@ namespace Schedule_CodeFirstModel.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(subject).State = EntityState.Modified;
-                await db.SaveChangesAsync();
+                repo.Update(subject);
                 return RedirectToAction("Index");
             }
             ViewBag.TeacherId = new SelectList(db.Teachers, "Id", "Name", subject.TeacherId);
@@ -134,13 +138,13 @@ namespace Schedule_CodeFirstModel.Controllers
         }
 
         // GET: Subjects/Delete/5
-        public async Task<ActionResult> Delete(int? id)
+        public async Task<ActionResult> Delete(int id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Subject subject = await db.Subjects.FindAsync(id);
+            Subject subject = repo.Read(id);
             if (subject == null)
             {
                 return HttpNotFound();
@@ -158,9 +162,7 @@ namespace Schedule_CodeFirstModel.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> DeleteConfirmed(int id)
         {
-            Subject subject = await db.Subjects.FindAsync(id);
-            db.Subjects.Remove(subject);
-            await db.SaveChangesAsync();
+            repo.Delete(id);
             return RedirectToAction("Index");
         }
 

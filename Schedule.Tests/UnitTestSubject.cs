@@ -13,7 +13,7 @@ namespace Schedule.Tests
         public void GetSubjectById()
         {
             SubjectRepository academicPlan = new SubjectRepository();
-            Subject plan = academicPlan.Read(12);
+            Subject plan = academicPlan.Read(11);
             Assert.IsNotNull(plan);
         }
 
@@ -49,10 +49,18 @@ namespace Schedule.Tests
         public void UpdateSubjectTest()
         {
             SubjectRepository rep = new SubjectRepository();
-            Subject plan = rep.Read(26);
+            Subject plan = rep.Read(11);
             plan.SubjectName = "Test2";
             rep.Update(plan);
             Assert.AreEqual("Test2", plan.SubjectName);
+        }
+
+        [TestMethod]
+        public void GetSubjectsForUniverTest()
+        {
+            SubjectRepository repo = new SubjectRepository();
+            List<Subject> subjects = repo.GetSubjectsForUniversity(2);
+            Assert.IsNotNull(subjects);
         }
     }
 }

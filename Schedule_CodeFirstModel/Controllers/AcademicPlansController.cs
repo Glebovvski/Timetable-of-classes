@@ -38,12 +38,11 @@ namespace Schedule_CodeFirstModel.Controllers
         /// <returns></returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "Id,SpecialityId,SemestreId,SubjectId")] AcademicPlan academicPlan)
+        public ActionResult Create([Bind(Include = "Id,SpecialityId,SemestreId,SubjectId")] AcademicPlan academicPlan)
         {
             if (ModelState.IsValid)
             {
-                db.AcademicPlans.Add(academicPlan);
-                await db.SaveChangesAsync();
+                repo.Create(academicPlan);
                 return RedirectToAction("Index");
             }
 
@@ -54,13 +53,13 @@ namespace Schedule_CodeFirstModel.Controllers
         }
 
         // GET: AcademicPlans/Edit/5
-        public async Task<ActionResult> Edit(int? id)
+        public ActionResult Edit(int id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            AcademicPlan academicPlan = await db.AcademicPlans.FindAsync(id);
+            AcademicPlan academicPlan = repo.Read(id);
             if (academicPlan == null)
             {
                 return HttpNotFound();
@@ -79,12 +78,11 @@ namespace Schedule_CodeFirstModel.Controllers
         /// <returns></returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit([Bind(Include = "Id,SpecialityId,SemestreId,SubjectId")] AcademicPlan academicPlan)
+        public ActionResult Edit([Bind(Include = "Id,SpecialityId,SemestreId,SubjectId")] AcademicPlan academicPlan)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(academicPlan).State = EntityState.Modified;
-                await db.SaveChangesAsync();
+                repo.Update(academicPlan);
                 return RedirectToAction("Index");
             }
             ViewBag.SemestreId = new SelectList(db.Semestres, "Id", "Id", academicPlan.SemestreId);
@@ -94,13 +92,13 @@ namespace Schedule_CodeFirstModel.Controllers
         }
 
         // GET: AcademicPlans/Delete/5
-        public async Task<ActionResult> Delete(int? id)
+        public ActionResult Delete(int id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            AcademicPlan academicPlan = await db.AcademicPlans.FindAsync(id);
+            AcademicPlan academicPlan = repo.Read(id);
             if (academicPlan == null)
             {
                 return HttpNotFound();
@@ -118,9 +116,7 @@ namespace Schedule_CodeFirstModel.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> DeleteConfirmed(int id)
         {
-            AcademicPlan academicPlan = await db.AcademicPlans.FindAsync(id);
-            db.AcademicPlans.Remove(academicPlan);
-            await db.SaveChangesAsync();
+            repo.Delete(id);
             return RedirectToAction("Index");
         }
 
@@ -131,7 +127,8 @@ namespace Schedule_CodeFirstModel.Controllers
         /// <returns></returns>
         public async Task<ActionResult> Plan(int id)
         {
-            var plan = await db.AcademicPlans.Where(x => x.SpecialityId == id).Include(z => z.Subject).Include(r => r.Semestre).ToListAsync();
+            AcademicPlanRepository rep = new AcademicPlanRepository();
+            var plan = rep.GetPlan(id);
             if (plan == null)
             {
                 return HttpNotFound();

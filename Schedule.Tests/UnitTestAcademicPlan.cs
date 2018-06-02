@@ -49,10 +49,18 @@ namespace Schedule.Tests
         public void UpdateAcademPlanTest()
         {
             AcademicPlanRepository rep = new AcademicPlanRepository();
-            AcademicPlan plan = rep.Read(26);
+            AcademicPlan plan = rep.Read(22);
             plan.SpecialityId = 2;
             rep.Update(plan);
             Assert.AreEqual(2, plan.SpecialityId);
+        }
+
+        [TestMethod]
+        public void GetPlanTest()
+        {
+            AcademicPlanRepository repo = new AcademicPlanRepository();
+            List<AcademicPlan> plans = repo.GetPlan(2);
+            Assert.IsNotNull(plans);
         }
     }
 }
